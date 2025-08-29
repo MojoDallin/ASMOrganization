@@ -1,0 +1,4 @@
+read from database to import data (todo once i gain access)
+sort through list to find missionaries who stay, move districts (same zone), or move zones
+using that list, pair transferring missions together for efficiency
+also find which ones can go directly to their area using public transport
