@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeWindow));
             titleLabel = new Label();
             viewCurrentTransferBoardButton = new Button();
             viewNextTransferBoardButton = new Button();
@@ -98,6 +99,7 @@
             Controls.Add(viewNextTransferBoardButton);
             Controls.Add(viewCurrentTransferBoardButton);
             Controls.Add(titleLabel);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "HomeWindow";
             Text = "Australia Sydney Mission Organization";
             WindowState = FormWindowState.Maximized;
