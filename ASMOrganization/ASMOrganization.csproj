@@ -13,4 +13,10 @@
     <Content Include="logo.ico" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Forms\NextTransferBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>

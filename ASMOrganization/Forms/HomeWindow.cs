@@ -1,4 +1,5 @@
 using System.Diagnostics; // debugging purposes
+using ASMOrganization.Forms;
 
 namespace ASMOrganization
 {
@@ -24,8 +25,9 @@ namespace ASMOrganization
             timer.Start();
         }
 
-        private void generateLogistics(object sender, EventArgs e)
+        private void GenerateLogistics(object sender, EventArgs e)
         {
+            // double check
             DialogResult result = MessageBox.Show(
                 "This will automatically generate formulas for moving around" +
                 " missionaries in the most efficient way.\nContinue?",
@@ -37,7 +39,15 @@ namespace ASMOrganization
             {
                 Debug.WriteLine("implement");
             }
+            // if no, don't do anything (because why would it);
 
+        }
+
+        private void ViewCurrentTransferBoard(object sender, EventArgs e)
+        {
+            CurrentTransferBoard curBoard = new();
+            curBoard.BringToFront();
+            curBoard.Visible = true;
         }
     }
 }

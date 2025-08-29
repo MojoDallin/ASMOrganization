@@ -38,7 +38,7 @@
             // titleLabel
             // 
             titleLabel.Anchor = AnchorStyles.Top;
-            titleLabel.Font = new Font("Sitka Banner", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            titleLabel.Font = new Font("Sitka Banner", 21.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
             titleLabel.Location = new Point(162, 9);
             titleLabel.Name = "titleLabel";
             titleLabel.Size = new Size(476, 50);
@@ -59,6 +59,7 @@
             viewCurrentTransferBoardButton.TabIndex = 1;
             viewCurrentTransferBoardButton.Text = "View Current Transfer Board";
             viewCurrentTransferBoardButton.UseVisualStyleBackColor = false;
+            viewCurrentTransferBoardButton.Click += ViewCurrentTransferBoard;
             // 
             // viewNextTransferBoardButton
             // 
@@ -87,7 +88,7 @@
             generateLogisticsButton.TabIndex = 3;
             generateLogisticsButton.Text = "Generate Logistics";
             generateLogisticsButton.UseVisualStyleBackColor = false;
-            generateLogisticsButton.Click += generateLogistics;
+            generateLogisticsButton.Click += GenerateLogistics;
             // 
             // HomeWindow
             // 
