@@ -38,12 +38,12 @@
             importTransferBoardButton.AutoSize = true;
             importTransferBoardButton.BackColor = Color.CornflowerBlue;
             importTransferBoardButton.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point, 0);
-            importTransferBoardButton.Location = new Point(556, 391);
+            importTransferBoardButton.Location = new Point(535, 391);
             importTransferBoardButton.Margin = new Padding(0);
             importTransferBoardButton.Name = "importTransferBoardButton";
-            importTransferBoardButton.Size = new Size(235, 50);
+            importTransferBoardButton.Size = new Size(256, 50);
             importTransferBoardButton.TabIndex = 2;
-            importTransferBoardButton.Text = "Import Transfer Board";
+            importTransferBoardButton.Text = "Import Transfer Board From File";
             importTransferBoardButton.UseVisualStyleBackColor = false;
             importTransferBoardButton.Click += ImportTransferBoard;
             // 

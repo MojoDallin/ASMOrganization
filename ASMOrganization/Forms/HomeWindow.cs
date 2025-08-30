@@ -49,5 +49,12 @@ namespace ASMOrganization
             curBoard.BringToFront();
             curBoard.Visible = true;
         }
+
+        private void ViewNextTransferBoard(object sender, EventArgs e)
+        {
+            NextTransferBoard nextBoard = new();
+            nextBoard.BringToFront();
+            nextBoard.Visible = true;
+        }
     }
 }

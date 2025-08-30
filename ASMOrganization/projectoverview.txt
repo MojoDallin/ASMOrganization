@@ -1,0 +1,21 @@
+Written by Elder Dallin Schmidt for the Australia Sydney Mission
+Updated 29/08/2025
+
+If you're reading this, I assume you're a programmer like I am.
+So anyways, here's an overview:
+
+Homepage -> Current Transfer Board -> Lets you view the board for the transfer currently in progress.
+			-> Import Transfer Board -> Lets you copy a transfer board from a text file.
+		 -> Next Transfer Board -> Allows you to move people around for transfers.
+			-> Update Transfer Board -> Lets you copy the new board to the old board.
+		 -> Generate Logistics -> Generates a text file containing all the logistics for transfer day.
+
+You should know how to compile, but unless you dont:
+(this assumes you are using Visual Studio)
+At the top of the screen, there should be two dropdown menus with text Debug and Any CPU.
+Change Debug to Release, and build. Easy. Be sure to change back to Debug once done.
+The .exe should be located at: C:\Users\ChurchSupport\Documents\ASMOrganization\ASMOrganization\bin\Release
+
+Feel free to change the code around. It is saved to GitHub so unless you're overwriting it (WHICH YOU SHOULDNT BE), you're safe to play with it.
+
+Any questions, shoot me a message on messenger or an email at dallin.schmidt@missionary.org.

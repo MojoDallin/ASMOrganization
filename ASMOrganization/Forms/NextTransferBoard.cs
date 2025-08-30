@@ -14,7 +14,8 @@ namespace ASMOrganization.Forms
             // double check
             DialogResult result = MessageBox.Show(
                 "This will overwrite the CURRENT transfer board with the data on" +
-                " the NEW one.\nAre you SURE everything is correct?",
+                " the NEW one.\nGENERATE LOGISTICS *BEFORE* DOING THIS." +
+                "\nAre you SURE everything is correct?",
                 "Overwrite",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning,

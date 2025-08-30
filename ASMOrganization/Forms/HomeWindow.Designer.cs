@@ -74,6 +74,7 @@
             viewNextTransferBoardButton.TabIndex = 2;
             viewNextTransferBoardButton.Text = "View Next Transfer Board";
             viewNextTransferBoardButton.UseVisualStyleBackColor = false;
+            viewNextTransferBoardButton.Click += ViewNextTransferBoard;
             // 
             // generateLogisticsButton
             // 
