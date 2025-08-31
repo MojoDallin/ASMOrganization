@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿using System.Diagnostics; // debug
+using ClosedXML.Excel;
+using ASMOrganization.NonForms; // logic
 
 namespace ASMOrganization.Forms
 {
@@ -8,6 +10,8 @@ namespace ASMOrganization.Forms
         {
             InitializeComponent();
         }
+        List<List<string>> curTransferData = [];
+        List<List<string>> newTransferData = [];
 
         private OpenFileDialog ImportExcelFile() // function so i dont type this code twice
         {
@@ -17,29 +21,59 @@ namespace ASMOrganization.Forms
                 Filter = "Excel Spreadsheet Files (*.xlsx)|*.xlsx",
                 InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
             };
-            
+        }
+
+        private List<List<string>> ReadTransferData(string path)
+        {
+            List<List<string>> data = [];
+            List<string> missionaryNames = [];
+            List<string> missionaryZones = [];
+            using (XLWorkbook workbook = new(path))
+            {
+                var wks = workbook.Worksheet(1);
+                foreach (var row in wks.RowsUsed())
+                {
+                    string zone = row.Cell(6).Value.ToString();
+                    string missionary = row.Cell(1).Value.ToString();
+                    if (row.Cell(5).Value.ToString() == "In-Field" && zone != "Office") // only in field and non-office missionaries
+                    {
+                        missionaryNames.Add(missionary);
+                        missionaryZones.Add(zone);
+                    }
+                }
+
+            }
+            data.Add(missionaryNames);
+            data.Add(missionaryZones);
+            return data;
         }
 
         private void ImportTransferBoard(object sender, EventArgs e)
         {
+            string[] results = ["Successfully loaded!", "Could not load file!"];
             Button? button = sender as Button;
             if (button is not null)
             {
-                using (OpenFileDialog ofd = ImportExcelFile())
+                using OpenFileDialog ofd = ImportExcelFile();
+                if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    if (ofd.ShowDialog() == DialogResult.OK)
-                    {
-                        if (button.Name == "importCurrentTransferBoardButton")
-                        {
-
-                        }
-                        else // default is other button, no need to check directly
-                        {
-
-                        }
-                    }
+                    ReadTransferData(ofd.FileName);
+                    if (button.Name == "importCurrentTransferBoardButton")
+                        resultImportCurrentLabel.Text = results[0];
+                    else
+                        resultImportNextLabel.Text = results[0];
                 }
+                else
+                {
+                    if (button.Name == "importCurrentTransferBoardButton")
+                        resultImportCurrentLabel.Text = results[1];
+                    else
+                        resultImportNextLabel.Text = results[1];
+                }
+
             }
         }
+
+        private void GenerateLogistics(object sender, EventArgs e) => resultGenerateLogisticsLabel.Text = NonForms.Algorithms.FigureOutLogistics(curTransferData, newTransferData);
     }
 }

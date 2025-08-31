@@ -8,11 +8,9 @@ namespace ASMOrganization.NonForms
 {
     public static class Algorithms
     {
-        public static string ReadDatabase()
+        public static string FigureOutLogistics(List<List<string>> curTransfer, List<List<string>> newTransfer)
         {
-            // database will never change url, so doesnt need to be passed
-            // TODO: turn database into a JSON-ified string for readability
-            return "to be implemented";
+            return "success?";
         }
     }
 }

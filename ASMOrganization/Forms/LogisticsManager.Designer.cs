@@ -76,6 +76,7 @@
             importNextTransferBoardButton.TabIndex = 4;
             importNextTransferBoardButton.Text = "Import Next Transfer Board";
             importNextTransferBoardButton.UseVisualStyleBackColor = false;
+            importNextTransferBoardButton.Click += ImportTransferBoard;
             // 
             // resultImportNextLabel
             // 
@@ -101,6 +102,7 @@
             generateLogisticsButton.TabIndex = 6;
             generateLogisticsButton.Text = "Generate Logistics";
             generateLogisticsButton.UseVisualStyleBackColor = false;
+            generateLogisticsButton.Click += GenerateLogistics;
             // 
             // resultGenerateLogisticsLabel
             // 
