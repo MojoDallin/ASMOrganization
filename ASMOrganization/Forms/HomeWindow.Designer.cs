@@ -30,9 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeWindow));
             titleLabel = new Label();
-            viewCurrentTransferBoardButton = new Button();
-            viewNextTransferBoardButton = new Button();
-            generateLogisticsButton = new Button();
+            logisticsManagerButton = new Button();
             SuspendLayout();
             // 
             // titleLabel
@@ -46,50 +44,20 @@
             titleLabel.Text = "Australia Sydney Mission Organization";
             titleLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // viewCurrentTransferBoardButton
+            // logisticsManagerButton
             // 
-            viewCurrentTransferBoardButton.Anchor = AnchorStyles.Top;
-            viewCurrentTransferBoardButton.AutoSize = true;
-            viewCurrentTransferBoardButton.BackColor = Color.CornflowerBlue;
-            viewCurrentTransferBoardButton.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            viewCurrentTransferBoardButton.Location = new Point(281, 71);
-            viewCurrentTransferBoardButton.Margin = new Padding(0);
-            viewCurrentTransferBoardButton.Name = "viewCurrentTransferBoardButton";
-            viewCurrentTransferBoardButton.Size = new Size(235, 50);
-            viewCurrentTransferBoardButton.TabIndex = 1;
-            viewCurrentTransferBoardButton.Text = "View Current Transfer Board";
-            viewCurrentTransferBoardButton.UseVisualStyleBackColor = false;
-            viewCurrentTransferBoardButton.Click += ViewCurrentTransferBoard;
-            // 
-            // viewNextTransferBoardButton
-            // 
-            viewNextTransferBoardButton.Anchor = AnchorStyles.Top;
-            viewNextTransferBoardButton.AutoSize = true;
-            viewNextTransferBoardButton.BackColor = Color.CornflowerBlue;
-            viewNextTransferBoardButton.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            viewNextTransferBoardButton.Location = new Point(281, 131);
-            viewNextTransferBoardButton.Margin = new Padding(0);
-            viewNextTransferBoardButton.Name = "viewNextTransferBoardButton";
-            viewNextTransferBoardButton.Size = new Size(235, 50);
-            viewNextTransferBoardButton.TabIndex = 2;
-            viewNextTransferBoardButton.Text = "View Next Transfer Board";
-            viewNextTransferBoardButton.UseVisualStyleBackColor = false;
-            viewNextTransferBoardButton.Click += ViewNextTransferBoard;
-            // 
-            // generateLogisticsButton
-            // 
-            generateLogisticsButton.Anchor = AnchorStyles.Top;
-            generateLogisticsButton.AutoSize = true;
-            generateLogisticsButton.BackColor = Color.CornflowerBlue;
-            generateLogisticsButton.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            generateLogisticsButton.Location = new Point(281, 191);
-            generateLogisticsButton.Margin = new Padding(0);
-            generateLogisticsButton.Name = "generateLogisticsButton";
-            generateLogisticsButton.Size = new Size(235, 50);
-            generateLogisticsButton.TabIndex = 3;
-            generateLogisticsButton.Text = "Generate Logistics";
-            generateLogisticsButton.UseVisualStyleBackColor = false;
-            generateLogisticsButton.Click += GenerateLogistics;
+            logisticsManagerButton.Anchor = AnchorStyles.Top;
+            logisticsManagerButton.AutoSize = true;
+            logisticsManagerButton.BackColor = Color.CornflowerBlue;
+            logisticsManagerButton.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            logisticsManagerButton.Location = new Point(281, 71);
+            logisticsManagerButton.Margin = new Padding(0);
+            logisticsManagerButton.Name = "logisticsManagerButton";
+            logisticsManagerButton.Size = new Size(235, 50);
+            logisticsManagerButton.TabIndex = 1;
+            logisticsManagerButton.Text = "Logistics Manager";
+            logisticsManagerButton.UseVisualStyleBackColor = false;
+            logisticsManagerButton.Click += ManageLogistics;
             // 
             // HomeWindow
             // 
@@ -97,9 +65,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightCoral;
             ClientSize = new Size(800, 450);
-            Controls.Add(generateLogisticsButton);
-            Controls.Add(viewNextTransferBoardButton);
-            Controls.Add(viewCurrentTransferBoardButton);
+            Controls.Add(logisticsManagerButton);
             Controls.Add(titleLabel);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "HomeWindow";
@@ -112,8 +78,6 @@
         #endregion
 
         private Label titleLabel;
-        private Button viewCurrentTransferBoardButton;
-        private Button viewNextTransferBoardButton;
-        private Button generateLogisticsButton;
+        private Button logisticsManagerButton;
     }
 }
