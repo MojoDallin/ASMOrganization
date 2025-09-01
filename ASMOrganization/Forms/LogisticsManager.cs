@@ -28,6 +28,7 @@ namespace ASMOrganization.Forms
             List<List<string>> data = [];
             List<string> missionaryNames = [];
             List<string> missionaryZones = [];
+            List<string> missionaryAreas = [];
             using (XLWorkbook workbook = new(path))
             {
                 var wks = workbook.Worksheet(1);
@@ -35,16 +36,19 @@ namespace ASMOrganization.Forms
                 {
                     string zone = row.Cell(6).Value.ToString();
                     string missionary = row.Cell(1).Value.ToString();
+                    string area = row.Cell(8).Value.ToString();
                     if (row.Cell(5).Value.ToString() == "In-Field" && zone != "Office") // only in field and non-office missionaries
                     {
                         missionaryNames.Add(missionary);
                         missionaryZones.Add(zone);
+                        missionaryZones.Add(area);
                     }
                 }
 
             }
             data.Add(missionaryNames);
             data.Add(missionaryZones);
+            data.Add(missionaryAreas);
             return data;
         }
 
@@ -57,11 +61,16 @@ namespace ASMOrganization.Forms
                 using OpenFileDialog ofd = ImportExcelFile();
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    ReadTransferData(ofd.FileName);
                     if (button.Name == "importCurrentTransferBoardButton")
+                    {
+                        curTransferData = ReadTransferData(ofd.FileName);
                         resultImportCurrentLabel.Text = results[0];
+                    }
                     else
+                    {
+                        newTransferData = ReadTransferData(ofd.FileName);
                         resultImportNextLabel.Text = results[0];
+                    }
                 }
                 else
                 {
