@@ -10,8 +10,9 @@ namespace ASMOrganization.Forms
         {
             InitializeComponent();
         }
-        List<List<string>> curTransferData = [];
-        List<List<string>> newTransferData = [];
+        private List<List<string>> curTransferData = [];
+        private List<List<string>> newTransferData = [];
+        private string filePath = "none";
 
         private OpenFileDialog ImportExcelFile() // function so i dont type this code twice
         {
@@ -83,6 +84,17 @@ namespace ASMOrganization.Forms
             }
         }
 
-        private void GenerateLogistics(object sender, EventArgs e) => resultGenerateLogisticsLabel.Text = NonForms.Algorithms.FigureOutLogistics(curTransferData, newTransferData);
+        private void GenerateLogistics(object sender, EventArgs e) => resultGenerateLogisticsLabel.Text = NonForms.Algorithms.FigureOutLogistics(curTransferData, newTransferData, filePath);
+
+        private void ChangeFilePath(object sender, EventArgs e)
+        {
+            using FolderBrowserDialog fbd = new();
+            fbd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                filePath = fbd.SelectedPath;
+                currentFilePathLabel.Text = $"Current File Path: {filePath}";
+            }
+        }
     }
 }

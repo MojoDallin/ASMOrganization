@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace ASMOrganization.NonForms
 {
@@ -8,17 +9,22 @@ namespace ASMOrganization.NonForms
         private static string path = "";
         private static void WriteToFile(string header, List<string> data)
         {
-            using (StreamWriter writer = new(path, true))
-            {
-                writer.WriteLine(header + "\n"); // extra blank line
-                foreach(string item in data)
-                    writer.WriteLine(item);
-                writer.WriteLine("\n"); // two extra blank lines
-            }
+            using StreamWriter writer = new(path, true);
+            writer.WriteLine(header + "\n"); // extra blank line
+            foreach (string item in data)
+                writer.WriteLine(item);
+            writer.WriteLine("\n"); // two extra blank lines
 
         }
-        public static string FigureOutLogistics(List<List<string>> curTransfer, List<List<string>> newTransfer)
+        public static string FigureOutLogistics(List<List<string>> curTransfer, List<List<string>> newTransfer, string filePath)
         {
+            if (filePath == "")
+                return "No file path has currently been set!";
+            else if (curTransfer.Count == 0)
+                return "No data for the current transfer!";
+            else if (newTransfer.Count == 0)
+                return "No data for the new transfer!";
+            path = filePath; // TODO: append date
             // curTransfer[missionaryNames, missionaryZones, missionaryAreas]
             List<string> newMissionaries = [];
             foreach(string missionary in newTransfer[0])
