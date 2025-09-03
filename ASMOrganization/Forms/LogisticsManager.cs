@@ -42,7 +42,7 @@ namespace ASMOrganization.Forms
                     {
                         missionaryNames.Add(missionary);
                         missionaryZones.Add(zone);
-                        missionaryZones.Add(area);
+                        missionaryAreas.Add(area);
                     }
                 }
 

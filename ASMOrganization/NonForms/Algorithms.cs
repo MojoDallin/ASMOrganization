@@ -18,13 +18,14 @@ namespace ASMOrganization.NonForms
         }
         public static string FigureOutLogistics(List<List<string>> curTransfer, List<List<string>> newTransfer, string filePath)
         {
-            if (filePath == "")
+            if (filePath == "none")
                 return "No file path has currently been set!";
             else if (curTransfer.Count == 0)
                 return "No data for the current transfer!";
             else if (newTransfer.Count == 0)
                 return "No data for the new transfer!";
-            path = filePath; // TODO: append date
+            DateTime now = DateTime.Now;
+            path = filePath + $"\\Logistics_{now.Day}-{now.Month}-{now.Year}.txt";
             // curTransfer[missionaryNames, missionaryZones, missionaryAreas]
             List<string> newMissionaries = [];
             foreach(string missionary in newTransfer[0])
