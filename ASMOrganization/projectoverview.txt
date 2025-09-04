@@ -1,14 +1,14 @@
 Written by Elder Dallin Schmidt for the Australia Sydney Mission
-Updated 29/08/2025
+Updated 04/09/2025
 
 If you're reading this, I assume you're a programmer like I am.
 So anyways, here's an overview:
 
-Homepage -> Current Transfer Board -> Lets you view the board for the transfer currently in progress.
-			-> Import Transfer Board -> Lets you copy a transfer board from a text file.
-		 -> Next Transfer Board -> Allows you to move people around for transfers.
-			-> Update Transfer Board -> Lets you copy the new board to the old board.
-		 -> Generate Logistics -> Generates a text file containing all the logistics for transfer day.
+Homepage -> Logistics Manager
+			-> Import Current Transfer Board -> Lets you import a board from an Excel spreadsheet (.xlsx) file for the current transfer.
+			-> Import Next Transfer Board -> Lets you import a board from an Excel spreadsheet (.xlsx) file for the next transfer.
+			-> Generate Logistics -> Generates a text file containing which missionaries are in the same area, in the same zone, moving zones, and new missionaries.
+			-> Change File Path -> Allows you to set the destination of said text file.
 
 You should know how to compile, but unless you dont:
 (this assumes you are using Visual Studio)
