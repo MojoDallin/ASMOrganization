@@ -16,10 +16,6 @@
         {
             if (filePath == "none")
                 return "No file path has currently been set!";
-            else if (curTransfer.Count == 0)
-                return "No data for the current transfer!";
-            else if (newTransfer.Count == 0)
-                return "No data for the new transfer!";
             DateTime now = DateTime.Now;
             path = filePath + $"\\Logistics_{now.Day}-{now.Month}-{now.Year}.txt";
             if(File.Exists(path))

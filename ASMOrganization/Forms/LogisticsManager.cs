@@ -92,10 +92,17 @@ namespace ASMOrganization.Forms
 
         private void GenerateLogistics(object sender, EventArgs e)
         {
-            curTransferData = ReadTransferData(curTransferFile);
-            newTransferData = ReadTransferData(newTransferFile);
-            // update data before generating (to prevent errors)
-            resultGenerateLogisticsLabel.Text = NonForms.Algorithms.FigureOutLogistics(curTransferData, newTransferData, filePath);
+            if (curTransferFile == "")
+                resultGenerateLogisticsLabel.Text = "No current transfer data!";
+            else if (newTransferFile == "")
+                resultGenerateLogisticsLabel.Text = "No new transfer data!";
+            else
+            {
+                curTransferData = ReadTransferData(curTransferFile);
+                newTransferData = ReadTransferData(newTransferFile);
+                // update data before generating (to prevent errors)
+                resultGenerateLogisticsLabel.Text = NonForms.Algorithms.FigureOutLogistics(curTransferData, newTransferData, filePath);
+            }
         }
 
         private void ChangeFilePath(object sender, EventArgs e)
