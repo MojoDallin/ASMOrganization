@@ -43,21 +43,24 @@ namespace ASMOrganization.NonForms
 
             List<string> sameZoneMissionaries = [];
             List<string> sameAreaMissionaries = [];
+            // TODO: fix data getting goofed?
             for(int index = 0; index < newTransfer[0].Count; index++)
             {
                 if (curTransfer[2][index] == newTransfer[2][index])
                 {
                     sameAreaMissionaries.Add(curTransfer[0][index]);
-                    newTransfer[0].RemoveAt(index);
-                    newTransfer[1].RemoveAt(index);
-                    newTransfer[2].RemoveAt(index);
+                    // using Remove instead of setting it to "" breaks the program
+                    // this is because it shifts the index up by one and offsets it
+                    newTransfer[0][index] = "";
+                    newTransfer[1][index] = "";
+                    newTransfer[2][index] = "";
                 }
                 else if (curTransfer[1][index] == newTransfer[1][index])
                 {
                     sameZoneMissionaries.Add(curTransfer[0][index]);
-                    newTransfer[0].RemoveAt(index);
-                    newTransfer[1].RemoveAt(index);
-                    newTransfer[2].RemoveAt(index);
+                    newTransfer[0][index] = "";
+                    newTransfer[1][index] = "";
+                    newTransfer[2][index] = "";
                 }
             }
             WriteToFile("--MISSIONARIES IN THE SAME AREA--", sameAreaMissionaries);
