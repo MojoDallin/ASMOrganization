@@ -23,7 +23,7 @@
             // curTransfer[missionaryNames, missionaryZones, missionaryAreas]
             List<string> newMissionaries = [];
             List<string> releasedMissionaries = [];
-            foreach(string missionary in newTransfer[0])
+            foreach(string missionary in newTransfer[0].ToList()) // create copy of list so it can execute
             {
                 if (!curTransfer[0].Contains(missionary)) // check for new missionaries
                 {
@@ -34,7 +34,7 @@
                     newTransfer[2].RemoveAt(index); // remove area
                 }
             }
-            foreach(string missionary in curTransfer[0]) // check for released missionaries
+            foreach(string missionary in curTransfer[0].ToList()) // check for released missionaries
             {
                 if (!newTransfer[0].Contains(missionary))
                 {

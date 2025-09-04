@@ -61,7 +61,7 @@ namespace ASMOrganization.Forms
 
         private void ImportTransferBoard(object sender, EventArgs e)
         {
-            string[] results = ["Successfully loaded!", "Could not load file!"]; // convenience
+            string[] results = ["Successfully loaded ", "Could not load file!"]; // convenience
             Button? button = sender as Button;
             if (button is not null) // just incase
             {
@@ -71,12 +71,12 @@ namespace ASMOrganization.Forms
                     if (button.Name == "importCurrentTransferBoardButton")
                     {
                         curTransferFile = ofd.FileName;
-                        resultImportCurrentLabel.Text = results[0];
+                        resultImportCurrentLabel.Text = results[0] + ofd.SafeFileName + "!";
                     }
                     else
                     {
                         newTransferFile = ofd.FileName;
-                        resultImportNextLabel.Text = results[0];
+                        resultImportNextLabel.Text = results[0] + ofd.SafeFileName + "!";
                     }
                 }
                 else
