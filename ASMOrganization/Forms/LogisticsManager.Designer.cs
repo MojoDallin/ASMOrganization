@@ -43,8 +43,9 @@
             // 
             importCurrentTransferBoardButton.Anchor = AnchorStyles.Top;
             importCurrentTransferBoardButton.AutoSize = true;
-            importCurrentTransferBoardButton.BackColor = Color.CornflowerBlue;
+            importCurrentTransferBoardButton.BackColor = Color.SlateGray;
             importCurrentTransferBoardButton.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point, 0);
+            importCurrentTransferBoardButton.ForeColor = SystemColors.Control;
             importCurrentTransferBoardButton.Location = new Point(3, 9);
             importCurrentTransferBoardButton.Margin = new Padding(0);
             importCurrentTransferBoardButton.Name = "importCurrentTransferBoardButton";
@@ -69,8 +70,9 @@
             // 
             importNextTransferBoardButton.Anchor = AnchorStyles.Top;
             importNextTransferBoardButton.AutoSize = true;
-            importNextTransferBoardButton.BackColor = Color.CornflowerBlue;
+            importNextTransferBoardButton.BackColor = Color.SlateGray;
             importNextTransferBoardButton.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point, 0);
+            importNextTransferBoardButton.ForeColor = SystemColors.Control;
             importNextTransferBoardButton.Location = new Point(3, 96);
             importNextTransferBoardButton.Margin = new Padding(0);
             importNextTransferBoardButton.Name = "importNextTransferBoardButton";
@@ -95,8 +97,9 @@
             // 
             generateLogisticsButton.Anchor = AnchorStyles.Top;
             generateLogisticsButton.AutoSize = true;
-            generateLogisticsButton.BackColor = Color.CornflowerBlue;
+            generateLogisticsButton.BackColor = Color.SlateGray;
             generateLogisticsButton.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            generateLogisticsButton.ForeColor = SystemColors.Control;
             generateLogisticsButton.Location = new Point(3, 183);
             generateLogisticsButton.Margin = new Padding(0);
             generateLogisticsButton.Name = "generateLogisticsButton";
@@ -121,8 +124,9 @@
             // 
             changeFilePathButton.Anchor = AnchorStyles.Top;
             changeFilePathButton.AutoSize = true;
-            changeFilePathButton.BackColor = Color.CornflowerBlue;
+            changeFilePathButton.BackColor = Color.SlateGray;
             changeFilePathButton.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            changeFilePathButton.ForeColor = SystemColors.Control;
             changeFilePathButton.Location = new Point(3, 307);
             changeFilePathButton.Margin = new Padding(0);
             changeFilePathButton.Name = "changeFilePathButton";
@@ -147,7 +151,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LightCoral;
+            BackColor = Color.LightGray;
             ClientSize = new Size(800, 450);
             Controls.Add(currentFilePathLabel);
             Controls.Add(changeFilePathButton);

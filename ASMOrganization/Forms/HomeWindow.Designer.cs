@@ -48,8 +48,9 @@
             // 
             logisticsManagerButton.Anchor = AnchorStyles.Top;
             logisticsManagerButton.AutoSize = true;
-            logisticsManagerButton.BackColor = Color.CornflowerBlue;
+            logisticsManagerButton.BackColor = Color.SlateGray;
             logisticsManagerButton.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            logisticsManagerButton.ForeColor = SystemColors.Control;
             logisticsManagerButton.Location = new Point(281, 71);
             logisticsManagerButton.Margin = new Padding(0);
             logisticsManagerButton.Name = "logisticsManagerButton";
@@ -63,7 +64,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LightCoral;
+            BackColor = Color.LightGray;
             ClientSize = new Size(800, 450);
             Controls.Add(logisticsManagerButton);
             Controls.Add(titleLabel);
