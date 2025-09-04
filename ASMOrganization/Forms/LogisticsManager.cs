@@ -1,18 +1,24 @@
 ﻿using System.Diagnostics; // debug
 using ClosedXML.Excel;
-using ASMOrganization.NonForms; // logic
+using ASMOrganization.NonForms;
+using ASMOrganization.Properties; // logic
 
 namespace ASMOrganization.Forms
 {
     public partial class LogisticsManager : Form
     {
+        private string filePath = "none";
         public LogisticsManager()
         {
             InitializeComponent();
+            if (Settings.Default.LogisticsFilePath is not null)
+            {
+                filePath = Settings.Default.LogisticsFilePath;
+                currentFilePathLabel.Text = $"Current File Path: {filePath}";
+            }
         }
         private List<List<string>> curTransferData = [];
         private List<List<string>> newTransferData = [];
-        private string filePath = "none";
 
         private OpenFileDialog ImportExcelFile() // function so i dont type this code twice
         {
@@ -94,6 +100,8 @@ namespace ASMOrganization.Forms
             {
                 filePath = fbd.SelectedPath;
                 currentFilePathLabel.Text = $"Current File Path: {filePath}";
+                Settings.Default.LogisticsFilePath = filePath;
+                Settings.Default.Save();
             }
         }
     }

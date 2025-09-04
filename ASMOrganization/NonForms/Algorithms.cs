@@ -43,7 +43,6 @@ namespace ASMOrganization.NonForms
 
             List<string> sameZoneMissionaries = [];
             List<string> sameAreaMissionaries = [];
-            // TODO: fix data getting goofed?
             for(int index = 0; index < newTransfer[0].Count; index++)
             {
                 if (curTransfer[2][index] == newTransfer[2][index])
