@@ -1,17 +1,17 @@
-﻿using System.Diagnostics; // debug
-using ClosedXML.Excel;
-using ASMOrganization.NonForms;
-using ASMOrganization.Properties; // logic
+﻿using ClosedXML.Excel; // reading an excel file
+using ASMOrganization.Properties; // saving data
 
 namespace ASMOrganization.Forms
 {
     public partial class LogisticsManager : Form
     {
         private string filePath = "none";
+        private string curTransferFile = "";
+        private string newTransferFile = "";
         public LogisticsManager()
         {
             InitializeComponent();
-            if (Settings.Default.LogisticsFilePath is not null)
+            if (Settings.Default.LogisticsFilePath is not null) // only load data if theres data
             {
                 filePath = Settings.Default.LogisticsFilePath;
                 currentFilePathLabel.Text = $"Current File Path: {filePath}";
@@ -20,7 +20,7 @@ namespace ASMOrganization.Forms
         private List<List<string>> curTransferData = [];
         private List<List<string>> newTransferData = [];
 
-        private OpenFileDialog ImportExcelFile() // function so i dont type this code twice
+        private static OpenFileDialog ImportExcelFile() // function so i dont type this code twice
         {
             return new OpenFileDialog()
             {
@@ -30,7 +30,7 @@ namespace ASMOrganization.Forms
             };
         }
 
-        private List<List<string>> ReadTransferData(string path)
+        private static List<List<string>> ReadTransferData(string path)
         {
             List<List<string>> data = [];
             List<string> missionaryNames = [];
@@ -43,7 +43,7 @@ namespace ASMOrganization.Forms
                 {
                     string zone = row.Cell(6).Value.ToString();
                     string missionary = row.Cell(1).Value.ToString();
-                    string area = row.Cell(8).Value.ToString();
+                    string area = row.Cell(8).Value.ToString(); // set variables for formatting purposes
                     if (row.Cell(5).Value.ToString() == "In-Field" && zone != "Office") // only in field and non-office missionaries
                     {
                         missionaryNames.Add(missionary);
@@ -61,21 +61,21 @@ namespace ASMOrganization.Forms
 
         private void ImportTransferBoard(object sender, EventArgs e)
         {
-            string[] results = ["Successfully loaded!", "Could not load file!"];
+            string[] results = ["Successfully loaded!", "Could not load file!"]; // convenience
             Button? button = sender as Button;
-            if (button is not null)
+            if (button is not null) // just incase
             {
                 using OpenFileDialog ofd = ImportExcelFile();
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     if (button.Name == "importCurrentTransferBoardButton")
                     {
-                        curTransferData = ReadTransferData(ofd.FileName);
+                        curTransferFile = ofd.FileName;
                         resultImportCurrentLabel.Text = results[0];
                     }
                     else
                     {
-                        newTransferData = ReadTransferData(ofd.FileName);
+                        newTransferFile = ofd.FileName;
                         resultImportNextLabel.Text = results[0];
                     }
                 }
@@ -90,7 +90,13 @@ namespace ASMOrganization.Forms
             }
         }
 
-        private void GenerateLogistics(object sender, EventArgs e) => resultGenerateLogisticsLabel.Text = NonForms.Algorithms.FigureOutLogistics(curTransferData, newTransferData, filePath);
+        private void GenerateLogistics(object sender, EventArgs e)
+        {
+            curTransferData = ReadTransferData(curTransferFile);
+            newTransferData = ReadTransferData(newTransferFile);
+            // update data before generating (to prevent errors)
+            resultGenerateLogisticsLabel.Text = NonForms.Algorithms.FigureOutLogistics(curTransferData, newTransferData, filePath);
+        }
 
         private void ChangeFilePath(object sender, EventArgs e)
         {

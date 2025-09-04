@@ -1,4 +1,3 @@
-using System.Diagnostics; // debugging purposes
 using ASMOrganization.Forms;
 
 namespace ASMOrganization
@@ -26,7 +25,7 @@ namespace ASMOrganization
         }
         private void ManageLogistics(object sender, EventArgs e)
         {
-            LogisticsManager logisticsManager = new LogisticsManager();
+            LogisticsManager logisticsManager = new();
             logisticsManager.Show();
         }
     }

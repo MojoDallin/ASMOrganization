@@ -1,8 +1,4 @@
-﻿using System.Diagnostics;
-using System.IO;
-using System.Runtime.InteropServices;
-
-namespace ASMOrganization.NonForms
+﻿namespace ASMOrganization.NonForms
 {
     public static class Algorithms
     {
@@ -14,7 +10,6 @@ namespace ASMOrganization.NonForms
             foreach (string item in data)
                 writer.WriteLine(item);
             writer.WriteLine("\n"); // two extra blank lines
-
         }
         public static string FigureOutLogistics(List<List<string>> curTransfer, List<List<string>> newTransfer, string filePath)
         {
@@ -26,6 +21,8 @@ namespace ASMOrganization.NonForms
                 return "No data for the new transfer!";
             DateTime now = DateTime.Now;
             path = filePath + $"\\Logistics_{now.Day}-{now.Month}-{now.Year}.txt";
+            if(File.Exists(path))
+                File.Delete(path); // delete file if already exists to avoid double data
             // curTransfer[missionaryNames, missionaryZones, missionaryAreas]
             List<string> newMissionaries = [];
             foreach(string missionary in newTransfer[0])
