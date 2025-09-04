@@ -22,17 +22,30 @@
                 File.Delete(path); // delete file if already exists to avoid double data
             // curTransfer[missionaryNames, missionaryZones, missionaryAreas]
             List<string> newMissionaries = [];
+            List<string> releasedMissionaries = [];
             foreach(string missionary in newTransfer[0])
             {
                 if (!curTransfer[0].Contains(missionary)) // check for new missionaries
                 {
                     int index = newTransfer[0].IndexOf(missionary);
                     newMissionaries.Add(missionary);
-                    newTransfer[0].Remove(missionary);
+                    newTransfer[0].Remove(missionary); // remove missionary
                     newTransfer[1].RemoveAt(index); // remove zone
                     newTransfer[2].RemoveAt(index); // remove area
                 }
             }
+            foreach(string missionary in curTransfer[0]) // check for released missionaries
+            {
+                if (!newTransfer[0].Contains(missionary))
+                {
+                    int index = curTransfer[0].IndexOf(missionary);
+                    releasedMissionaries.Add(missionary);
+                    curTransfer[0].Remove(missionary);
+                    curTransfer[1].RemoveAt(index);
+                    curTransfer[2].RemoveAt(index);
+                }
+            }
+            WriteToFile("--RELEASED MISSIONARIES--", releasedMissionaries);
             WriteToFile("--NEW MISSIONARIES--", newMissionaries);
 
             List<string> sameZoneMissionaries = [];
