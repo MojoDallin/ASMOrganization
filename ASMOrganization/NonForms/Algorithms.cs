@@ -8,7 +8,8 @@
             using StreamWriter writer = new(path, true);
             writer.WriteLine(header + "\n"); // extra blank line
             foreach (string item in data)
-                writer.WriteLine(item);
+                if(item != "") // do not write whitespace
+                    writer.WriteLine(item);
             writer.WriteLine("\n"); // two extra blank lines
         }
         public static string FigureOutLogistics(List<List<string>> curTransfer, List<List<string>> newTransfer, string filePath)
@@ -31,9 +32,9 @@
                 {
                     int index = newTransfer[0].IndexOf(missionary);
                     newMissionaries.Add(missionary);
+                    newTransfer[0].Remove(missionary);
                     newTransfer[1].RemoveAt(index); // remove zone
                     newTransfer[2].RemoveAt(index); // remove area
-                    newTransfer[0].Remove(missionary); // remove missionary
                 }
             }
             WriteToFile("--NEW MISSIONARIES--", newMissionaries);
