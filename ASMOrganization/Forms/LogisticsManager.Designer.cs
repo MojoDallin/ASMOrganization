@@ -152,7 +152,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 459);
             Controls.Add(currentFilePathLabel);
             Controls.Add(changeFilePathButton);
             Controls.Add(resultGenerateLogisticsLabel);

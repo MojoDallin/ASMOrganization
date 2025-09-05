@@ -1,0 +1,71 @@
+﻿namespace ASMOrganization.Forms
+{
+    partial class HousingData
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HousingData));
+            addHouseButton = new Button();
+            SuspendLayout();
+            // 
+            // addHouseButton
+            // 
+            addHouseButton.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            addHouseButton.AutoSize = true;
+            addHouseButton.BackColor = Color.SlateGray;
+            addHouseButton.Font = new Font("Sitka Small", 14.2499981F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            addHouseButton.ForeColor = SystemColors.Control;
+            addHouseButton.Location = new Point(9, 9);
+            addHouseButton.Margin = new Padding(0);
+            addHouseButton.Name = "addHouseButton";
+            addHouseButton.Size = new Size(782, 50);
+            addHouseButton.TabIndex = 3;
+            addHouseButton.Text = "Add House";
+            addHouseButton.UseVisualStyleBackColor = false;
+            addHouseButton.Click += AddHouse;
+            // 
+            // HousingData
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.LightGray;
+            ClientSize = new Size(800, 459);
+            Controls.Add(addHouseButton);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "HousingData";
+            Text = "ASM Housing Data";
+            WindowState = FormWindowState.Maximized;
+            Load += SetUpPanels;
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private Button addHouseButton;
+    }
+}

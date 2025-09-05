@@ -108,7 +108,7 @@ namespace ASMOrganization.Forms
         private void ChangeFilePath(object sender, EventArgs e)
         {
             using FolderBrowserDialog fbd = new();
-            if(filePath == "none")
+            if (filePath == "none")
                 fbd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             else
                 fbd.InitialDirectory = filePath;

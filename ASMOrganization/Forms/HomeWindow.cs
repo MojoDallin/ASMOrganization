@@ -28,5 +28,11 @@ namespace ASMOrganization
             LogisticsManager logisticsManager = new();
             logisticsManager.Show();
         }
+
+        private void ViewHousingData(object sender, EventArgs e)
+        {
+            HousingData housingData = new HousingData();
+            housingData.Show();
+        }
     }
 }
