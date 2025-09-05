@@ -3,13 +3,23 @@
     public static class Algorithms
     {
         private static string path = "";
-        private static void WriteToFile(string header, List<string> data)
+        private static void WriteToFile(string header, List<string> data, List<List<string>>? optionalData = null)
         {
+            optionalData ??= [];
             using StreamWriter writer = new(path, true);
             writer.WriteLine(header + "\n"); // extra blank line
-            foreach (string item in data)
-                if(item != "") // do not write whitespace
-                    writer.WriteLine(item);
+            for (int index = 0; index < data.Count; index++)
+            {
+                if (data[index] != "") // do not write whitespace
+                {
+                    string toWrite = data[index];
+                    for (int optIndex = 0; optIndex < optionalData.Count; optIndex++)
+                    {
+                        toWrite += $" -> {optionalData[optIndex][index]}";
+                    }
+                    writer.WriteLine(toWrite);
+                }
+            }
             writer.WriteLine("\n"); // two extra blank lines
         }
         public static string FigureOutLogistics(List<List<string>> curTransfer, List<List<string>> newTransfer, string filePath)
@@ -22,6 +32,7 @@
                 File.Delete(path); // delete file if already exists to avoid double data
             // curTransfer[missionaryNames, missionaryZones, missionaryAreas]
             List<string> newMissionaries = [];
+            List<List<string>> newMissionaryAreas = [[], []];
             List<string> releasedMissionaries = [];
             foreach(string missionary in newTransfer[0].ToList()) // create copy of list so it can execute
             {
@@ -29,6 +40,8 @@
                 {
                     int index = newTransfer[0].IndexOf(missionary);
                     newMissionaries.Add(missionary);
+                    newMissionaryAreas[0].Add(newTransfer[1][index]);
+                    newMissionaryAreas[1].Add(newTransfer[2][index]);
                     newTransfer[0].Remove(missionary); // remove missionary
                     newTransfer[1].RemoveAt(index); // remove zone
                     newTransfer[2].RemoveAt(index); // remove area
@@ -46,9 +59,10 @@
                 }
             }
             WriteToFile("--RELEASED MISSIONARIES--", releasedMissionaries);
-            WriteToFile("--NEW MISSIONARIES--", newMissionaries);
+            WriteToFile("--NEW MISSIONARIES--", newMissionaries, newMissionaryAreas);
 
             List<string> sameZoneMissionaries = [];
+            List<List<string>> newAreaSameZoneMissionaries = [[]];
             List<string> sameAreaMissionaries = [];
             for(int index = 0; index < newTransfer[0].Count; index++)
             {
@@ -64,14 +78,15 @@
                 else if (curTransfer[1][index] == newTransfer[1][index])
                 {
                     sameZoneMissionaries.Add(curTransfer[0][index]);
+                    newAreaSameZoneMissionaries[0].Add(newTransfer[2][index]);
                     newTransfer[0][index] = "";
                     newTransfer[1][index] = "";
                     newTransfer[2][index] = "";
                 }
             }
             WriteToFile("--MISSIONARIES IN THE SAME AREA--", sameAreaMissionaries);
-            WriteToFile("--MISSIONARIES IN THE SAME ZONE--", sameZoneMissionaries);
-            WriteToFile("--MISSIONARIES MOVING ZONES--", newTransfer[0]);
+            WriteToFile("--MISSIONARIES IN THE SAME ZONE--", sameZoneMissionaries, newAreaSameZoneMissionaries);
+            WriteToFile("--MISSIONARIES MOVING ZONES--", newTransfer[0], [newTransfer[1], newTransfer[2]]);
 
             return $"Successfully generated logistics at: {path}";
         }
