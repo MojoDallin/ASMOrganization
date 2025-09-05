@@ -1,10 +1,13 @@
 ﻿using System.Text.Json;
 using ASMOrganization.NonForms;
 using System.IO;
+using System.Diagnostics;
+using System.ComponentModel;
 namespace ASMOrganization.Forms
 {
     public partial class HousingData : Form
     {
+        BindingList<House> houses = []; // we use a bindinglist to call an event when the list is updated
         public HousingData()
         {
             InitializeComponent();
@@ -19,7 +22,7 @@ namespace ASMOrganization.Forms
                 BackColor = addHouseButton.BackColor,
                 Dock = DockStyle.Fill,
                 Size = addHouseButton.Size,
-                Text = "Button"
+                Text = $"{houseData.Name} House"
             };
             return button;
         }
@@ -62,11 +65,21 @@ namespace ASMOrganization.Forms
             {
                 panel.Height = ClientSize.Height - addHouseButton.Height - 15;
             };
+
+            houses.ListChanged += (s, e) => // add/remove button when houses list is changed
+            {
+                if (e.ListChangedType == ListChangedType.ItemAdded)
+                    houseButtonHolder.Controls.Add(CreateHouseButton(houses[e.NewIndex]), 0, e.NewIndex);
+                // save to file
+                string json = JsonSerializer.Serialize(houses, new JsonSerializerOptions { WriteIndented = true });
+                File.WriteAllText("HousingData.json", json);
+            };
         }
 
         private void AddHouse(object sender, EventArgs e)
         {
-
+            NewHouse nh = new(houses);
+            nh.Show();
         }
     }
 }
