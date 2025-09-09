@@ -7,12 +7,12 @@ namespace ASMOrganization.Forms
 {
     public partial class HousingData : Form
     {
-        BindingList<House> houses = []; // we use a bindinglist to call an event when the list is updated
+        private readonly BindingList<House> houses = []; // we use a bindinglist to call an event when the list is updated
+        private readonly JsonSerializerOptions options = new() { WriteIndented = true };
         public HousingData()
         {
             InitializeComponent();
         }
-
         private Button CreateHouseButton(House houseData)
         {
             Button button = new()
@@ -24,6 +24,11 @@ namespace ASMOrganization.Forms
                 Size = addHouseButton.Size,
                 Text = $"{houseData.Name} House"
             };
+            button.Click += (s, e) =>
+            {
+                HouseInformation hi = new(houses, houseData);
+                hi.Show();
+            };
             return button;
         }
         private void LoadHousingData(TableLayoutPanel holder)
@@ -31,9 +36,12 @@ namespace ASMOrganization.Forms
             if (File.Exists("HousingData.json"))
             {
                 string fileJson = File.ReadAllText("HousingData.json");
-                List<House> housingData = JsonSerializer.Deserialize<List<House>>(fileJson)!; // will never be null
+                BindingList<House> housingData = JsonSerializer.Deserialize<BindingList<House>>(fileJson, options)!; // will never be null
                 for (int index = 0; index < housingData.Count; index++) // populate
+                {
+                    houses.Add(housingData[index]);
                     holder.Controls.Add(CreateHouseButton(housingData[index]), 0, index);
+                }
             }
         }
 
@@ -71,7 +79,7 @@ namespace ASMOrganization.Forms
                 if (e.ListChangedType == ListChangedType.ItemAdded)
                     houseButtonHolder.Controls.Add(CreateHouseButton(houses[e.NewIndex]), 0, e.NewIndex);
                 // save to file
-                string json = JsonSerializer.Serialize(houses, new JsonSerializerOptions { WriteIndented = true });
+                string json = JsonSerializer.Serialize(houses, options);
                 File.WriteAllText("HousingData.json", json);
             };
         }

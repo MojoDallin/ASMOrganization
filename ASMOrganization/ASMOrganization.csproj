@@ -18,6 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Forms\HouseInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\NewHouse.cs">
       <SubType>Form</SubType>
     </Compile>

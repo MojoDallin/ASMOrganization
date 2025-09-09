@@ -21,11 +21,12 @@ namespace ASMOrganization.Forms
                 Size = houseNameBox.Size,
                 Font = houseNameBox.Font,
                 PlaceholderText = "Enter Missionary...",
-                TextAlign = HorizontalAlignment.Center
+                TextAlign = HorizontalAlignment.Center,
+                Anchor = houseNameBox.Anchor,
             };
             missionaryHolder.Controls.Add(newMissionary);
         }
-        private int ParseID(string id)
+        private static int ParseID(string id)
         {
             id = id.Replace("M", "");
             id = id.Replace("S", "");
@@ -51,6 +52,8 @@ namespace ASMOrganization.Forms
                 resultCreateHouseLabel.Text = "No X coordinate has been entered!";
             else if (string.IsNullOrEmpty(houseYCoordinateBox.Text))
                 resultCreateHouseLabel.Text = "No Y coordinate has been entered!";
+            else if (string.IsNullOrEmpty(houseTeachingAreaBox.Text))
+                resultCreateHouseLabel.Text = "No teaching area has been entered!";
             else
             {
                 try
@@ -59,16 +62,20 @@ namespace ASMOrganization.Forms
                     {
                         Name = houseNameBox.Text,
                         Id = ParseID(houseIDBox.Text),
-                        Coordinates = [Int32.Parse(houseXCoordinateBox.Text), Int32.Parse(houseYCoordinateBox.Text)]
+                        Coordinates = [Int32.Parse(houseXCoordinateBox.Text), Int32.Parse(houseYCoordinateBox.Text)],
+                        TeachingArea = houseTeachingAreaBox.Text
                     };
                     if (!CheckDuplicateHouseID(house))
                     {
+                        foreach (TextBox box in missionaryHolder.Controls)
+                            house.Missionaries.Add(box.Text);
                         houses.Add(house);
                         resultCreateHouseLabel.Text = "Successfully created house!";
                     }
                     else
                         resultCreateHouseLabel.Text = "House ID already exists!";
-                } catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     if (ex is FormatException)
                         resultCreateHouseLabel.Text = "House ID, X coordinate, or Y coordinate is in the wrong format!";

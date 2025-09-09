@@ -6,6 +6,7 @@
         public int Id { get; set; } = 0;
         public int[] Coordinates { get; set; } = [0, 0];
         public List<string> Missionaries { get; set; } = [];
+        public string TeachingArea { get; set; } = "";
 
         public override bool Equals(object? obj)
         {
@@ -13,6 +14,6 @@
             return Id == house.Id;
         }
 
-        public override int GetHashCode() => HashCode.Combine(Name, Id, Coordinates, Missionaries);
+        public override int GetHashCode() => HashCode.Combine(Name, Id, Coordinates, Missionaries, TeachingArea);
     }
 }
