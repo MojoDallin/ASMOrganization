@@ -90,5 +90,22 @@
 
             return $"Successfully generated logistics at: {path}";
         }
+        static double DegreeToRadians(double deg) => deg * Math.PI / 180.0;
+        public static double CalcHaversineDistance(double la1 , double lo1, double la2, double lo2)
+        {
+            // i did NOT sign up for this crazy ahh formula
+            // thanks chatgpt
+            la1 = DegreeToRadians(la1); // first, we convert degrees to radians
+            la2 = DegreeToRadians(la2);
+            lo1 = DegreeToRadians(lo1);
+            lo2 = DegreeToRadians(lo2);
+            const int radius = 6371000; // meters for science standard
+            double latDiff = la2 - la1; // second, difference of each point
+            double lonDiff = lo2 - lo1;
+            double sin1 = Math.Pow(Math.Sin(latDiff/2), 2); // then this
+            double sin2 = Math.Cos(la1) * Math.Cos(la2); // and this
+            sin2 *= Math.Pow(Math.Sin(lonDiff/2), 2); // plus this
+            return 2 * radius * Math.Asin(Math.Sqrt(sin1 + sin2)); // finally
+        }
     }
 }
