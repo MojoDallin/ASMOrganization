@@ -10,7 +10,7 @@ namespace ASMOrganization.Forms
     {
         private readonly BindingList<House> houses = [];
         private readonly House house;
-        private readonly string curTeachingArea;
+        private readonly List<string> curTeachingAreas;
         private readonly List<string> curMissionaries;
         public HouseInformation(BindingList<House> h, House h2)
         {
@@ -18,7 +18,7 @@ namespace ASMOrganization.Forms
             missionaryHolder.RowStyles.Clear();
             houses = h;
             house = h2;
-            curTeachingArea = house.TeachingArea;
+            curTeachingAreas = house.TeachingAreas;
             curMissionaries = [.. house.Missionaries]; // works apparently
             LoadData();
             missionaryHolder.CellBorderStyle = TableLayoutPanelCellBorderStyle.None;
@@ -52,7 +52,7 @@ namespace ASMOrganization.Forms
             houseIdLabel.Text = house.Id.ToString();
             houseXLabel.Text = house.Coordinates[0].ToString();
             houseYLabel.Text = house.Coordinates[1].ToString();
-            houseTeachingAreaBox.Text = house.TeachingArea;
+            houseTeachingAreaBox.Text = house.ReverseParseTeachingAreas();
             foreach (string missionary in house.Missionaries)
                 CreateMissionaryButton(missionary);
         }
@@ -82,7 +82,8 @@ namespace ASMOrganization.Forms
 
         private void Close(object sender, FormClosingEventArgs e)
         {
-            if(curTeachingArea != houseTeachingAreaBox.Text || !curMissionaries.SequenceEqual(house.Missionaries)) // only save if either changed
+            house.TeachingAreas = House.ParseTeachingAreas(houseTeachingAreaBox.Text);
+            if(!curTeachingAreas.SequenceEqual(house.TeachingAreas) || !curMissionaries.SequenceEqual(house.Missionaries)) // only save if either changed
             {
                 string json = JsonSerializer.Serialize(houses, new JsonSerializerOptions { WriteIndented = true });
                 File.WriteAllText("HousingData.json", json); // file WILL exist regardless so dont need to check

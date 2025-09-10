@@ -35,12 +35,35 @@ namespace ASMOrganization.Forms
         {
             if (File.Exists("HousingData.json"))
             {
-                string fileJson = File.ReadAllText("HousingData.json");
-                BindingList<House> housingData = JsonSerializer.Deserialize<BindingList<House>>(fileJson, options)!; // will never be null
-                for (int index = 0; index < housingData.Count; index++) // populate
+                try
                 {
-                    houses.Add(housingData[index]);
-                    holder.Controls.Add(CreateHouseButton(housingData[index]), 0, index);
+                    string fileJson = File.ReadAllText("HousingData.json");
+                    BindingList<House> housingData = JsonSerializer.Deserialize<BindingList<House>>(fileJson, options)!; // will never be null
+                    for (int index = 0; index < housingData.Count; index++) // populate
+                    {
+                        houses.Add(housingData[index]);
+                        holder.Controls.Add(CreateHouseButton(housingData[index]), 0, index);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error was encountered while loading the housing data!" +
+                        $"\nError: {ex.Message}",
+                        "Loading Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    DialogResult result = MessageBox.Show("Would you like to erase the data (do this as a last resort)?",
+                        "Erase?",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        File.Delete("HousingData.json");
+                        MessageBox.Show("Data successfully erased.",
+                            "Erase Successful",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                    }
                 }
             }
         }

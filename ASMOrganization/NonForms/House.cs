@@ -6,7 +6,7 @@
         public int Id { get; set; } = 0;
         public int[] Coordinates { get; set; } = [0, 0];
         public List<string> Missionaries { get; set; } = [];
-        public string TeachingArea { get; set; } = "";
+        public List<string> TeachingAreas { get; set; } = [];
 
         public override bool Equals(object? obj)
         {
@@ -14,6 +14,23 @@
             return Id == house.Id;
         }
 
-        public override int GetHashCode() => HashCode.Combine(Name, Id, Coordinates, Missionaries, TeachingArea);
+        public static List<string> ParseTeachingAreas(string areas) // put this here because its used in multiple places
+        {
+            List<string> separatedAreas = [.. areas.Split(',')];
+            for (int index = 0; index < separatedAreas.Count; index++)
+                if (separatedAreas[index].StartsWith(' '))
+                    separatedAreas[index] = separatedAreas[index][1..];
+            return separatedAreas;
+        }
+        public string ReverseParseTeachingAreas()
+        {
+            string total = "";
+            foreach (string area in TeachingAreas)
+                total += area + ", ";
+            total = total[0..(total.Length - 2)];
+            return total;
+        }
+
+        public override int GetHashCode() => HashCode.Combine(Name, Id, Coordinates, Missionaries, TeachingAreas);
     }
 }

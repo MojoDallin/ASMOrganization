@@ -34,6 +34,8 @@ namespace ASMOrganization.Forms
             id = id.Replace("-", "");
             return Int32.Parse(id);
         }
+
+        
         private bool CheckDuplicateHouseID(House newHouse)
         {
             foreach (House house in houses)
@@ -63,7 +65,7 @@ namespace ASMOrganization.Forms
                         Name = houseNameBox.Text,
                         Id = ParseID(houseIDBox.Text),
                         Coordinates = [Int32.Parse(houseXCoordinateBox.Text), Int32.Parse(houseYCoordinateBox.Text)],
-                        TeachingArea = houseTeachingAreaBox.Text
+                        TeachingAreas = House.ParseTeachingAreas(houseTeachingAreaBox.Text)
                     };
                     if (!CheckDuplicateHouseID(house))
                     {
