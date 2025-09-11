@@ -6,16 +6,66 @@ namespace ASMOrganization.NonForms
     {
         private static string path = "";
 
-        private static string TransportMethod(string missionary, List<House>? housingData, string endArea)
+        private static string TransportMethod(string missionary, List<House>? housingData, string[] endArea)
         {
+            // endArea[0] == zone, endArea[1] == area; [0] is area if staying in zone
             // TRANSPORT RULES
             // Any transport involving Teancum, Nephi, Enos, and Jacob zones always use cars
             // Going to/from Teancum/Nephi does not attend office; anyone else in the above zones does
             // Staying in the same zone (except for those above) will always be PT
             // If office between transfer locations, come to office; otherwise, go directly to area
+            // If distance is more than 30km, use cars; otherwise, use PT
             if (housingData is null)
-                return "";
-            return "Abc";
+                return ""; // if in the same area or released, doesnt need any data
+            House? missionaryHouse = null;
+            House? endHouse = null;
+            House office = null!;
+            foreach (House house in housingData)
+            {
+                if (house.Missionaries.Contains(missionary)) // find missionary house
+                    missionaryHouse = house;
+                if (house.TeachingAreas.Contains(endArea[^1])) // find new home
+                    endHouse = house;
+                if (house.Name.Equals("Office")) // never null
+                    office = house;
+                if (missionaryHouse is not null && endHouse is not null) // end early once all are found
+                    break;
+            }
+            string[] carZones = {"Teancum", "Nephi", "Enos", "Jacob"};
+            if (missionaryHouse is null)
+                return "Could not find house missionary is in!";
+            if (endHouse is null)
+                return "Could not find house missionary is going to!";
+            if (carZones.Contains(missionaryHouse.Zone))
+            {
+                string text = "Using Cars";
+                string[] noOffice = ["Nephi", "Teancum"];
+                if (noOffice.Contains(missionaryHouse.Zone) && noOffice.Contains(endArea[0]))
+                    text += "(No Office)";
+                else
+                    text += "(Office)";
+                return text;
+            }
+            else
+            {
+                if (endArea.Length == 1) // only moving areas, not zones
+                    return "Using Public Transport(No Office)";
+                else // if moving zones, not one of the outer zones
+                {
+                    double directDistance = CalcHaversineDistance(missionaryHouse.Coordinates, endHouse.Coordinates);
+                    double distanceWithOffice = CalcHaversineDistance(missionaryHouse.Coordinates, office.Coordinates) + CalcHaversineDistance(office.Coordinates, endHouse.Coordinates);
+                    if (distanceWithOffice < directDistance * 1.5) // go to office if going to the office adds less than 50% distance
+                        return "Using Car(Office)";
+                    else
+                    {
+                        if (directDistance < 30_000) // use cars if this far away
+                            return "Using Public Transport(No Office)";
+                        else
+                            return "Using Car(No Office)";
+                    }
+                        
+                }
+            }
         }
         private static void WriteToFile(string header, List<string> data, List<List<string>>? optionalData = null)
         {
@@ -40,7 +90,10 @@ namespace ASMOrganization.NonForms
                     }
                     if (optionalData.Count > 0)
                     {
-                        toWrite += $"\n{TransportMethod(data[index], housingData, optionalData[optionalData.Count - 1][index])}";
+                        string[] endArea = [optionalData[0][index]];
+                        if(optionalData.Count > 1)
+                            _ = endArea.Append(optionalData[1][index]);
+                        toWrite += $"\n{TransportMethod(data[index], housingData, endArea)}";
                     }
                     writer.WriteLine(toWrite + "\n"); // add a blank line for readability
                 }
@@ -116,14 +169,14 @@ namespace ASMOrganization.NonForms
             return $"Successfully generated logistics at: {path}";
         }
         static double DegreeToRadians(double deg) => deg * Math.PI / 180.0;
-        public static double CalcHaversineDistance(double la1 , double lo1, double la2, double lo2)
+        private static double CalcHaversineDistance(double[] curCoords, double[] newCoords)
         {
             // i did NOT sign up for this crazy ahh formula
             // thanks chatgpt
-            la1 = DegreeToRadians(la1); // first, we convert degrees to radians
-            la2 = DegreeToRadians(la2);
-            lo1 = DegreeToRadians(lo1);
-            lo2 = DegreeToRadians(lo2);
+            double la1 = DegreeToRadians(curCoords[0]); // first, we convert degrees to radians
+            double la2 = DegreeToRadians(newCoords[0]);
+            double lo1 = DegreeToRadians(curCoords[1]);
+            double lo2 = DegreeToRadians(newCoords[1]);
             const int radius = 6371000; // meters for science standard
             double latDiff = la2 - la1; // second, difference of each point
             double lonDiff = lo2 - lo1;

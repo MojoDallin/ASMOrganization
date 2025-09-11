@@ -4,7 +4,7 @@
     {
         public string Name { get; set; } = "";
         public int Id { get; set; } = 0;
-        public int[] Coordinates { get; set; } = [0, 0];
+        public double[] Coordinates { get; set; } = [0, 0];
         public List<string> Missionaries { get; set; } = [];
         public string Zone { get; set; } = "";
         public List<string> TeachingAreas { get; set; } = [];

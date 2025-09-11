@@ -66,7 +66,7 @@ namespace ASMOrganization.Forms
                     {
                         Name = houseNameBox.Text,
                         Id = ParseID(houseIDBox.Text),
-                        Coordinates = [Int32.Parse(houseXCoordinateBox.Text), Int32.Parse(houseYCoordinateBox.Text)],
+                        Coordinates = [Double.Parse(houseXCoordinateBox.Text), Double.Parse(houseYCoordinateBox.Text)],
                         Zone = houseZoneBox.Text,
                         TeachingAreas = House.ParseTeachingAreas(houseTeachingAreaBox.Text)
                     };
