@@ -75,7 +75,7 @@
             houseXCoordinateBox.ForeColor = SystemColors.ControlText;
             houseXCoordinateBox.Location = new Point(12, 70);
             houseXCoordinateBox.Name = "houseXCoordinateBox";
-            houseXCoordinateBox.PlaceholderText = "Enter House X Coordinate...";
+            houseXCoordinateBox.PlaceholderText = "Enter House Latitude...";
             houseXCoordinateBox.Size = new Size(234, 24);
             houseXCoordinateBox.TabIndex = 2;
             houseXCoordinateBox.TextAlign = HorizontalAlignment.Center;
@@ -88,7 +88,7 @@
             houseYCoordinateBox.ForeColor = SystemColors.ControlText;
             houseYCoordinateBox.Location = new Point(12, 99);
             houseYCoordinateBox.Name = "houseYCoordinateBox";
-            houseYCoordinateBox.PlaceholderText = "Enter House Y Coordinate...";
+            houseYCoordinateBox.PlaceholderText = "Enter House Longitude...";
             houseYCoordinateBox.Size = new Size(234, 24);
             houseYCoordinateBox.TabIndex = 3;
             houseYCoordinateBox.TextAlign = HorizontalAlignment.Center;

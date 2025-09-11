@@ -49,10 +49,10 @@ namespace ASMOrganization.Forms
         private void LoadData()
         {
             houseNameLabel.Text = house.Name;
-            houseIdLabel.Text = house.Id.ToString();
-            houseXLabel.Text = house.Coordinates[0].ToString();
-            houseYLabel.Text = house.Coordinates[1].ToString();
-            houseZoneLabel.Text = house.Zone;
+            houseIdLabel.Text = "ID: " + house.Id.ToString();
+            houseXLabel.Text = "Latitude: " + house.Coordinates[0].ToString();
+            houseYLabel.Text = "Longitude: " + house.Coordinates[1].ToString();
+            houseZoneLabel.Text = "Zone: " + house.Zone;
             houseTeachingAreaBox.Text = house.ReverseParseTeachingAreas();
             foreach (string missionary in house.Missionaries)
                 CreateMissionaryButton(missionary);
