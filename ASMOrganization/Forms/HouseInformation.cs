@@ -52,6 +52,7 @@ namespace ASMOrganization.Forms
             houseIdLabel.Text = house.Id.ToString();
             houseXLabel.Text = house.Coordinates[0].ToString();
             houseYLabel.Text = house.Coordinates[1].ToString();
+            houseZoneLabel.Text = house.Zone;
             houseTeachingAreaBox.Text = house.ReverseParseTeachingAreas();
             foreach (string missionary in house.Missionaries)
                 CreateMissionaryButton(missionary);
@@ -83,13 +84,12 @@ namespace ASMOrganization.Forms
         private void Close(object sender, FormClosingEventArgs e)
         {
             house.TeachingAreas = House.ParseTeachingAreas(houseTeachingAreaBox.Text);
-            if(!curTeachingAreas.SequenceEqual(house.TeachingAreas) || !curMissionaries.SequenceEqual(house.Missionaries)) // only save if either changed
+            if (!curTeachingAreas.SequenceEqual(house.TeachingAreas) || !curMissionaries.SequenceEqual(house.Missionaries)) // only save if either changed
             {
                 string json = JsonSerializer.Serialize(houses, new JsonSerializerOptions { WriteIndented = true });
                 File.WriteAllText("HousingData.json", json); // file WILL exist regardless so dont need to check
             }
         }
-
     }
 
     public partial class EnterMissionaryName : Form // this does not need to be its own file(s)

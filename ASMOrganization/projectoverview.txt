@@ -9,6 +9,10 @@ Homepage -> Logistics Manager
 			-> Import Next Transfer Board -> Lets you import a board from an Excel spreadsheet (.xlsx) file for the next transfer.
 			-> Generate Logistics -> Generates a text file containing which missionaries are in the same area, in the same zone, moving zones, and new missionaries.
 			-> Change File Path -> Allows you to set the destination of said text file.
+		 -> Housing Data
+			-> New House -> Add a new house to the housing data.
+						 -> Takes a name, ID, X coordinate, Y coordinate, and missionary names.
+			-> House Buttons -> View information about each house.
 
 You should know how to compile, but unless you dont:
 (this assumes you are using Visual Studio)

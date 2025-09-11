@@ -1,10 +1,31 @@
-﻿namespace ASMOrganization.NonForms
+﻿using System.Text.Json;
+
+namespace ASMOrganization.NonForms
 {
     public static class Algorithms
     {
         private static string path = "";
+
+        private static string TransportMethod(string missionary, List<House>? housingData, string endArea)
+        {
+            // TRANSPORT RULES
+            // Any transport involving Teancum, Nephi, Enos, and Jacob zones always use cars
+            // Going to/from Teancum/Nephi does not attend office; anyone else in the above zones does
+            // Staying in the same zone (except for those above) will always be PT
+            // If office between transfer locations, come to office; otherwise, go directly to area
+            if (housingData is null)
+                return "";
+            return "Abc";
+        }
         private static void WriteToFile(string header, List<string> data, List<List<string>>? optionalData = null)
         {
+            List<House>? housingData = null;
+            if(optionalData is not null)
+            {
+                // put this here so it only reads once when needed
+                string json = File.ReadAllText("HousingData.json");
+                housingData = JsonSerializer.Deserialize<List<House>>(json, new JsonSerializerOptions { WriteIndented = true })!;
+            }
             optionalData ??= [];
             using StreamWriter writer = new(path, true);
             writer.WriteLine(header + "\n"); // extra blank line
@@ -17,10 +38,14 @@
                     {
                         toWrite += $" -> {optionalData[optIndex][index]}";
                     }
-                    writer.WriteLine(toWrite);
+                    if (optionalData.Count > 0)
+                    {
+                        toWrite += $"\n{TransportMethod(data[index], housingData, optionalData[optionalData.Count - 1][index])}";
+                    }
+                    writer.WriteLine(toWrite + "\n"); // add a blank line for readability
                 }
             }
-            writer.WriteLine("\n"); // two extra blank lines
+            writer.WriteLine("\n\n"); // three extra blank lines
         }
         public static string FigureOutLogistics(List<List<string>> curTransfer, List<List<string>> newTransfer, string filePath)
         {

@@ -38,6 +38,7 @@
             addMissionaryButton = new Button();
             resultCreateHouseLabel = new Label();
             houseTeachingAreaBox = new TextBox();
+            houseZoneBox = new TextBox();
             SuspendLayout();
             // 
             // houseNameBox
@@ -99,13 +100,13 @@
             missionaryHolder.ColumnCount = 1;
             missionaryHolder.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50.854702F));
             missionaryHolder.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 49.145298F));
-            missionaryHolder.Location = new Point(12, 159);
+            missionaryHolder.Location = new Point(12, 189);
             missionaryHolder.Name = "missionaryHolder";
             missionaryHolder.RowCount = 3;
             missionaryHolder.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             missionaryHolder.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             missionaryHolder.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            missionaryHolder.Size = new Size(234, 153);
+            missionaryHolder.Size = new Size(234, 123);
             missionaryHolder.TabIndex = 4;
             // 
             // createHouseButton
@@ -153,12 +154,25 @@
             houseTeachingAreaBox.BackColor = SystemColors.Control;
             houseTeachingAreaBox.Font = new Font("Sitka Banner", 9.749999F);
             houseTeachingAreaBox.ForeColor = SystemColors.ControlText;
-            houseTeachingAreaBox.Location = new Point(12, 129);
+            houseTeachingAreaBox.Location = new Point(12, 159);
             houseTeachingAreaBox.Name = "houseTeachingAreaBox";
             houseTeachingAreaBox.PlaceholderText = "Enter House Teaching Area...";
             houseTeachingAreaBox.Size = new Size(234, 24);
             houseTeachingAreaBox.TabIndex = 4;
             houseTeachingAreaBox.TextAlign = HorizontalAlignment.Center;
+            // 
+            // houseZoneBox
+            // 
+            houseZoneBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            houseZoneBox.BackColor = SystemColors.Control;
+            houseZoneBox.Font = new Font("Sitka Banner", 9.749999F);
+            houseZoneBox.ForeColor = SystemColors.ControlText;
+            houseZoneBox.Location = new Point(12, 129);
+            houseZoneBox.Name = "houseZoneBox";
+            houseZoneBox.PlaceholderText = "Enter House Zone...";
+            houseZoneBox.Size = new Size(234, 24);
+            houseZoneBox.TabIndex = 9;
+            houseZoneBox.TextAlign = HorizontalAlignment.Center;
             // 
             // NewHouse
             // 
@@ -166,6 +180,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
             ClientSize = new Size(258, 459);
+            Controls.Add(houseZoneBox);
             Controls.Add(houseTeachingAreaBox);
             Controls.Add(resultCreateHouseLabel);
             Controls.Add(addMissionaryButton);
@@ -193,5 +208,6 @@
         private Button addMissionaryButton;
         private Label resultCreateHouseLabel;
         private TextBox houseTeachingAreaBox;
+        private TextBox houseZoneBox;
     }
 }

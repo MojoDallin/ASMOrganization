@@ -35,7 +35,7 @@ namespace ASMOrganization.Forms
             return Int32.Parse(id);
         }
 
-        
+
         private bool CheckDuplicateHouseID(House newHouse)
         {
             foreach (House house in houses)
@@ -54,6 +54,8 @@ namespace ASMOrganization.Forms
                 resultCreateHouseLabel.Text = "No X coordinate has been entered!";
             else if (string.IsNullOrEmpty(houseYCoordinateBox.Text))
                 resultCreateHouseLabel.Text = "No Y coordinate has been entered!";
+            else if (string.IsNullOrEmpty(houseZoneBox.Text))
+                resultCreateHouseLabel.Text = "No zone has been entered!";
             else if (string.IsNullOrEmpty(houseTeachingAreaBox.Text))
                 resultCreateHouseLabel.Text = "No teaching area has been entered!";
             else
@@ -65,6 +67,7 @@ namespace ASMOrganization.Forms
                         Name = houseNameBox.Text,
                         Id = ParseID(houseIDBox.Text),
                         Coordinates = [Int32.Parse(houseXCoordinateBox.Text), Int32.Parse(houseYCoordinateBox.Text)],
+                        Zone = houseZoneBox.Text,
                         TeachingAreas = House.ParseTeachingAreas(houseTeachingAreaBox.Text)
                     };
                     if (!CheckDuplicateHouseID(house))

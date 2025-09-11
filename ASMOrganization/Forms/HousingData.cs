@@ -101,8 +101,10 @@ namespace ASMOrganization.Forms
             {
                 if (e.ListChangedType == ListChangedType.ItemAdded)
                     houseButtonHolder.Controls.Add(CreateHouseButton(houses[e.NewIndex]), 0, e.NewIndex);
-                // save to file
-                string json = JsonSerializer.Serialize(houses, options);
+                else
+                    houseButtonHolder.Controls.RemoveAt(e.NewIndex);
+                    // save to file
+                    string json = JsonSerializer.Serialize(houses, options);
                 File.WriteAllText("HousingData.json", json);
             };
         }

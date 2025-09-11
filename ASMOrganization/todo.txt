@@ -1,2 +1,0 @@
-using that list, pair transferring missions together for efficiency
-also find which ones can go directly to their area using public transport
