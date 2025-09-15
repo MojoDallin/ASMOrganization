@@ -20,6 +20,8 @@ namespace ASMOrganization.NonForms
             House? missionaryHouse = null;
             House? endHouse = null;
             House office = null!;
+            missionary = $"{missionary[(missionary.IndexOf(',') + 2) ..]} {missionary[0 .. missionary.IndexOf(',')]}"; // format missionary so they can be found
+            missionary = missionary.Replace("  ", " "); // some have double spaces, so fix
             foreach (House house in housingData)
             {
                 if (house.Missionaries.Contains(missionary)) // find missionary house
@@ -28,10 +30,10 @@ namespace ASMOrganization.NonForms
                     endHouse = house;
                 if (house.Name.Equals("Office")) // never null
                     office = house;
-                if (missionaryHouse is not null && endHouse is not null) // end early once all are found
+                if (missionaryHouse is not null && endHouse is not null && office is not null) // end early once all are found
                     break;
             }
-            string[] carZones = {"Teancum", "Nephi", "Enos", "Jacob"};
+            string[] carZones = ["Teancum", "Nephi", "Enos", "Jacob"];
             if (missionaryHouse is null)
                 return "Could not find house missionary is in!";
             if (endHouse is null)
@@ -90,10 +92,11 @@ namespace ASMOrganization.NonForms
                     }
                     if (optionalData.Count > 0)
                     {
-                        string[] endArea = [optionalData[0][index]];
-                        if(optionalData.Count > 1)
-                            _ = endArea.Append(optionalData[1][index]);
-                        toWrite += $"\n{TransportMethod(data[index], housingData, endArea)}";
+                        List<string> endArea = [optionalData[0][index]];
+                        if (optionalData.Count > 1)
+                            endArea.Add(optionalData[1][index]);
+                        if(!header.Contains("NEW")) // no transport method for new missionaries (always car)
+                            toWrite += $"\n{TransportMethod(data[index], housingData, endArea.ToArray())}";
                     }
                     writer.WriteLine(toWrite + "\n"); // add a blank line for readability
                 }
