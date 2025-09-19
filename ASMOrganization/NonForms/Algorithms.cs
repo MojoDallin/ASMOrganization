@@ -10,13 +10,13 @@ namespace ASMOrganization.NonForms
         {
             // endArea[0] == zone, endArea[1] == area; [0] is area if staying in zone
             // TRANSPORT RULES
-            // Any transport involving Teancum, Nephi, Enos, and Jacob zones always use cars
-            // Going to/from Teancum/Nephi does not attend office; anyone else in the above zones does
-            // Staying in the same zone (except for those above) will always be PT
-            // If office between transfer locations, come to office; otherwise, go directly to area
-            // If distance is more than 30km, use cars; otherwise, use PT
+            //Any distance less than 30km will use public transport
+            //If using a car AND the distance with office is less than the direct distance + half, go to office
+            //Otherwise, no office
+
             if (housingData is null)
                 return ""; // if in the same area or released, doesnt need any data
+            string[] transportData = ["", ""];
             House? missionaryHouse = null;
             House? endHouse = null;
             House office = null!;
@@ -26,48 +26,32 @@ namespace ASMOrganization.NonForms
             {
                 if (house.Missionaries.Contains(missionary)) // find missionary house
                     missionaryHouse = house;
-                if (house.TeachingAreas.Contains(endArea[^1])) // find new home
+                else if (house.TeachingAreas.Contains(endArea[^1])) // find new home
                     endHouse = house;
-                if (house.Name.Equals("Office")) // never null
+                else if (house.Id == 0) // never null
                     office = house;
                 if (missionaryHouse is not null && endHouse is not null && office is not null) // end early once all are found
                     break;
             }
-            string[] carZones = ["Teancum", "Nephi", "Enos", "Jacob"];
-            if (missionaryHouse is null)
+            if (office is null)
+                return "Could not find office! Is it in the housing data with the ID of 0?";
+            else if (missionaryHouse is null)
                 return "Could not find house missionary is in!";
-            if (endHouse is null)
+            else if (endHouse is null)
                 return "Could not find house missionary is going to!";
-            if (carZones.Contains(missionaryHouse.Zone))
-            {
-                string text = "Using Cars";
-                string[] noOffice = ["Nephi", "Teancum"];
-                if (noOffice.Contains(missionaryHouse.Zone) && noOffice.Contains(endArea[0]))
-                    text += "(No Office)";
-                else
-                    text += "(Office)";
-                return text;
-            }
+
+            double directDistance = CalcHaversineDistance(missionaryHouse.Coordinates, endHouse.Coordinates);
+            double distanceWithOffice = CalcHaversineDistance(missionaryHouse.Coordinates, office.Coordinates) + CalcHaversineDistance(office.Coordinates, endHouse.Coordinates);
+            if (directDistance < 30_000) // only moving small areas, not zones
+                transportData[0] = "Public Transport";
             else
-            {
-                if (endArea.Length == 1) // only moving areas, not zones
-                    return "Using Public Transport(No Office)";
-                else // if moving zones, not one of the outer zones
-                {
-                    double directDistance = CalcHaversineDistance(missionaryHouse.Coordinates, endHouse.Coordinates);
-                    double distanceWithOffice = CalcHaversineDistance(missionaryHouse.Coordinates, office.Coordinates) + CalcHaversineDistance(office.Coordinates, endHouse.Coordinates);
-                    if (distanceWithOffice < directDistance * 1.5) // go to office if going to the office adds less than 50% distance
-                        return "Using Car(Office)";
-                    else
-                    {
-                        if (directDistance < 30_000) // use cars if this far away
-                            return "Using Public Transport(No Office)";
-                        else
-                            return "Using Car(No Office)";
-                    }
-                        
-                }
-            }
+                transportData[0] = "Car";
+            if (transportData[0].Contains("Car") && distanceWithOffice < directDistance * 1.5) // go to office if going to the office adds less than 50% distance
+                transportData[1] = "Office";
+            else
+                transportData[1] = "No Office";
+
+            return $"Using {transportData[0]} ({transportData[1]})";
         }
         private static void WriteToFile(string header, List<string> data, List<List<string>>? optionalData = null)
         {
@@ -96,7 +80,7 @@ namespace ASMOrganization.NonForms
                         if (optionalData.Count > 1)
                             endArea.Add(optionalData[1][index]);
                         if(!header.Contains("NEW")) // no transport method for new missionaries (always car)
-                            toWrite += $"\n{TransportMethod(data[index], housingData, endArea.ToArray())}";
+                            toWrite += $"\n{TransportMethod(data[index], housingData, [.. endArea])}";
                     }
                     writer.WriteLine(toWrite + "\n"); // add a blank line for readability
                 }
