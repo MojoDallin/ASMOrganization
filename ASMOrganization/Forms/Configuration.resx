@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!--
+    Microsoft ResX Schema
+
+    Version 2.0
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
+    associated with the data types.
+
+    Example:
+
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+
+    There are any number of "resheader" rows that contain simple
+    name/value pairs.
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
+    mimetype set.
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
+    extensible. For a given mimetype the value must be set accordingly:
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
+    read any of the formats listed below.
+
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="distanceThresholdDescription.Text" xml:space="preserve">
+    <value>If the distance to the office is less than the direct distance multipled by this number, then the missionaries will go to the office (if they are using a car). Enter as a decimal (ex. 1.5, 1.75).
+If direct distance is 100km, distance threshold is 1.5, and office distance is 125km, then go to office because 125km &lt; 150km.</value>
+  </data>
+  <data name="maxDistanceDescription.Text" xml:space="preserve">
+    <value>If the distance between two areas is greater than this number (in kilometers), the missionary will use a car.
+Otherwise, if the distance is less than this number, then the missionary will (probably) use public transport.
+</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAFiAAAAEAIACoCwAAFgAAACgAAAAWAAAAQAAAAAEAIAAAAAAAAAsAAMQOAADEDgAAAAAAAAAA
+        AABdMiX/XjMn/180KP9rQzj/ZTsv/4FgVv95VUv/fFlP/3pXTf+CYFf/e1dN/3hUSv9fNCj/cEpA/45w
+        Z/92UUf/fVpQ/3xZT/+DYVj/eFRK/4BeVP94VEr/akE2/10yJf+EZFr/jW5l/2pCN/95VUv/dE9F/3NN
+        Q/9+W1H/cEk+/3pWTP9+W1H/ck1C/2c+M/98WU//f11U/4FfVv9+W1H/fFlP/3FLQP9yTEL/fFhO/2tD
+        OP9+W1L/rJaP/4prYv+HZl3/g2FY/5J1bP+PcWj/kXRr/14yJv+mj4j/noR9/3lWTP98WE//mX11/49w
+        aP+DYVj/ckxB/5d7c/9zTkP/lXhw/4RjWf9XKR3/k3Vt/6iRiv+HZ17/hGNa/62Xkf+Xe3P/eVVL/56E
+        ff9zTkP/po6H/4FfVv+CYFb/jG1k/5N3bv9/XVP/flxS/1svI/+XfHT/bEU6/62Xkf9gNSn/Wy8j/3FL
+        Qf9vSD3/b0k+/25HPP93Ukj/ZTww/3lVS/99WlD/dlFG/3xZT/9yTEL/XjMm/25GPP9mPTL/bEQ5/2tD
+        N/9eMyf/dE5E/2A1Kf92UUf/XDEk/1ksIP95VUv/6uXj/97W0//f1tT/3tTS/+HZ1//d1NL/3dPR/97V
+        0//e1dL/4NjW/+Td2//i2tf/5Nza/+Tc2v/k3dv/6OHf/+LZ1//18vH/nYJ7/1YoG/9eMyf/Yjgs/8i5
+        tP///////////////////////////////////////v7+//j39v/08fD/8u7t/+zn5f/p4uH/5d/d/97V
+        0v/f1tT/zcC9/3VQRv9aLiH/YDUp/14zJ/9VJxr/0cTB///////+/v7//v39///+/v/49vX/+vn4//z8
+        /P/6+fn/+/r5//Ds6//28/P/8+/u/+7q6f/18/L/5+Hf/2g/NP9YKx//YTYq/180KP9fNSn/YTcr/1su
+        Iv/Gt7L/8e7t//z8/P//////1MnF/+HZ1////////Pz8///////Yzsv/3dTR/+HY1v/k3dv//////+Td
+        2/9cMCT/Wi4i/2A1Kf9fNCj/YTcr/1MlGP+GZVz/zL67/8Kxrf///////////93U0f/h2db///////39
+        /f//////9PHw/8m7t//m393/9/X1//v6+v//////zb+7/2lBNv9eMyf/YTYq/1ksIP99WlD/8u/u//b0
+        8///////9/T0///////o4uD/8Ozr/+Td2//28/P////////////m4N7/+fj3//39/P+ki4X/nYJ7/7ek
+        nv+AXlT/Wy8j/10xJf9oQDT/3NPQ//Pw7//e1tP/vKql/76sp////////////+DY1v+iiYL///////7+
+        /f//////8u7t//r5+f//////4NjV/10yJv9JGAr/Wy8j/2A1Kf9eMyf/Yjgt/2c/M/9gNSn/a0Q5/8S1
+        sP/r5eT//////+rl5P+SdW3/x7i0///////9/f3/+vn4/6WNh//Uycb//fz8///////p4+H/f1xS/10x
+        Jf9gNSn/XzQo/14zJ/9fNCj/UyUZ/5d7c///////+fj3/8W1sf+ehH3/y725/+/q6f///////////7qn
+        ov/g2NX/q5SO/2pDN/+AXlX/hGNa/3JLQf9dMSX/XzUp/180KP9fNCj/YTcr/1gsH/+pkoz/yry4/7mm
+        of+2opz/zL66/+La2P/6+fj//////8Oyrv+9q6b//////8Cvqv9QIRT/Wi4i/1cqHf9bLyL/XzUp/180
+        KP9fNCj/XzQo/180KP9gNSr/Wy8i/8e5tP//////2M3K/9LGw//18/L//////8GwrP+slY//////////
+        //+7qaT/VSgb/2M5Lf9hNir/XzUp/2A1Kf9gNSr/YDUp/2E2Kv9iOS3/Wi4i/3VQRv/x7ez/8e3s/8y+
+        uv/08fD/9fPy/7mmof/BsKv/7Ofm//79/f//////uKag/1QmGf9iNyv/YTYq/2E3K/9aLiL/Wi4i/1kt
+        IP9XKRz/VSgb/1UnG/+IaF//+vn4//Ht7P+xnJb/y725/76sp//Zz8z//////+/r6f/+/v7//////8Gw
+        rP9XKh3/Yjgs/1cqHf9VJxr/ckxB/3JNQv+7qKP/yry4/5R4cP9cMCP/jG5l///////29PT/1cnG/+zn
+        5v///////v7+//39/f/8+/r///////f19P/p4+H/XjIm/1YpHP+La2P/0MPA//n49//Yzsv/r5qU//z7
+        +///////4dnX/7yqpf///////////////////////v79//7+/v////////7+///////v6+r/9PHw/5V5
+        cf/a0M3//f39//r4+P/f1tT/hWVb/1AiFf+Nbmb/tqOd/9HFwf//////4tvZ//bz8v///////v7+//7+
+        /v/+/v7////////+/v//////5+Hf//r5+P/59/f//Pz8/5Fza/9oPzT/b0g+/1YoG/9hNir/XDEk/1Ml
+        GP9eMib/4NjV///////g2Nb/0cXC/9bLyP///////v7+//79/f///v7//v39/+Xf3f/8+/v/ybu3/7yq
+        pf9cMCT/Wi4i/1wwJP9hNyv/XzQo/2A1Kf9jOS3/Wy8i/2xEOf/m4N7//////7qoov/Ar6r/xrey//Pw
+        8P//////9/X0//v6+v/q5eP/29LP/83AvP+AXVT/WCsf/2I3K/9gNSn/XzQo/180KP9fNCj/XzQo/2I4
+        LP9UJRn/iGhf///////u6ej/6ePi/+/r6v+3o57/7ejn/+Xe3f/49vX/2c/M/9fMyf+umJL/UiMW/2I4
+        LP9fNCj/XzQo/180KP9fNCj/XzQo/180KP9fNCj/Yjgs/1YoG//FtbH///////v6+f//////9PHw/8m6
+        tv/b0c7/6uTi/8q8uP/XzMn/XzQo/18zJ/9fNCj/XzQo/180KP9fNCj/XzQo/180KP9fNCj/XzQo/2A2
+        Kv9aLiL/cUtA/+7p6P/w7ev//fz8///////x7ez/7Ofm/+Lb2f/v6+r/kXNr/1QnGv9hNyv/XzQo/180
+        KP9fNCj/XzQo/180KP9fNCj/XzQo/180KP9fNCj/YTcr/1YoG/+cgnr/7Ofl/9bMyf/q5eP/7ejm/8m6
+        tv/b0c7/w7Ov/1ksIP9gNir/XzQo/180KP9fNCj/XzQo/180KP9fNCj/XzQo/180KP9fNCj/XzQo/180
+        KP9gNSr/Vyse/7KemP/SxsL/zcC8/9LFwv99W1H/xrez/10xJf9dMib/YDUp/180KP9fNCj/XzQo/180
+        KP9fNCj/XzQo/180KP9fNCj/XzQo/180KP9fNCj/YDUp/1wwI/9kOi7/zL+7//j39v/49vb/y725/2tD
+        OP9aLSH/YTYq/180KP9fNCj/XzQo/180KP9fNCj/XzQo/180KP9fNCj/XzQo/180KP9fNCj/XzQo/180
+        KP9gNir/XDAk/8q8uP///////////82/vP9bLyP/YTYq/180KP9fNCj/XzQo/180KP9fNCj/XzQo/180
+        KP9fNCj/XzQo/180KP9fNCj/XzQo/180KP9fNCj/YTcr/1UnGv+4pZ////////////+xnJb/VCYa/2E3
+        K/9fNCj/XzQo/180KP9fNCj/XzQo/180KP9fNCj/XzQo/180KP9fNCj/XzQo/180KP9fNCj/XzQo/2A2
+        Kv9ZLCD/fFlP/+/r6v/o4d//cUtB/1svIv9gNSn/XzQo/180KP9fNCj/XzQo/180KP9fNCj/XzQo/wAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA
+</value>
+  </data>
+</root>

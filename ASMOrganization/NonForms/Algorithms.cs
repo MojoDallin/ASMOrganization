@@ -42,11 +42,17 @@ namespace ASMOrganization.NonForms
 
             double directDistance = CalcHaversineDistance(missionaryHouse.Coordinates, endHouse.Coordinates);
             double distanceWithOffice = CalcHaversineDistance(missionaryHouse.Coordinates, office.Coordinates) + CalcHaversineDistance(office.Coordinates, endHouse.Coordinates);
-            if (directDistance < 30_000) // only moving small areas, not zones
+            string[] carZones = TransportNumbers.OverriddenZones.Split(',');
+            for(int i = 0; i < carZones.Length; i++)
+                carZones[i] = carZones[i].Replace(" ", ""); // remove spaces
+
+            if (carZones.Contains(missionaryHouse.Zone) || carZones.Contains(endHouse.Zone))
+                transportData[0] = "Car";
+            else if (directDistance < TransportNumbers.MaxDistance * 1000) // only moving small areas, not zones
                 transportData[0] = "Public Transport";
             else
                 transportData[0] = "Car";
-            if (transportData[0].Contains("Car") && distanceWithOffice < directDistance * 1.5) // go to office if going to the office adds less than 50% distance
+            if (transportData[0].Contains("Car") && distanceWithOffice < directDistance * TransportNumbers.DistanceThreshold) // go to office if going to the office adds less than 50% distance
                 transportData[1] = "Office";
             else
                 transportData[1] = "No Office";

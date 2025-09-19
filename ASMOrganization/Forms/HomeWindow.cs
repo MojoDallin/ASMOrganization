@@ -31,8 +31,13 @@ namespace ASMOrganization
 
         private void ViewHousingData(object sender, EventArgs e)
         {
-            HousingData housingData = new HousingData();
+            HousingData housingData = new();
             housingData.Show();
+        }
+        private void Configure(object sender, EventArgs e)
+        {
+            Configuration config = new();
+            config.Show();
         }
     }
 }

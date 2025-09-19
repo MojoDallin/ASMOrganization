@@ -5,5 +5,14 @@
     <Setting Name="LogisticsFilePath" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="DistanceThreshold" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">1.5</Value>
+    </Setting>
+    <Setting Name="MaxDistance" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">30000</Value>
+    </Setting>
+    <Setting Name="OverriddenZones" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Nephi, Teancum, Enos</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

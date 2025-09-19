@@ -32,6 +32,7 @@
             titleLabel = new Label();
             logisticsManagerButton = new Button();
             housingDataButton = new Button();
+            configButton = new Button();
             SuspendLayout();
             // 
             // titleLabel
@@ -77,12 +78,29 @@
             housingDataButton.UseVisualStyleBackColor = false;
             housingDataButton.Click += ViewHousingData;
             // 
+            // configButton
+            // 
+            configButton.Anchor = AnchorStyles.Top;
+            configButton.AutoSize = true;
+            configButton.BackColor = Color.SlateGray;
+            configButton.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            configButton.ForeColor = SystemColors.Control;
+            configButton.Location = new Point(281, 180);
+            configButton.Margin = new Padding(0);
+            configButton.Name = "configButton";
+            configButton.Size = new Size(235, 50);
+            configButton.TabIndex = 3;
+            configButton.Text = "Configuration";
+            configButton.UseVisualStyleBackColor = false;
+            configButton.Click += Configure;
+            // 
             // HomeWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
             ClientSize = new Size(800, 450);
+            Controls.Add(configButton);
             Controls.Add(housingDataButton);
             Controls.Add(logisticsManagerButton);
             Controls.Add(titleLabel);
@@ -99,5 +117,6 @@
         private Label titleLabel;
         private Button logisticsManagerButton;
         private Button housingDataButton;
+        private Button configButton;
     }
 }

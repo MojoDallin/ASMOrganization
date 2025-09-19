@@ -34,5 +34,41 @@ namespace ASMOrganization.Properties {
                 this["LogisticsFilePath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1.5")]
+        public double DistanceThreshold {
+            get {
+                return ((double)(this["DistanceThreshold"]));
+            }
+            set {
+                this["DistanceThreshold"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("30000")]
+        public int MaxDistance {
+            get {
+                return ((int)(this["MaxDistance"]));
+            }
+            set {
+                this["MaxDistance"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Nephi, Teancum, Enos")]
+        public string OverriddenZones {
+            get {
+                return ((string)(this["OverriddenZones"]));
+            }
+            set {
+                this["OverriddenZones"] = value;
+            }
+        }
     }
 }
