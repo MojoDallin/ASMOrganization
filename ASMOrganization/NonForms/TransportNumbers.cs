@@ -9,9 +9,9 @@ namespace ASMOrganization.NonForms
 {
     public static class TransportNumbers
     {
-        public static double DistanceThreshold = 1.5; // default values
-        public static int MaxDistance = 30;
-        public static string OverriddenZones = "Nephi, Teancum, Enos";
+        private static double DistanceThreshold = 1.5; // default values
+        private static int MaxDistance = 30;
+        private static string OverriddenZones = "Nephi, Teancum, Enos";
         public static void Save(double newThreshold, int newMax, string newOverride)
         {
             Settings.Default.DistanceThreshold = newThreshold;
@@ -26,6 +26,10 @@ namespace ASMOrganization.NonForms
             MaxDistance = Settings.Default.MaxDistance;
             OverriddenZones = Settings.Default.OverriddenZones;
         }
+
+        public static double GetDistanceThreshold() => DistanceThreshold;
+        public static int GetMaxDistance() => MaxDistance;
+        public static string GetOverriddenZones() => OverriddenZones;
 
     }
 }

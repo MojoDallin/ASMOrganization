@@ -9,6 +9,7 @@ namespace ASMOrganization.Forms
     {
         private readonly BindingList<House> houses = []; // we use a bindinglist to call an event when the list is updated
         private readonly JsonSerializerOptions options = new() { WriteIndented = true };
+        private TableLayoutPanel? holder;
         public HousingData()
         {
             InitializeComponent();
@@ -70,12 +71,12 @@ namespace ASMOrganization.Forms
 
         private void SetUpPanels(object sender, EventArgs e)
         {
-            Panel panel = new()
+            Panel panel = new() // why did i do it like this again? 
             {
                 Dock = DockStyle.Bottom,
                 AutoScroll = true,
                 BorderStyle = BorderStyle.Fixed3D,
-                Height = ClientSize.Height - addHouseButton.Height - 15
+                Height = ClientSize.Height - addHouseButton.Height - searchBox.Height - 15
             };
             Controls.Add(panel);
 
@@ -87,6 +88,7 @@ namespace ASMOrganization.Forms
                 GrowStyle = TableLayoutPanelGrowStyle.AddRows
             };
             houseButtonHolder.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            holder = houseButtonHolder;
 
             LoadHousingData(houseButtonHolder);
 
@@ -103,8 +105,8 @@ namespace ASMOrganization.Forms
                     houseButtonHolder.Controls.Add(CreateHouseButton(houses[e.NewIndex]), 0, e.NewIndex);
                 else
                     houseButtonHolder.Controls.RemoveAt(e.NewIndex);
-                    // save to file
-                    string json = JsonSerializer.Serialize(houses, options);
+                // save to file
+                string json = JsonSerializer.Serialize(houses, options);
                 File.WriteAllText("HousingData.json", json);
             };
         }
@@ -113,6 +115,28 @@ namespace ASMOrganization.Forms
         {
             NewHouse nh = new(houses);
             nh.Show();
+        }
+
+        private void Search(object sender, EventArgs e)
+        {
+            TextBox? tb = sender as TextBox;
+            if (holder is not null && tb is not null)
+            {
+                string text = tb.Text;
+                StringComparison compare = StringComparison.CurrentCultureIgnoreCase;
+                foreach (Button button in holder.Controls)
+                {
+                    House house = houses.ElementAt(holder.Controls.IndexOf(button));
+                    if (house.Name.Contains(text, compare) ||
+                     house.Id.ToString().Contains(text, compare) ||
+                     house.Missionaries.Any(miss => miss.Contains(text, compare)) ||
+                     house.TeachingAreas.Any(area => area.Contains(text, compare)) ||
+                     house.Zone.Contains(text, compare))
+                        button.Visible = true;
+                    else
+                        button.Visible = false;
+                }
+            }
         }
     }
 }

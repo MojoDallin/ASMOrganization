@@ -42,17 +42,17 @@ namespace ASMOrganization.NonForms
 
             double directDistance = CalcHaversineDistance(missionaryHouse.Coordinates, endHouse.Coordinates);
             double distanceWithOffice = CalcHaversineDistance(missionaryHouse.Coordinates, office.Coordinates) + CalcHaversineDistance(office.Coordinates, endHouse.Coordinates);
-            string[] carZones = TransportNumbers.OverriddenZones.Split(',');
+            string[] carZones = TransportNumbers.GetOverriddenZones().Split(',');
             for(int i = 0; i < carZones.Length; i++)
                 carZones[i] = carZones[i].Replace(" ", ""); // remove spaces
 
             if (carZones.Contains(missionaryHouse.Zone) || carZones.Contains(endHouse.Zone))
                 transportData[0] = "Car";
-            else if (directDistance < TransportNumbers.MaxDistance * 1000) // only moving small areas, not zones
+            else if (directDistance < TransportNumbers.GetMaxDistance() * 1000) // only moving small areas, not zones
                 transportData[0] = "Public Transport";
             else
                 transportData[0] = "Car";
-            if (transportData[0].Contains("Car") && distanceWithOffice < directDistance * TransportNumbers.DistanceThreshold) // go to office if going to the office adds less than 50% distance
+            if (transportData[0].Contains("Car") && distanceWithOffice < directDistance * TransportNumbers.GetMaxDistance()) // go to office if going to the office adds less than 50% distance
                 transportData[1] = "Office";
             else
                 transportData[1] = "No Office";
@@ -170,7 +170,7 @@ namespace ASMOrganization.NonForms
             double la2 = DegreeToRadians(newCoords[0]);
             double lo1 = DegreeToRadians(curCoords[1]);
             double lo2 = DegreeToRadians(newCoords[1]);
-            const int radius = 6371000; // meters for science standard
+            const int radius = 6_371_000; // meters for science standard
             double latDiff = la2 - la1; // second, difference of each point
             double lonDiff = lo2 - lo1;
             double sin1 = Math.Pow(Math.Sin(latDiff/2), 2); // then this

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HousingData));
             addHouseButton = new Button();
+            searchBox = new TextBox();
             SuspendLayout();
             // 
             // addHouseButton
@@ -48,12 +49,27 @@
             addHouseButton.UseVisualStyleBackColor = false;
             addHouseButton.Click += AddHouse;
             // 
+            // searchBox
+            // 
+            searchBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            searchBox.BackColor = SystemColors.Control;
+            searchBox.Font = new Font("Sitka Banner", 9.749999F);
+            searchBox.ForeColor = SystemColors.ControlText;
+            searchBox.Location = new Point(12, 62);
+            searchBox.Name = "searchBox";
+            searchBox.PlaceholderText = "Search (Name, ID, Missionaries, Zone, Teaching Areas)";
+            searchBox.Size = new Size(776, 24);
+            searchBox.TabIndex = 5;
+            searchBox.TextAlign = HorizontalAlignment.Center;
+            searchBox.TextChanged += Search;
+            // 
             // HousingData
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
             ClientSize = new Size(800, 459);
+            Controls.Add(searchBox);
             Controls.Add(addHouseButton);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "HousingData";
@@ -67,5 +83,6 @@
         #endregion
 
         private Button addHouseButton;
+        private TextBox searchBox;
     }
 }

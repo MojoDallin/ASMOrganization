@@ -13,8 +13,10 @@ namespace ASMOrganization
         private void ScrollLabel()
         {
             // fancy ui stuff
-            System.Windows.Forms.Timer timer = new();
-            timer.Interval = 10;
+            System.Windows.Forms.Timer timer = new()
+            {
+                Interval = 10
+            };
             timer.Tick += (a, b) =>
             {
                 titleLabel.Left += 2;

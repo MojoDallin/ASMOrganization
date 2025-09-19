@@ -13,9 +13,9 @@ namespace ASMOrganization
         private void LoadData(object sender, EventArgs e)
         {
             TransportNumbers.Load();
-            distanceThresholdBox.Text = TransportNumbers.DistanceThreshold.ToString();
-            maxDistanceBox.Text = TransportNumbers.MaxDistance.ToString();
-            overriddenZonesBox.Text = TransportNumbers.OverriddenZones;
+            distanceThresholdBox.Text = TransportNumbers.GetDistanceThreshold().ToString();
+            maxDistanceBox.Text = TransportNumbers.GetMaxDistance().ToString();
+            overriddenZonesBox.Text = TransportNumbers.GetOverriddenZones();
         }
 
         private void SaveData(object sender, FormClosingEventArgs e)
