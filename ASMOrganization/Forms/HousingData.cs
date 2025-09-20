@@ -96,7 +96,7 @@ namespace ASMOrganization.Forms
 
             Resize += (s, e) =>
             {
-                panel.Height = ClientSize.Height - addHouseButton.Height - 15;
+                panel.Height = ClientSize.Height - addHouseButton.Height - searchBox.Height - 15;
             };
 
             houses.ListChanged += (s, e) => // add/remove button when houses list is changed

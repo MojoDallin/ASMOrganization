@@ -1,13 +1,7 @@
 ﻿using ASMOrganization.Properties;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace ASMOrganization.NonForms
 {
-    public static class TransportNumbers
+    public static class TransportNumbers // organization purposes
     {
         private static double DistanceThreshold = 1.5; // default values
         private static int MaxDistance = 30;

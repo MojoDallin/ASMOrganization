@@ -6,8 +6,7 @@ namespace ASMOrganization.Forms
     public partial class LogisticsManager : Form
     {
         private string filePath = "none";
-        private string curTransferFile = "";
-        private string newTransferFile = "";
+        private string transferFile = "";
         public LogisticsManager()
         {
             InitializeComponent();
@@ -33,29 +32,19 @@ namespace ASMOrganization.Forms
         private static List<List<string>> ReadTransferData(string path)
         {
             List<List<string>> data = [];
-            List<string> missionaryNames = [];
-            List<string> missionaryZones = [];
-            List<string> missionaryAreas = [];
             using (XLWorkbook workbook = new(path))
             {
                 var wks = workbook.Worksheet(1);
-                foreach (var row in wks.RowsUsed())
-                {
-                    string zone = row.Cell(6).Value.ToString();
-                    string missionary = row.Cell(1).Value.ToString();
-                    string area = row.Cell(8).Value.ToString(); // set variables for formatting purposes
-                    if (row.Cell(5).Value.ToString() == "In-Field" && zone != "Office") // only in field and non-office missionaries
+                var range = wks.RangeUsed();
+                if(range is not null)
+                    foreach (var col in range.Columns())
                     {
-                        missionaryNames.Add(missionary);
-                        missionaryZones.Add(zone);
-                        missionaryAreas.Add(area);
+                        List<string> colData = [];
+                        foreach (var cell in col.Cells($"3:{col.CellCount()}")) // skip first two rows
+                            colData.Add(cell.Value.ToString());
+                        data.Add(colData);
                     }
-                }
-
             }
-            data.Add(missionaryNames);
-            data.Add(missionaryZones);
-            data.Add(missionaryAreas);
             return data;
         }
 
@@ -68,41 +57,20 @@ namespace ASMOrganization.Forms
                 using OpenFileDialog ofd = ImportExcelFile();
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    if (button.Name == "importCurrentTransferBoardButton")
-                    {
-                        curTransferFile = ofd.FileName;
-                        resultImportCurrentLabel.Text = results[0] + ofd.SafeFileName + "!";
-                    }
-                    else
-                    {
-                        newTransferFile = ofd.FileName;
-                        resultImportNextLabel.Text = results[0] + ofd.SafeFileName + "!";
-                    }
+                    transferFile = ofd.FileName;
+                    resultImportLabel.Text = results[0] + ofd.SafeFileName + "!";
                 }
                 else
-                {
-                    if (button.Name == "importCurrentTransferBoardButton")
-                        resultImportCurrentLabel.Text = results[1];
-                    else
-                        resultImportNextLabel.Text = results[1];
-                }
-
+                    resultImportLabel.Text = results[1];
             }
         }
 
         private void GenerateLogistics(object sender, EventArgs e)
         {
-            if (curTransferFile == "")
-                resultGenerateLogisticsLabel.Text = "No current transfer data!";
-            else if (newTransferFile == "")
-                resultGenerateLogisticsLabel.Text = "No new transfer data!";
-            else
-            {
-                curTransferData = ReadTransferData(curTransferFile);
-                newTransferData = ReadTransferData(newTransferFile);
-                // update data before generating (to prevent errors)
-                resultGenerateLogisticsLabel.Text = NonForms.Algorithms.FigureOutLogistics(curTransferData, newTransferData, filePath);
-            }
+            if (transferFile == "")
+                resultGenerateLogisticsLabel.Text = "No transfer data!";
+            else // update data before generating (to prevent errors)
+                resultGenerateLogisticsLabel.Text = NonForms.Algorithms.FigureOutLogistics(ReadTransferData(transferFile), filePath);
         }
 
         private void ChangeFilePath(object sender, EventArgs e)

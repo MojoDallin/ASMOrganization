@@ -57,7 +57,7 @@
             searchBox.ForeColor = SystemColors.ControlText;
             searchBox.Location = new Point(12, 62);
             searchBox.Name = "searchBox";
-            searchBox.PlaceholderText = "Search (Name, ID, Missionaries, Zone, Teaching Areas)";
+            searchBox.PlaceholderText = "Search (Name, ID (only numbers), Missionaries, Zone, Teaching Areas)";
             searchBox.Size = new Size(776, 24);
             searchBox.TabIndex = 5;
             searchBox.TextAlign = HorizontalAlignment.Center;

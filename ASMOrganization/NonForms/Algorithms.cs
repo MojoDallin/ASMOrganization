@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Text.Json; // save/load housing data
+using ClosedXML.Excel; // write to excel
 
 namespace ASMOrganization.NonForms
 {
@@ -76,24 +77,19 @@ namespace ASMOrganization.NonForms
                 if (data[index] != "") // do not write whitespace
                 {
                     string toWrite = data[index];
-                    for (int optIndex = 0; optIndex < optionalData.Count; optIndex++)
-                    {
-                        toWrite += $" -> {optionalData[optIndex][index]}";
-                    }
                     if (optionalData.Count > 0)
                     {
-                        List<string> endArea = [optionalData[0][index]];
-                        if (optionalData.Count > 1)
-                            endArea.Add(optionalData[1][index]);
-                        if(!header.Contains("NEW")) // no transport method for new missionaries (always car)
-                            toWrite += $"\n{TransportMethod(data[index], housingData, [.. endArea])}";
+                        for (int optIndex = 0; optIndex < optionalData[index].Count; optIndex++)
+                            toWrite += $" -> {optionalData[index][optIndex]}";
+                        if (!header.Contains("GOLDEN")) // no transport method for new missionaries (always car)
+                            toWrite += $"\n{TransportMethod(data[index], housingData, [.. optionalData[index]])}";
                     }
                     writer.WriteLine(toWrite + "\n"); // add a blank line for readability
                 }
             }
             writer.WriteLine("\n\n"); // three extra blank lines
         }
-        public static string FigureOutLogistics(List<List<string>> curTransfer, List<List<string>> newTransfer, string filePath)
+        public static string FigureOutLogistics(List<List<string>> transferData, string filePath)
         {
             if (filePath == "none")
                 return "No file path has currently been set!";
@@ -101,63 +97,38 @@ namespace ASMOrganization.NonForms
             path = filePath + $"\\Logistics_{now.Day}-{now.Month}-{now.Year}.txt";
             if(File.Exists(path))
                 File.Delete(path); // delete file if already exists to avoid double data
-            // curTransfer[missionaryNames, missionaryZones, missionaryAreas]
-            List<string> newMissionaries = [];
-            List<List<string>> newMissionaryAreas = [[], []];
-            List<string> releasedMissionaries = [];
-            foreach(string missionary in newTransfer[0].ToList()) // create copy of list so it can execute
-            {
-                if (!curTransfer[0].Contains(missionary)) // check for new missionaries
-                {
-                    int index = newTransfer[0].IndexOf(missionary);
-                    newMissionaries.Add(missionary);
-                    newMissionaryAreas[0].Add(newTransfer[1][index]);
-                    newMissionaryAreas[1].Add(newTransfer[2][index]);
-                    newTransfer[0].Remove(missionary); // remove missionary
-                    newTransfer[1].RemoveAt(index); // remove zone
-                    newTransfer[2].RemoveAt(index); // remove area
-                }
-            }
-            foreach(string missionary in curTransfer[0].ToList()) // check for released missionaries
-            {
-                if (!newTransfer[0].Contains(missionary))
-                {
-                    int index = curTransfer[0].IndexOf(missionary);
-                    releasedMissionaries.Add(missionary);
-                    curTransfer[0].Remove(missionary);
-                    curTransfer[1].RemoveAt(index);
-                    curTransfer[2].RemoveAt(index);
-                }
-            }
-            WriteToFile("--RELEASED MISSIONARIES--", releasedMissionaries);
-            WriteToFile("--NEW MISSIONARIES--", newMissionaries, newMissionaryAreas);
 
-            List<string> sameZoneMissionaries = [];
-            List<List<string>> newAreaSameZoneMissionaries = [[]];
-            List<string> sameAreaMissionaries = [];
-            for(int index = 0; index < newTransfer[0].Count; index++)
+            List<string> newMissionaries = [];
+            List<List<string>> newMissionaryAreas = [];
+            List<string> missionariesMoving = [];
+            List<List<string>> missionariesMovingAreas = [];
+            List<string> missionariesNotMoving = [];
+
+            //0: zone, 1: district, 2: area, 3: phone, 4: address, 5: name, 6: position, 7: previous area
+            //8: previous position, 9: elder/sister, 10: language, 11: driving status, 12: next companion
+
+            // new missionaries
+            for (int index = 0; index < transferData[0].Count; index++)
             {
-                if (curTransfer[2][index] == newTransfer[2][index])
+                if (transferData[6][index].Contains("TR") || transferData[6][index].Contains("DT")) // trainer? 
                 {
-                    sameAreaMissionaries.Add(curTransfer[0][index]);
-                    // using Remove instead of setting it to "" breaks the program
-                    // this is because it shifts the index up by one and offsets it
-                    newTransfer[0][index] = "";
-                    newTransfer[1][index] = "";
-                    newTransfer[2][index] = "";
+                    newMissionaries.Add(transferData[12][index]);
+                    newMissionaryAreas.Add([transferData[0][index], transferData[1][index], transferData[2][index]]);
                 }
-                else if (curTransfer[1][index] == newTransfer[1][index])
+                if (!string.IsNullOrEmpty(transferData[7][index])) // moving areas
                 {
-                    sameZoneMissionaries.Add(curTransfer[0][index]);
-                    newAreaSameZoneMissionaries[0].Add(newTransfer[2][index]);
-                    newTransfer[0][index] = "";
-                    newTransfer[1][index] = "";
-                    newTransfer[2][index] = "";
+                    missionariesMoving.Add(transferData[5][index]);
+                    missionariesMovingAreas.Add([transferData[0][index], transferData[1][index], transferData[2][index]]);
                 }
+                else
+                    missionariesNotMoving.Add(transferData[5][index]);
             }
-            WriteToFile("--MISSIONARIES IN THE SAME AREA--", sameAreaMissionaries);
-            WriteToFile("--MISSIONARIES IN THE SAME ZONE--", sameZoneMissionaries, newAreaSameZoneMissionaries);
-            WriteToFile("--MISSIONARIES MOVING ZONES--", newTransfer[0], [newTransfer[1], newTransfer[2]]);
+            // TODO: get rid of office senior couples, write to excel spreadsheet instead of .txt
+
+            WriteToFile("--GOLDENS--", newMissionaries, newMissionaryAreas);
+            WriteToFile("--MOVING AREAS--", missionariesMoving, missionariesMovingAreas);
+            WriteToFile("--STAYING IN AREA--", missionariesNotMoving);
+
 
             return $"Successfully generated logistics at: {path}";
         }
