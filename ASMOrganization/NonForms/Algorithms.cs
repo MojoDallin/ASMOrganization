@@ -6,8 +6,9 @@ namespace ASMOrganization.NonForms
     public static class Algorithms
     {
         private static string path = "";
+        private static XLWorkbook Workbook = new();
 
-        private static string TransportMethod(string missionary, List<House>? housingData, string[] endArea)
+        private static string[] TransportMethod(string missionary, List<House>? housingData, string[] endArea)
         {
             // endArea[0] == zone, endArea[1] == area; [0] is area if staying in zone
             // TRANSPORT RULES
@@ -16,18 +17,19 @@ namespace ASMOrganization.NonForms
             //Otherwise, no office
 
             if (housingData is null)
-                return ""; // if in the same area or released, doesnt need any data
+                return ["", ""]; // if in the same area or released, doesnt need any data
             string[] transportData = ["", ""];
             House? missionaryHouse = null;
             House? endHouse = null;
             House office = null!;
             missionary = $"{missionary[(missionary.IndexOf(',') + 2) ..]} {missionary[0 .. missionary.IndexOf(',')]}"; // format missionary so they can be found
             missionary = missionary.Replace("  ", " "); // some have double spaces, so fix
+            StringComparison compare = StringComparison.CurrentCultureIgnoreCase; // non case sensitive
             foreach (House house in housingData)
             {
-                if (house.Missionaries.Contains(missionary)) // find missionary house
+                if (house.Missionaries.Any(miss => miss.Contains(missionary, compare))) // find missionary house
                     missionaryHouse = house;
-                else if (house.TeachingAreas.Contains(endArea[^1])) // find new home
+                if (house.TeachingAreas.Any(area => area.Contains(endArea[2], compare))) // find new home
                     endHouse = house;
                 else if (house.Id == 0) // never null
                     office = house;
@@ -35,11 +37,11 @@ namespace ASMOrganization.NonForms
                     break;
             }
             if (office is null)
-                return "Could not find office! Is it in the housing data with the ID of 0?";
+                return ["Office Not Found", "Office Not Found"];
             else if (missionaryHouse is null)
-                return "Could not find house missionary is in!";
+                return ["Current House Not Found", "Current House Not Found"];
             else if (endHouse is null)
-                return "Could not find house missionary is going to!";
+                return ["New House Not Found", "New House Not Found"];
 
             double directDistance = CalcHaversineDistance(missionaryHouse.Coordinates, endHouse.Coordinates);
             double distanceWithOffice = CalcHaversineDistance(missionaryHouse.Coordinates, office.Coordinates) + CalcHaversineDistance(office.Coordinates, endHouse.Coordinates);
@@ -54,11 +56,11 @@ namespace ASMOrganization.NonForms
             else
                 transportData[0] = "Car";
             if (transportData[0].Contains("Car") && distanceWithOffice < directDistance * TransportNumbers.GetMaxDistance()) // go to office if going to the office adds less than 50% distance
-                transportData[1] = "Office";
+                transportData[1] = "Yes";
             else
-                transportData[1] = "No Office";
+                transportData[1] = "No";
 
-            return $"Using {transportData[0]} ({transportData[1]})";
+            return transportData;
         }
         private static void WriteToFile(string header, List<string> data, List<List<string>>? optionalData = null)
         {
@@ -70,31 +72,51 @@ namespace ASMOrganization.NonForms
                 housingData = JsonSerializer.Deserialize<List<House>>(json, new JsonSerializerOptions { WriteIndented = true })!;
             }
             optionalData ??= [];
-            using StreamWriter writer = new(path, true);
-            writer.WriteLine(header + "\n"); // extra blank line
+            var sheet = Workbook.Worksheets.Add(header);
+            sheet.Cell(1, 1).Value = "Missionaries";
+            sheet.Cell(1, 2).Value = "Zone";
+            sheet.Cell(1, 3).Value = "District";
+            sheet.Cell(1, 4).Value = "Area";
+            sheet.Cell(1, 5).Value = "Transport Method";
+            sheet.Cell(1, 6).Value = "Office";
+            var headerRange = sheet.Range(1, 1, 1, 6);
+            headerRange.Style.Font.Bold = true;
+            headerRange.Style.Fill.BackgroundColor = XLColor.LightGray;
+            headerRange.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
             for (int index = 0; index < data.Count; index++)
             {
-                if (data[index] != "") // do not write whitespace
+                string[] toWrite = [data[index], "", "", "", "", ""];
+                if (optionalData.Count > 0)
                 {
-                    string toWrite = data[index];
-                    if (optionalData.Count > 0)
+                    for (int optIndex = 0; optIndex < optionalData[index].Count; optIndex++)
+                        toWrite[optIndex + 1] = optionalData[index][optIndex];
+                    if (!header.Contains("Golden")) // no transport method for new missionaries (always car)
                     {
-                        for (int optIndex = 0; optIndex < optionalData[index].Count; optIndex++)
-                            toWrite += $" -> {optionalData[index][optIndex]}";
-                        if (!header.Contains("GOLDEN")) // no transport method for new missionaries (always car)
-                            toWrite += $"\n{TransportMethod(data[index], housingData, [.. optionalData[index]])}";
+                        string[] method = TransportMethod(data[index], housingData, [.. optionalData[index]]);
+                        toWrite[4] = method[0];
+                        toWrite[5] = method[1];
                     }
-                    writer.WriteLine(toWrite + "\n"); // add a blank line for readability
+                    else
+                    {
+                        toWrite[4] = "Car";
+                        toWrite[5] = "Yes";
+                    }
+                    for(int col = 0; col < toWrite.Length; col++)
+                    {
+                        sheet.Cell(index + 2, col + 1).Value = toWrite[col];
+                    }
                 }
             }
-            writer.WriteLine("\n\n"); // three extra blank lines
+
+            sheet.Columns().AdjustToContents();
         }
         public static string FigureOutLogistics(List<List<string>> transferData, string filePath)
         {
             if (filePath == "none")
                 return "No file path has currently been set!";
             DateTime now = DateTime.Now;
-            path = filePath + $"\\Logistics_{now.Day}-{now.Month}-{now.Year}.txt";
+            path = filePath + $"\\Logistics_{now.Day}-{now.Month}-{now.Year}.xlsx";
             if(File.Exists(path))
                 File.Delete(path); // delete file if already exists to avoid double data
 
@@ -103,32 +125,44 @@ namespace ASMOrganization.NonForms
             List<string> missionariesMoving = [];
             List<List<string>> missionariesMovingAreas = [];
             List<string> missionariesNotMoving = [];
+            List<List<string>> missionariesNotMovingAreas = [];
 
             //0: zone, 1: district, 2: area, 3: phone, 4: address, 5: name, 6: position, 7: previous area
             //8: previous position, 9: elder/sister, 10: language, 11: driving status, 12: next companion
 
             // new missionaries
+            StringComparison compare = StringComparison.CurrentCultureIgnoreCase;
             for (int index = 0; index < transferData[0].Count; index++)
             {
+                List<string> areas = [transferData[0][index], transferData[1][index], transferData[2][index]];
                 if (transferData[6][index].Contains("TR") || transferData[6][index].Contains("DT")) // trainer? 
                 {
                     newMissionaries.Add(transferData[12][index]);
-                    newMissionaryAreas.Add([transferData[0][index], transferData[1][index], transferData[2][index]]);
+                    newMissionaryAreas.Add(areas);
                 }
-                if (!string.IsNullOrEmpty(transferData[7][index])) // moving areas
+                else if (!transferData[2][index].Contains("Sr", compare) &&
+                    !transferData[2][index].Contains("Service", compare) &&
+                    !transferData[2][index].Contains("Office", compare)) // exclude senior angels, service missionaries, office (sorry)
                 {
-                    missionariesMoving.Add(transferData[5][index]);
-                    missionariesMovingAreas.Add([transferData[0][index], transferData[1][index], transferData[2][index]]);
+                    if (!string.IsNullOrEmpty(transferData[7][index])) // moving areas
+                    {
+                        missionariesMoving.Add(transferData[5][index]);
+                        missionariesMovingAreas.Add(areas);
+                    }
+                    else if (!transferData[12][index].Contains("TR") && !transferData[12][index].Contains("DT")) // dont write goldens to staying in area
+                    {
+                        missionariesNotMoving.Add(transferData[5][index]);
+                        missionariesNotMovingAreas.Add(areas);
+                    }
                 }
-                else
-                    missionariesNotMoving.Add(transferData[5][index]);
             }
-            // TODO: get rid of office senior couples, write to excel spreadsheet instead of .txt
+            // TODO: get rid of office senior couples
 
-            WriteToFile("--GOLDENS--", newMissionaries, newMissionaryAreas);
-            WriteToFile("--MOVING AREAS--", missionariesMoving, missionariesMovingAreas);
-            WriteToFile("--STAYING IN AREA--", missionariesNotMoving);
-
+            WriteToFile("Goldens", newMissionaries, newMissionaryAreas);
+            WriteToFile("Moving Areas", missionariesMoving, missionariesMovingAreas);
+            WriteToFile("Staying in Area", missionariesNotMoving, missionariesNotMovingAreas);
+            Workbook.SaveAs(path);
+            Workbook = new(); // prevents errors
 
             return $"Successfully generated logistics at: {path}";
         }
