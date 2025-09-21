@@ -70,7 +70,16 @@ namespace ASMOrganization.Forms
             if (transferFile == "")
                 resultGenerateLogisticsLabel.Text = "No transfer data!";
             else // update data before generating (to prevent errors)
-                resultGenerateLogisticsLabel.Text = NonForms.Algorithms.FigureOutLogistics(ReadTransferData(transferFile), filePath);
+            {
+                try
+                {
+                    resultGenerateLogisticsLabel.Text = NonForms.Algorithms.FigureOutLogistics(ReadTransferData(transferFile), filePath);
+                }
+                catch
+                {
+                    resultGenerateLogisticsLabel.Text = "Error while generating! Did you select the correct file?";
+                }
+            }
         }
 
         private void ChangeFilePath(object sender, EventArgs e)

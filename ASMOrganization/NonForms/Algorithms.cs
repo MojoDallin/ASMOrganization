@@ -117,8 +117,7 @@ namespace ASMOrganization.NonForms
                 return "No file path has currently been set!";
             DateTime now = DateTime.Now;
             path = filePath + $"\\Logistics_{now.Day}-{now.Month}-{now.Year}.xlsx";
-            if(File.Exists(path))
-                File.Delete(path); // delete file if already exists to avoid double data
+            
 
             List<string> newMissionaries = [];
             List<List<string>> newMissionaryAreas = [];
@@ -161,6 +160,8 @@ namespace ASMOrganization.NonForms
             WriteToFile("Goldens", newMissionaries, newMissionaryAreas);
             WriteToFile("Moving Areas", missionariesMoving, missionariesMovingAreas);
             WriteToFile("Staying in Area", missionariesNotMoving, missionariesNotMovingAreas);
+            if (File.Exists(path))
+                File.Delete(path); // delete file if already exists to avoid double data
             Workbook.SaveAs(path);
             Workbook = new(); // prevents errors
 
