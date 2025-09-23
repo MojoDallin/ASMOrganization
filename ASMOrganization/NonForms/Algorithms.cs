@@ -141,7 +141,7 @@ namespace ASMOrganization.NonForms
                 }
                 else if (!transferData[2][index].Contains("Sr", compare) &&
                     !transferData[2][index].Contains("Service", compare) &&
-                    !transferData[2][index].Contains("Office", compare)) // exclude senior angels, service missionaries, office (sorry)
+                    !transferData[1][index].Contains("Office", compare)) // exclude senior angels, service missionaries, office (sorry)
                 {
                     if (!string.IsNullOrEmpty(transferData[7][index])) // moving areas
                     {

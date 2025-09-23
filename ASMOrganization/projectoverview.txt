@@ -1,18 +1,19 @@
 Written by Elder Dallin Schmidt for the Australia Sydney Mission
-Updated 04/09/2025
+Updated 21/09/2025
 
 If you're reading this, I assume you're a programmer like I am.
 So anyways, here's an overview:
 
 Homepage -> Logistics Manager
-			-> Import Current Transfer Board -> Lets you import a board from an Excel spreadsheet (.xlsx) file for the current transfer.
-			-> Import Next Transfer Board -> Lets you import a board from an Excel spreadsheet (.xlsx) file for the next transfer.
-			-> Generate Logistics -> Generates a text file containing which missionaries are in the same area, in the same zone, moving zones, and new missionaries.
-			-> Change File Path -> Allows you to set the destination of said text file.
+			-> Import Transfer Board -> Lets you import a board from an Excel spreadsheet (.xlsx) file for the next transfer.
+			-> Generate Logistics -> Generates an Excel spreadsheet (.xlsx) file containing which missionaries are in the same area, in the same zone, moving zones, and new missionaries.
+			-> Change File Path -> Allows you to set the destination of said Excel spreadsheet file.
 		 -> Housing Data
 			-> New House -> Add a new house to the housing data.
-						 -> Takes a name, ID, X coordinate, Y coordinate, and missionary names.
+						 -> Takes a name, ID, X coordinate, Y coordinate, missionary names, and teaching areas.
+			-> Search -> Lets you search for a house based on name, missionaries, ID, or zone.
 			-> House Buttons -> View information about each house.
+		-> Configuration -> Lets you change a lot of things pertaining to the logic of logistics.
 
 You should know how to compile, but unless you dont:
 (this assumes you are using Visual Studio)
