@@ -16,10 +16,10 @@ Homepage -> Logistics Manager
 		-> Configuration -> Lets you change a lot of things pertaining to the logic of logistics.
 
 You should know how to compile, but unless you dont:
-(this assumes you are using Visual Studio)
-At the top of the screen, there should be two dropdown menus with text Debug and Any CPU.
-Change Debug to Release, and build. Easy. Be sure to change back to Debug once done.
-The .exe should be located at: C:\Users\ChurchSupport\Documents\ASMOrganization\ASMOrganization\bin\Release
+Open a new terminal (View -> Terminal), and then type in:
+dotnet publish -r win-x64 -c Release /p:PublishSingleFile=true /p:IncludeAllContentForSelfExtract=true
+This will compile the program into a single executable. It will then be found at:
+C:\Users\ChurchSupport\Documents\ASMOrganization\ASMOrganization\bin\Release\net8.0-windows\win-x64\publish
 
 Feel free to change the code around. It is saved to GitHub so unless you're overwriting it (WHICH YOU SHOULDNT BE), you're safe to play with it.
 
