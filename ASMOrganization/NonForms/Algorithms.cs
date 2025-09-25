@@ -62,7 +62,7 @@ namespace ASMOrganization.NonForms
 
             return transportData;
         }
-        private static void WriteToFile(string header, List<string> data, List<List<string>>? optionalData = null)
+        private static void WriteToFile(string header, List<string> data, List<bool> arrIsGolden, List<List<string>>? optionalData = null)
         {
             List<House>? housingData = null;
             if(optionalData is not null)
@@ -91,17 +91,11 @@ namespace ASMOrganization.NonForms
                 {
                     for (int optIndex = 0; optIndex < optionalData[index].Count; optIndex++)
                         toWrite[optIndex + 1] = optionalData[index][optIndex];
-                    if (!header.Contains("Golden")) // no transport method for new missionaries (always car)
-                    {
-                        string[] method = TransportMethod(data[index], housingData, [.. optionalData[index]]);
-                        toWrite[4] = method[0];
-                        toWrite[5] = method[1];
-                    }
-                    else
-                    {
-                        toWrite[4] = "Car";
-                        toWrite[5] = "Yes";
-                    }
+                    string[] method = TransportMethod(data[index], housingData, [.. optionalData[index]]);
+                    toWrite[4] = method[0];
+                    toWrite[5] = method[1];
+                    if (arrIsGolden[index])
+                        sheet.Cell(index + 2, 1).Style.Fill.BackgroundColor = XLColor.Yellow; // golden bg for goldens
                     for(int col = 0; col < toWrite.Length; col++)
                     {
                         sheet.Cell(index + 2, col + 1).Value = toWrite[col];
@@ -117,12 +111,18 @@ namespace ASMOrganization.NonForms
                 return "No file path has currently been set!";
             DateTime now = DateTime.Now;
             path = filePath + $"\\Logistics_{now.Day}-{now.Month}-{now.Year}.xlsx";
-            
 
-            List<string> newMissionaries = [];
-            List<List<string>> newMissionaryAreas = [];
+            bool isGolden(int index) // convenience
+            {
+                if (transferData[12][index].Contains("(TR)") || transferData[12][index].Contains("(DT)"))
+                    return true;
+                return false;
+            }
+
+            List<bool> missionariesMovingAreGolden = [];
             List<string> missionariesMoving = [];
             List<List<string>> missionariesMovingAreas = [];
+            List<bool> missionariesNotMovingAreGolden = [];
             List<string> missionariesNotMoving = [];
             List<List<string>> missionariesNotMovingAreas = [];
 
@@ -134,12 +134,7 @@ namespace ASMOrganization.NonForms
             for (int index = 0; index < transferData[0].Count; index++)
             {
                 List<string> areas = [transferData[0][index], transferData[1][index], transferData[2][index]];
-                if (transferData[6][index].Contains("TR") || transferData[6][index].Contains("DT")) // trainer? 
-                {
-                    newMissionaries.Add(transferData[12][index]);
-                    newMissionaryAreas.Add(areas);
-                }
-                else if (!transferData[2][index].Contains("Sr", compare) &&
+                if (!transferData[2][index].Contains("Sr", compare) &&
                     !transferData[2][index].Contains("Service", compare) &&
                     !transferData[1][index].Contains("Office", compare)) // exclude senior angels, service missionaries, office (sorry)
                 {
@@ -147,19 +142,19 @@ namespace ASMOrganization.NonForms
                     {
                         missionariesMoving.Add(transferData[5][index]);
                         missionariesMovingAreas.Add(areas);
+                        missionariesMovingAreGolden.Add(isGolden(index));
                     }
-                    else if (!transferData[12][index].Contains("TR") && !transferData[12][index].Contains("DT")) // dont write goldens to staying in area
+                    else // not moving areas
                     {
                         missionariesNotMoving.Add(transferData[5][index]);
                         missionariesNotMovingAreas.Add(areas);
+                        missionariesNotMovingAreGolden.Add(isGolden(index));
                     }
                 }
             }
-            // TODO: get rid of office senior couples
 
-            WriteToFile("Goldens", newMissionaries, newMissionaryAreas);
-            WriteToFile("Moving Areas", missionariesMoving, missionariesMovingAreas);
-            WriteToFile("Staying in Area", missionariesNotMoving, missionariesNotMovingAreas);
+            WriteToFile("Moving Areas", missionariesMoving, missionariesMovingAreGolden, missionariesMovingAreas);
+            WriteToFile("Staying in Area", missionariesNotMoving, missionariesNotMovingAreGolden, missionariesNotMovingAreas);
             if (File.Exists(path))
                 File.Delete(path); // delete file if already exists to avoid double data
             Workbook.SaveAs(path);
