@@ -50,6 +50,7 @@ namespace ASMOrganization.Forms
         {
             houseNameLabel.Text = house.Name;
             houseIdLabel.Text = "ID: " + house.Id.ToString();
+            houseAddressLabel.Text = "Address: " + house.Address;
             houseXLabel.Text = "Latitude: " + house.Coordinates[0].ToString();
             houseYLabel.Text = "Longitude: " + house.Coordinates[1].ToString();
             houseZoneLabel.Text = "Zone: " + house.Zone;

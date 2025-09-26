@@ -38,6 +38,7 @@
             missionaryHolder = new TableLayoutPanel();
             houseTeachingAreaBox = new TextBox();
             houseZoneLabel = new Label();
+            houseAddressLabel = new Label();
             SuspendLayout();
             // 
             // deleteHouseButton
@@ -83,7 +84,7 @@
             houseXLabel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             houseXLabel.BorderStyle = BorderStyle.FixedSingle;
             houseXLabel.Font = new Font("Sitka Banner", 12.2499981F);
-            houseXLabel.Location = new Point(12, 57);
+            houseXLabel.Location = new Point(12, 81);
             houseXLabel.Name = "houseXLabel";
             houseXLabel.Size = new Size(234, 24);
             houseXLabel.TabIndex = 11;
@@ -95,7 +96,7 @@
             houseYLabel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             houseYLabel.BorderStyle = BorderStyle.FixedSingle;
             houseYLabel.Font = new Font("Sitka Banner", 12.2499981F);
-            houseYLabel.Location = new Point(12, 81);
+            houseYLabel.Location = new Point(12, 105);
             houseYLabel.Name = "houseYLabel";
             houseYLabel.Size = new Size(234, 24);
             houseYLabel.TabIndex = 12;
@@ -123,13 +124,13 @@
             missionaryHolder.ColumnCount = 1;
             missionaryHolder.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50.854702F));
             missionaryHolder.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 49.145298F));
-            missionaryHolder.Location = new Point(12, 162);
+            missionaryHolder.Location = new Point(12, 186);
             missionaryHolder.Name = "missionaryHolder";
             missionaryHolder.RowCount = 3;
             missionaryHolder.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             missionaryHolder.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             missionaryHolder.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            missionaryHolder.Size = new Size(234, 191);
+            missionaryHolder.Size = new Size(234, 167);
             missionaryHolder.TabIndex = 4;
             // 
             // houseTeachingAreaBox
@@ -138,9 +139,9 @@
             houseTeachingAreaBox.BackColor = SystemColors.Control;
             houseTeachingAreaBox.Font = new Font("Sitka Banner", 9.749999F);
             houseTeachingAreaBox.ForeColor = SystemColors.ControlText;
-            houseTeachingAreaBox.Location = new Point(12, 132);
+            houseTeachingAreaBox.Location = new Point(12, 156);
             houseTeachingAreaBox.Name = "houseTeachingAreaBox";
-            houseTeachingAreaBox.PlaceholderText = "Teaching Area";
+            houseTeachingAreaBox.PlaceholderText = "Teaching Areas";
             houseTeachingAreaBox.Size = new Size(234, 24);
             houseTeachingAreaBox.TabIndex = 1;
             houseTeachingAreaBox.TextAlign = HorizontalAlignment.Center;
@@ -150,12 +151,24 @@
             houseZoneLabel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             houseZoneLabel.BorderStyle = BorderStyle.FixedSingle;
             houseZoneLabel.Font = new Font("Sitka Banner", 12.2499981F);
-            houseZoneLabel.Location = new Point(12, 105);
+            houseZoneLabel.Location = new Point(12, 129);
             houseZoneLabel.Name = "houseZoneLabel";
             houseZoneLabel.Size = new Size(234, 24);
             houseZoneLabel.TabIndex = 13;
             houseZoneLabel.Text = "zone";
             houseZoneLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // houseAddressLabel
+            // 
+            houseAddressLabel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            houseAddressLabel.BorderStyle = BorderStyle.FixedSingle;
+            houseAddressLabel.Font = new Font("Sitka Banner", 12.2499981F);
+            houseAddressLabel.Location = new Point(12, 57);
+            houseAddressLabel.Name = "houseAddressLabel";
+            houseAddressLabel.Size = new Size(234, 24);
+            houseAddressLabel.TabIndex = 14;
+            houseAddressLabel.Text = "address";
+            houseAddressLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // HouseInformation
             // 
@@ -163,6 +176,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
             ClientSize = new Size(258, 459);
+            Controls.Add(houseAddressLabel);
             Controls.Add(houseZoneLabel);
             Controls.Add(houseTeachingAreaBox);
             Controls.Add(houseYLabel);
@@ -190,5 +204,6 @@
         private TableLayoutPanel missionaryHolder;
         private TextBox houseTeachingAreaBox;
         private Label houseZoneLabel;
+        private Label houseAddressLabel;
     }
 }

@@ -39,6 +39,7 @@
             resultCreateHouseLabel = new Label();
             houseTeachingAreaBox = new TextBox();
             houseZoneBox = new TextBox();
+            houseAddressBox = new TextBox();
             SuspendLayout();
             // 
             // houseNameBox
@@ -73,7 +74,7 @@
             houseXCoordinateBox.BackColor = SystemColors.Control;
             houseXCoordinateBox.Font = new Font("Sitka Banner", 9.749999F);
             houseXCoordinateBox.ForeColor = SystemColors.ControlText;
-            houseXCoordinateBox.Location = new Point(12, 70);
+            houseXCoordinateBox.Location = new Point(12, 101);
             houseXCoordinateBox.Name = "houseXCoordinateBox";
             houseXCoordinateBox.PlaceholderText = "Enter House Latitude...";
             houseXCoordinateBox.Size = new Size(234, 24);
@@ -86,7 +87,7 @@
             houseYCoordinateBox.BackColor = SystemColors.Control;
             houseYCoordinateBox.Font = new Font("Sitka Banner", 9.749999F);
             houseYCoordinateBox.ForeColor = SystemColors.ControlText;
-            houseYCoordinateBox.Location = new Point(12, 99);
+            houseYCoordinateBox.Location = new Point(12, 130);
             houseYCoordinateBox.Name = "houseYCoordinateBox";
             houseYCoordinateBox.PlaceholderText = "Enter House Longitude...";
             houseYCoordinateBox.Size = new Size(234, 24);
@@ -100,13 +101,13 @@
             missionaryHolder.ColumnCount = 1;
             missionaryHolder.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50.854702F));
             missionaryHolder.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 49.145298F));
-            missionaryHolder.Location = new Point(12, 189);
+            missionaryHolder.Location = new Point(12, 220);
             missionaryHolder.Name = "missionaryHolder";
             missionaryHolder.RowCount = 3;
             missionaryHolder.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             missionaryHolder.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             missionaryHolder.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            missionaryHolder.Size = new Size(234, 123);
+            missionaryHolder.Size = new Size(234, 92);
             missionaryHolder.TabIndex = 4;
             // 
             // createHouseButton
@@ -154,7 +155,7 @@
             houseTeachingAreaBox.BackColor = SystemColors.Control;
             houseTeachingAreaBox.Font = new Font("Sitka Banner", 9.749999F);
             houseTeachingAreaBox.ForeColor = SystemColors.ControlText;
-            houseTeachingAreaBox.Location = new Point(12, 159);
+            houseTeachingAreaBox.Location = new Point(12, 190);
             houseTeachingAreaBox.Name = "houseTeachingAreaBox";
             houseTeachingAreaBox.PlaceholderText = "Enter House Teaching Area...";
             houseTeachingAreaBox.Size = new Size(234, 24);
@@ -167,12 +168,25 @@
             houseZoneBox.BackColor = SystemColors.Control;
             houseZoneBox.Font = new Font("Sitka Banner", 9.749999F);
             houseZoneBox.ForeColor = SystemColors.ControlText;
-            houseZoneBox.Location = new Point(12, 129);
+            houseZoneBox.Location = new Point(12, 160);
             houseZoneBox.Name = "houseZoneBox";
             houseZoneBox.PlaceholderText = "Enter House Zone...";
             houseZoneBox.Size = new Size(234, 24);
             houseZoneBox.TabIndex = 9;
             houseZoneBox.TextAlign = HorizontalAlignment.Center;
+            // 
+            // houseAddressBox
+            // 
+            houseAddressBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            houseAddressBox.BackColor = SystemColors.Control;
+            houseAddressBox.Font = new Font("Sitka Banner", 9.749999F);
+            houseAddressBox.ForeColor = SystemColors.ControlText;
+            houseAddressBox.Location = new Point(12, 71);
+            houseAddressBox.Name = "houseAddressBox";
+            houseAddressBox.PlaceholderText = "Enter House Address...";
+            houseAddressBox.Size = new Size(234, 24);
+            houseAddressBox.TabIndex = 10;
+            houseAddressBox.TextAlign = HorizontalAlignment.Center;
             // 
             // NewHouse
             // 
@@ -180,6 +194,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
             ClientSize = new Size(258, 459);
+            Controls.Add(houseAddressBox);
             Controls.Add(houseZoneBox);
             Controls.Add(houseTeachingAreaBox);
             Controls.Add(resultCreateHouseLabel);
@@ -209,5 +224,6 @@
         private Label resultCreateHouseLabel;
         private TextBox houseTeachingAreaBox;
         private TextBox houseZoneBox;
+        private TextBox houseAddressBox;
     }
 }

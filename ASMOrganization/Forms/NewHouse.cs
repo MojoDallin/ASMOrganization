@@ -50,6 +50,8 @@ namespace ASMOrganization.Forms
                 resultCreateHouseLabel.Text = "No name has been entered!";
             else if (string.IsNullOrEmpty(houseIDBox.Text))
                 resultCreateHouseLabel.Text = "No ID has been entered!";
+            else if (string.IsNullOrEmpty(houseAddressBox.Text))
+                resultCreateHouseLabel.Text = "No address has been entered!";
             else if (string.IsNullOrEmpty(houseXCoordinateBox.Text))
                 resultCreateHouseLabel.Text = "No X coordinate has been entered!";
             else if (string.IsNullOrEmpty(houseYCoordinateBox.Text))
@@ -66,6 +68,7 @@ namespace ASMOrganization.Forms
                     {
                         Name = houseNameBox.Text,
                         Id = ParseID(houseIDBox.Text),
+                        Address = houseAddressBox.Text,
                         Coordinates = [Double.Parse(houseXCoordinateBox.Text), Double.Parse(houseYCoordinateBox.Text)],
                         Zone = houseZoneBox.Text,
                         TeachingAreas = House.ParseTeachingAreas(houseTeachingAreaBox.Text)

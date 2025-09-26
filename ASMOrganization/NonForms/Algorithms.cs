@@ -97,9 +97,7 @@ namespace ASMOrganization.NonForms
                     if (arrIsGolden[index])
                         sheet.Cell(index + 2, 1).Style.Fill.BackgroundColor = XLColor.Yellow; // golden bg for goldens
                     for(int col = 0; col < toWrite.Length; col++)
-                    {
                         sheet.Cell(index + 2, col + 1).Value = toWrite[col];
-                    }
                 }
             }
 
