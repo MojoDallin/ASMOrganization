@@ -16,8 +16,8 @@ namespace ASMOrganization.Forms
                 currentFilePathLabel.Text = $"Current File Path: {filePath}";
             }
         }
-        private List<List<string>> curTransferData = [];
-        private List<List<string>> newTransferData = [];
+        private readonly List<List<string>> curTransferData = [];
+        private readonly List<List<string>> newTransferData = [];
 
         private static OpenFileDialog ImportExcelFile() // function so i dont type this code twice
         {
@@ -75,9 +75,9 @@ namespace ASMOrganization.Forms
                 {
                     resultGenerateLogisticsLabel.Text = NonForms.Algorithms.FigureOutLogistics(ReadTransferData(transferFile), filePath);
                 }
-                catch
+                catch (Exception ex)
                 {
-                    resultGenerateLogisticsLabel.Text = "Error while generating! Did you select the correct file?";
+                    resultGenerateLogisticsLabel.Text = $"Error while generating! Did you select the correct file?\nFull Error: {ex.Message}";
                 }
             }
         }
