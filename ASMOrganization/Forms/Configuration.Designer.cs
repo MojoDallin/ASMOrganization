@@ -38,6 +38,10 @@
             overriddenZonesBox = new TextBox();
             overriddenZonesDescription = new Label();
             overridenZonesTitle = new Label();
+            meetingLocationTitle = new Label();
+            meetingLocationDescription = new Label();
+            missionOffice = new RadioButton();
+            baulkhamHillsChapel = new RadioButton();
             SuspendLayout();
             // 
             // distanceThresholdTitle
@@ -148,12 +152,66 @@
             overridenZonesTitle.Text = "Overridden Zones";
             overridenZonesTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // meetingLocationTitle
+            // 
+            meetingLocationTitle.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            meetingLocationTitle.Font = new Font("Sitka Banner", 20.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            meetingLocationTitle.Location = new Point(12, 394);
+            meetingLocationTitle.Name = "meetingLocationTitle";
+            meetingLocationTitle.Size = new Size(1166, 50);
+            meetingLocationTitle.TabIndex = 12;
+            meetingLocationTitle.Text = "Meeting Location";
+            meetingLocationTitle.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // meetingLocationDescription
+            // 
+            meetingLocationDescription.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            meetingLocationDescription.Font = new Font("Sitka Banner", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            meetingLocationDescription.Location = new Point(12, 444);
+            meetingLocationDescription.Name = "meetingLocationDescription";
+            meetingLocationDescription.Size = new Size(1166, 24);
+            meetingLocationDescription.TabIndex = 13;
+            meetingLocationDescription.Text = "Where the missionaries will meet for transfers. The selected option is the filled-in circle.";
+            meetingLocationDescription.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // missionOffice
+            // 
+            missionOffice.Anchor = AnchorStyles.Top;
+            missionOffice.AutoSize = true;
+            missionOffice.Checked = true;
+            missionOffice.Font = new Font("Sitka Banner", 9.75F);
+            missionOffice.Location = new Point(352, 471);
+            missionOffice.Name = "missionOffice";
+            missionOffice.Size = new Size(225, 23);
+            missionOffice.TabIndex = 14;
+            missionOffice.TabStop = true;
+            missionOffice.Text = "Mission Office (756 Pennant Hills Road)";
+            missionOffice.TextAlign = ContentAlignment.MiddleCenter;
+            missionOffice.UseVisualStyleBackColor = true;
+            // 
+            // baulkhamHillsChapel
+            // 
+            baulkhamHillsChapel.Anchor = AnchorStyles.Top;
+            baulkhamHillsChapel.AutoSize = true;
+            baulkhamHillsChapel.Font = new Font("Sitka Banner", 9.75F);
+            baulkhamHillsChapel.Location = new Point(609, 471);
+            baulkhamHillsChapel.Name = "baulkhamHillsChapel";
+            baulkhamHillsChapel.Size = new Size(236, 23);
+            baulkhamHillsChapel.TabIndex = 15;
+            baulkhamHillsChapel.Text = "Baulkham Hills Chapel (77 Watkins Road)";
+            baulkhamHillsChapel.TextAlign = ContentAlignment.MiddleCenter;
+            baulkhamHillsChapel.UseVisualStyleBackColor = true;
+            // 
             // Configuration
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
             ClientSize = new Size(1190, 650);
+            Controls.Add(baulkhamHillsChapel);
+            Controls.Add(missionOffice);
+            Controls.Add(meetingLocationDescription);
+            Controls.Add(meetingLocationTitle);
             Controls.Add(overriddenZonesBox);
             Controls.Add(overriddenZonesDescription);
             Controls.Add(overridenZonesTitle);
@@ -184,5 +242,9 @@
         private TextBox overriddenZonesBox;
         private Label overriddenZonesDescription;
         private Label overridenZonesTitle;
+        private Label meetingLocationTitle;
+        private Label meetingLocationDescription;
+        private RadioButton missionOffice;
+        private RadioButton baulkhamHillsChapel;
     }
 }

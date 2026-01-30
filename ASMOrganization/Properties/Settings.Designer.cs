@@ -70,5 +70,17 @@ namespace ASMOrganization.Properties {
                 this["OverriddenZones"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool GoToBHChapel {
+            get {
+                return ((bool)(this["GoToBHChapel"]));
+            }
+            set {
+                this["GoToBHChapel"] = value;
+            }
+        }
     }
 }

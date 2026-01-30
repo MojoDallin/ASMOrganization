@@ -13,8 +13,8 @@ namespace ASMOrganization.NonForms
             // endArea[0] == zone, endArea[1] == area; [0] is area if staying in zone
             // TRANSPORT RULES
             //Any distance less than 30km will use public transport
-            //If using a car AND the distance with office is less than the direct distance + half, go to office
-            //Otherwise, no office
+            //If using a car AND the distance with office is less than the direct distance + half, go to meeting location
+            //Otherwise, no ML
 
             if (housingData is null)
                 return ["", ""]; // if in the same area or released, doesnt need any data
@@ -31,13 +31,13 @@ namespace ASMOrganization.NonForms
                     missionaryHouse = house;
                 if (house.TeachingAreas.Any(area => area.Contains(endArea[2], compare))) // find new home
                     endHouse = house;
-                else if (house.Id == 0) // never null
+                else if ((house.Id == 0 && TransportNumbers.GoToOffice()) || (house.Id == 1 && !TransportNumbers.GoToOffice())) // never null
                     office = house;
                 if (missionaryHouse is not null && endHouse is not null && office is not null) // end early once all are found
                     break;
             }
             if (office is null)
-                return ["Office Not Found", "Office Not Found"];
+                return ["Meeting Location Not Found", "Meeting Location Not Found"];
             else if (missionaryHouse is null)
                 return ["Current House Not Found", "Current House Not Found"];
             else if (endHouse is null)

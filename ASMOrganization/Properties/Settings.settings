@@ -14,5 +14,8 @@
     <Setting Name="OverriddenZones" Type="System.String" Scope="User">
       <Value Profile="(Default)">Nephi, Teancum, Enos</Value>
     </Setting>
+    <Setting Name="GoToBHChapel" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
