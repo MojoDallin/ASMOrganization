@@ -33,9 +33,7 @@
             houseIDBox = new TextBox();
             houseXCoordinateBox = new TextBox();
             houseYCoordinateBox = new TextBox();
-            missionaryHolder = new TableLayoutPanel();
             createHouseButton = new Button();
-            addMissionaryButton = new Button();
             resultCreateHouseLabel = new Label();
             houseTeachingAreaBox = new TextBox();
             houseZoneBox = new TextBox();
@@ -94,22 +92,6 @@
             houseYCoordinateBox.TabIndex = 3;
             houseYCoordinateBox.TextAlign = HorizontalAlignment.Center;
             // 
-            // missionaryHolder
-            // 
-            missionaryHolder.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            missionaryHolder.AutoScroll = true;
-            missionaryHolder.ColumnCount = 1;
-            missionaryHolder.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50.854702F));
-            missionaryHolder.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 49.145298F));
-            missionaryHolder.Location = new Point(12, 220);
-            missionaryHolder.Name = "missionaryHolder";
-            missionaryHolder.RowCount = 3;
-            missionaryHolder.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            missionaryHolder.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            missionaryHolder.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            missionaryHolder.Size = new Size(234, 92);
-            missionaryHolder.TabIndex = 4;
-            // 
             // createHouseButton
             // 
             createHouseButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -123,20 +105,6 @@
             createHouseButton.Text = "Create House";
             createHouseButton.UseVisualStyleBackColor = false;
             createHouseButton.Click += CreateHouse;
-            // 
-            // addMissionaryButton
-            // 
-            addMissionaryButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            addMissionaryButton.BackColor = Color.SlateGray;
-            addMissionaryButton.Font = new Font("Sitka Small", 15.7499981F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            addMissionaryButton.ForeColor = SystemColors.Control;
-            addMissionaryButton.Location = new Point(12, 318);
-            addMissionaryButton.Name = "addMissionaryButton";
-            addMissionaryButton.Size = new Size(234, 41);
-            addMissionaryButton.TabIndex = 5;
-            addMissionaryButton.Text = "Add Missionary";
-            addMissionaryButton.UseVisualStyleBackColor = false;
-            addMissionaryButton.Click += AddMissionary;
             // 
             // resultCreateHouseLabel
             // 
@@ -198,9 +166,7 @@
             Controls.Add(houseZoneBox);
             Controls.Add(houseTeachingAreaBox);
             Controls.Add(resultCreateHouseLabel);
-            Controls.Add(addMissionaryButton);
             Controls.Add(createHouseButton);
-            Controls.Add(missionaryHolder);
             Controls.Add(houseYCoordinateBox);
             Controls.Add(houseXCoordinateBox);
             Controls.Add(houseIDBox);
@@ -218,9 +184,7 @@
         private TextBox houseIDBox;
         private TextBox houseXCoordinateBox;
         private TextBox houseYCoordinateBox;
-        private TableLayoutPanel missionaryHolder;
         private Button createHouseButton;
-        private Button addMissionaryButton;
         private Label resultCreateHouseLabel;
         private TextBox houseTeachingAreaBox;
         private TextBox houseZoneBox;

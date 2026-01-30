@@ -10,21 +10,7 @@ namespace ASMOrganization.Forms
         public NewHouse(BindingList<House> h)
         {
             InitializeComponent();
-            missionaryHolder.RowStyles.Clear();
             houses = h;
-        }
-
-        private void AddMissionary(object sender, EventArgs e)
-        {
-            TextBox newMissionary = new()
-            {
-                Size = houseNameBox.Size,
-                Font = houseNameBox.Font,
-                PlaceholderText = "Enter Missionary...",
-                TextAlign = HorizontalAlignment.Center,
-                Anchor = houseNameBox.Anchor,
-            };
-            missionaryHolder.Controls.Add(newMissionary);
         }
         private static int ParseID(string id)
         {
@@ -75,8 +61,6 @@ namespace ASMOrganization.Forms
                     };
                     if (!CheckDuplicateHouseID(house))
                     {
-                        foreach (TextBox box in missionaryHolder.Controls)
-                            house.Missionaries.Add(box.Text);
                         houses.Add(house);
                         resultCreateHouseLabel.Text = "Successfully created house!";
                     }

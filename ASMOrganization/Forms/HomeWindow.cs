@@ -1,4 +1,8 @@
 using ASMOrganization.Forms;
+using ASMOrganization.NonForms;
+using System.ComponentModel;
+using System.Text.Json;
+using static System.Windows.Forms.Design.AxImporter;
 
 namespace ASMOrganization
 {
@@ -40,6 +44,21 @@ namespace ASMOrganization
         {
             Configuration config = new();
             config.Show();
+        }
+
+        private void SaveMissionaryData(object sender, FormClosingEventArgs e)
+        {
+            string json2 = JsonSerializer.Serialize(TransportNumbers.allMissionaries, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText("MissionaryData.json", json2);
+        }
+
+        private void LoadMissionaryData(object sender, EventArgs e)
+        {
+            if (File.Exists("MissionaryData.json"))
+            {
+                string fileJson = File.ReadAllText("MissionaryData.json");
+                TransportNumbers.allMissionaries = JsonSerializer.Deserialize<BindingList<Missionary>>(fileJson, new JsonSerializerOptions { WriteIndented = true })!;
+            }
         }
     }
 }

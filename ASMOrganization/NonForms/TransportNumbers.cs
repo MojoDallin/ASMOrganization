@@ -1,4 +1,5 @@
 ﻿using ASMOrganization.Properties;
+using System.ComponentModel;
 namespace ASMOrganization.NonForms
 {
     public static class TransportNumbers // organization purposes
@@ -6,6 +7,7 @@ namespace ASMOrganization.NonForms
         private static double DistanceThreshold = 1.5; // default values
         private static int MaxDistance = 30;
         private static string OverriddenZones = "Nephi, Teancum, Enos";
+        public static BindingList<Missionary> allMissionaries = []; // convenience
         public static void Save(double newThreshold, int newMax, string newOverride)
         {
             Settings.Default.DistanceThreshold = newThreshold;

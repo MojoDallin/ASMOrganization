@@ -108,6 +108,8 @@
             Name = "HomeWindow";
             Text = "Australia Sydney Mission Organization";
             WindowState = FormWindowState.Maximized;
+            FormClosing += SaveMissionaryData;
+            Load += LoadMissionaryData;
             ResumeLayout(false);
             PerformLayout();
         }

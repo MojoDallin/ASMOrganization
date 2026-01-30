@@ -1,7 +1,5 @@
 ﻿using System.Text.Json;
 using ASMOrganization.NonForms;
-using System.IO;
-using System.Diagnostics;
 using System.ComponentModel;
 namespace ASMOrganization.Forms
 {
@@ -129,7 +127,7 @@ namespace ASMOrganization.Forms
                     House house = houses.ElementAt(holder.Controls.IndexOf(button));
                     if (house.Name.Contains(text, compare) ||
                      house.Id.ToString().Contains(text, compare) ||
-                     house.Missionaries.Any(miss => miss.Contains(text, compare)) ||
+                     //house.Missionaries.Any(miss => miss.Name.Contains(text, compare)) ||
                      house.TeachingAreas.Any(area => area.Contains(text, compare)) ||
                      house.Zone.Contains(text, compare))
                         button.Visible = true;
@@ -137,6 +135,12 @@ namespace ASMOrganization.Forms
                         button.Visible = false;
                 }
             }
+        }
+
+        private void AddMissionary(object sender, EventArgs e)
+        {
+            EnterMissionaryName newMissionary = new();
+            newMissionary.Show();
         }
     }
 }

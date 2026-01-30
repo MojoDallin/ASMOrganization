@@ -11,7 +11,7 @@ namespace ASMOrganization.Forms
         private readonly BindingList<House> houses = [];
         private readonly House house;
         private readonly List<string> curTeachingAreas;
-        private readonly List<string> curMissionaries;
+        private readonly BindingList<Missionary> flatMissionaries = [];
         public HouseInformation(BindingList<House> h, House h2)
         {
             InitializeComponent();
@@ -19,7 +19,6 @@ namespace ASMOrganization.Forms
             houses = h;
             house = h2;
             curTeachingAreas = house.TeachingAreas;
-            curMissionaries = [.. house.Missionaries]; // works apparently
             LoadData();
             missionaryHolder.CellBorderStyle = TableLayoutPanelCellBorderStyle.None;
             missionaryHolder.Paint += (s, e) =>
@@ -30,20 +29,20 @@ namespace ASMOrganization.Forms
             };
         }
 
-        private void CreateMissionaryButton(string missionary)
+        private void CreateMissionaryButton(Missionary missionary)
         {
             Button button = new()
             {
                 Font = houseNameLabel.Font,
-                Text = missionary,
+                Text = missionary.Name,
                 Anchor = houseNameLabel.Anchor,
                 Height = (int)(houseNameLabel.Height * 1.5) // good height so text doesnt get cut off
             };
             button.Click += (s, e) =>
             {
-                missionaryHolder.Controls.Remove(button);
-                house.Missionaries.Remove(missionary);
+                // redo this
             };
+            flatMissionaries.Add(missionary);
             missionaryHolder.Controls.Add(button);
         }
         private void LoadData()
@@ -55,8 +54,9 @@ namespace ASMOrganization.Forms
             houseYLabel.Text = "Longitude: " + house.Coordinates[1].ToString();
             houseZoneLabel.Text = "Zone: " + house.Zone;
             houseTeachingAreaBox.Text = house.ReverseParseTeachingAreas();
-            foreach (string missionary in house.Missionaries)
-                CreateMissionaryButton(missionary);
+            foreach (Missionary missionary in TransportNumbers.allMissionaries)
+                if(missionary.FlatID.Equals(house.Id))
+                    CreateMissionaryButton(missionary);
         }
 
         private void DeleteHouse(object sender, EventArgs e)
@@ -75,29 +75,30 @@ namespace ASMOrganization.Forms
 
         private void AddMissionary(object sender, EventArgs e)
         {
-            BindingList<string> boundList = new(house.Missionaries); // binding so we can update it here
-            EnterMissionaryName enterMissionaryName = new(boundList);
+            EnterMissionaryName enterMissionaryName = new();
             enterMissionaryName.Show();
-            boundList.ListChanged += (s, e) =>
-                CreateMissionaryButton(house.Missionaries[e.NewIndex]);
+            flatMissionaries.ListChanged += (s, e) =>
+                CreateMissionaryButton(flatMissionaries[e.NewIndex]);
         }
 
         private void Close(object sender, FormClosingEventArgs e)
         {
             house.TeachingAreas = House.ParseTeachingAreas(houseTeachingAreaBox.Text);
-            if (!curTeachingAreas.SequenceEqual(house.TeachingAreas) || !curMissionaries.SequenceEqual(house.Missionaries)) // only save if either changed
+            if (!curTeachingAreas.SequenceEqual(house.TeachingAreas)) // only save if changed
             {
                 string json = JsonSerializer.Serialize(houses, new JsonSerializerOptions { WriteIndented = true });
                 File.WriteAllText("HousingData.json", json); // file WILL exist regardless so dont need to check
             }
+            //TODO: improve this later
+            
         }
     }
 
     public partial class EnterMissionaryName : Form // this does not need to be its own file(s)
     {
-        public EnterMissionaryName(BindingList<string> missionaryList)
+        public EnterMissionaryName()
         {
-            Size = new(250, 140);
+            Size = new(250, 225);
             BackColor = System.Drawing.Color.LightGray;
             Text = "Add Missionary";
 
@@ -107,7 +108,31 @@ namespace ASMOrganization.Forms
                 Font = new("Sitka Banner", 9.749999f),
                 Size = new(225, 60),
                 Location = new(5, 9),
-                TextAlign = HorizontalAlignment.Center,
+                TextAlign = HorizontalAlignment.Center
+            };
+            TextBox enterId = new()
+            {
+                PlaceholderText = "Enter Missionary ID...",
+                Font = new("Sitka Banner", 9.749999f),
+                Size = new(225, 60),
+                Location = new(5, 39),
+                TextAlign = HorizontalAlignment.Center
+            };
+            TextBox enterFlatID = new()
+            {
+                PlaceholderText = "Enter Flat ID...",
+                Font = new("Sitka Banner", 9.749999f),
+                Size = new(225, 60),
+                Location = new(5, 69),
+                TextAlign = HorizontalAlignment.Center
+            };
+            TextBox enterAreaName = new()
+            {
+                PlaceholderText = "Enter Area Name...",
+                Font = new("Sitka Banner", 9.749999f),
+                Size = new(225, 60),
+                Location = new(5, 99),
+                TextAlign = HorizontalAlignment.Center
             };
 
             Button add = new()
@@ -115,17 +140,28 @@ namespace ASMOrganization.Forms
                 Text = "Add Missionary",
                 Font = new("Sitka Banner", 18.75f, FontStyle.Italic),
                 Size = new(225, 50),
-                Location = new(5, 50),
+                Location = new(5, 129),
                 BackColor = System.Drawing.Color.SlateGray,
                 ForeColor = System.Drawing.Color.White,
             };
             add.Click += (s, e) => {
                 if(!string.IsNullOrEmpty(enterName.Text))
                 {
-                    missionaryList.Add(enterName.Text);
+                    Missionary newMissionary = new()
+                    {
+                        Name = enterName.Text,
+                        ID = int.Parse(enterId.Text),
+                        FlatID = int.Parse(enterFlatID.Text),
+                        Area = enterAreaName.Text,
+                    };
+                    TransportNumbers.allMissionaries.Add(newMissionary);
+                    //missionaryList.Add(newMissionary);
                 }
             };
             Controls.Add(enterName);
+            Controls.Add(enterId);
+            Controls.Add(enterFlatID);
+            Controls.Add(enterAreaName);
             Controls.Add(add);
         }
     }

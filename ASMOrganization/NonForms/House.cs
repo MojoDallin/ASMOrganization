@@ -6,7 +6,7 @@
         public int Id { get; set; } = 0;
         public string Address { get; set; } = "";
         public double[] Coordinates { get; set; } = [0, 0];
-        public List<string> Missionaries { get; set; } = [];
+        //public List<Missionary> Missionaries { get; set; } = [];
         public string Zone { get; set; } = "";
         public List<string> TeachingAreas { get; set; } = [];
 
@@ -32,6 +32,6 @@
             total = total[0..(total.Length - 2)];
             return total;
         }
-        public override int GetHashCode() => HashCode.Combine(Name, Id, Coordinates, Missionaries, Zone, TeachingAreas);
+        public override int GetHashCode() => HashCode.Combine(Name, Id, Coordinates, Zone, TeachingAreas);
     }
 }
