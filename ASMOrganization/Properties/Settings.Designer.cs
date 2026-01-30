@@ -49,7 +49,7 @@ namespace ASMOrganization.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("30000")]
         public int MaxDistance {
             get {
                 return ((int)(this["MaxDistance"]));
