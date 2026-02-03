@@ -29,6 +29,8 @@
             string total = "";
             foreach (string area in TeachingAreas)
                 total += area + ", ";
+            if (total.Length < 1) // error handling
+                return "";
             total = total[0..(total.Length - 2)];
             return total;
         }
