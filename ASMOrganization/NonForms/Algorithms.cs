@@ -125,13 +125,13 @@ namespace ASMOrganization.NonForms
                     string[] split = name.Split(",");
                     name = split[1][1..] + " " + split[0];
                     if (!newFlatAndMissionaryData.TryGetValue(address, out List<string>? value))
-                        newFlatAndMissionaryData.Add(address, [name]);
+                        newFlatAndMissionaryData.Add(address, [name]); // create entry if address doesnt exist
                     else
-                        value.Add(name);
+                        value.Add(name); // otherwise, add to the entry itself
                 }
             }
             //now that we have all the *new* flat data
-            bool[] flatWhitewashes = new bool[newFlatAndMissionaryData.Count]; // keeps in order
+            bool[] flatWhitewashes = new bool[newFlatAndMissionaryData.Count]; // keeps in order, and all values default to False
             int wwIndex = 0;
             foreach(House house in housingData) // house is old
             {
@@ -151,9 +151,9 @@ namespace ASMOrganization.NonForms
             while(!logisticsSorted)
             {
                 while (!flatWhitewashes[start]) // find "first" whitewash
-                    start++;
+                    start++; // increment until first whitewash is located
                 KeyValuePair<string, List<string>> pair = newFlatAndMissionaryData.ElementAt(start);
-                pQueue.Enqueue(pair.Value, priority);
+                pQueue.Enqueue(pair.Value, priority); // set the whitewash to the highest priority at the moment 
                 foreach(string missionary in pair.Value)
                 {
                     bool hasGolden = true;
