@@ -8,6 +8,7 @@ namespace ASMOrganization
         {
             InitializeComponent();
             ScrollLabel();
+            
         }
 
         private void ScrollLabel()

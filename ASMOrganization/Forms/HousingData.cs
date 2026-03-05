@@ -135,6 +135,14 @@ namespace ASMOrganization.Forms
                         button.Visible = true;
                     else
                         button.Visible = false;
+                    //testing purposes below
+                    if (text.Equals("Invalid Coordinates", compare))
+                    {
+                        if (house.Coordinates[0] == 0 && house.Coordinates[1] == 0)
+                            button.Visible = true;
+                        else
+                            button.Visible = false;
+                    }   
                 }
             }
         }
