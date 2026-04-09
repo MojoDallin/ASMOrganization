@@ -12,7 +12,7 @@ namespace ASMOrganization.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.14.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.9.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,12 +26,12 @@ namespace ASMOrganization.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string LogisticsFilePath {
+        public string LogisticsExportFilePath {
             get {
-                return ((string)(this["LogisticsFilePath"]));
+                return ((string)(this["LogisticsExportFilePath"]));
             }
             set {
-                this["LogisticsFilePath"] = value;
+                this["LogisticsExportFilePath"] = value;
             }
         }
         
@@ -80,6 +80,18 @@ namespace ASMOrganization.Properties {
             }
             set {
                 this["GoToBHChapel"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string LogisticsImportFilePath {
+            get {
+                return ((string)(this["LogisticsImportFilePath"]));
+            }
+            set {
+                this["LogisticsImportFilePath"] = value;
             }
         }
     }

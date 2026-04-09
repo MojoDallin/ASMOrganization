@@ -5,27 +5,36 @@ namespace ASMOrganization.Forms
 {
     public partial class LogisticsManager : Form
     {
-        private string filePath = "none";
+        private string exportFilePath = "none";
+        private string importFilePath = "none";
         private string transferFile = "";
         public LogisticsManager()
         {
             InitializeComponent();
-            if (Settings.Default.LogisticsFilePath is not null) // only load data if theres data
+            if (Settings.Default.LogisticsExportFilePath is not null) // only load data if theres data
             {
-                filePath = Settings.Default.LogisticsFilePath;
-                currentFilePathLabel.Text = $"Current File Path: {filePath}";
+                exportFilePath = Settings.Default.LogisticsExportFilePath;
+                currentExportFilePathLabel.Text = $"Current Export File Path: {exportFilePath}";
+            }
+            if (Settings.Default.LogisticsImportFilePath is not null)
+            {
+                importFilePath = Settings.Default.LogisticsImportFilePath;
+                currentImportFilePathLabel.Text = $"Current Import File Path: {importFilePath}";
             }
         }
         private readonly List<List<string>> curTransferData = [];
         private readonly List<List<string>> newTransferData = [];
 
-        private static OpenFileDialog ImportExcelFile() // function so i dont type this code twice
+        private OpenFileDialog ImportExcelFile() // function so i dont type this code twice
         {
+            string inDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments); // if a file path is set, open to it; otherwise just go to MyDocuments by default
+            if (importFilePath != "none")
+                inDir = importFilePath;
             return new OpenFileDialog()
             {
                 Title = "Select an Excel Spreadsheet file...",
                 Filter = "Excel Spreadsheet Files (*.xlsx)|*.xlsx",
-                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+                InitialDirectory = inDir
             };
         }
 
@@ -36,7 +45,7 @@ namespace ASMOrganization.Forms
             {
                 var wks = workbook.Worksheet(1);
                 var range = wks.RangeUsed();
-                if(range is not null)
+                if (range is not null)
                     foreach (var col in range.Columns())
                     {
                         List<string> colData = [];
@@ -73,7 +82,7 @@ namespace ASMOrganization.Forms
             {
                 try
                 {
-                    resultGenerateLogisticsLabel.Text = NonForms.Algorithms.FigureOutLogistics(ReadTransferData(transferFile), filePath);
+                    resultGenerateLogisticsLabel.Text = NonForms.Algorithms.FigureOutLogistics(ReadTransferData(transferFile), exportFilePath);
                 }
                 catch (Exception ex)
                 {
@@ -82,20 +91,27 @@ namespace ASMOrganization.Forms
             }
         }
 
-        private void ChangeFilePath(object sender, EventArgs e)
+        private void ChangeFilePath(ref Label label, ref string path, string setting) // same function for two buttons. optimization!
         {
             using FolderBrowserDialog fbd = new();
-            if (filePath == "none")
+            if (path == "none")
                 fbd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             else
-                fbd.InitialDirectory = filePath;
+                fbd.InitialDirectory = path;
             if (fbd.ShowDialog() == DialogResult.OK)
             {
-                filePath = fbd.SelectedPath;
-                currentFilePathLabel.Text = $"Current File Path: {filePath}";
-                Settings.Default.LogisticsFilePath = filePath;
+                path = fbd.SelectedPath;
+                label.Text = $"Current File Path: {path}";
+                if (setting == "E") // cant pass settings as refs so this is the best way around that afaik
+                    Settings.Default.LogisticsExportFilePath = path;
+                else
+                    Settings.Default.LogisticsImportFilePath = path;
                 Settings.Default.Save();
             }
         }
+
+        private void ImportButtonClick(object sender, EventArgs e) => ChangeFilePath(ref currentImportFilePathLabel, ref importFilePath, "I");
+
+        private void ExportButtonClick(object sender, EventArgs e) => ChangeFilePath(ref currentExportFilePathLabel, ref exportFilePath, "E");
     }
 }

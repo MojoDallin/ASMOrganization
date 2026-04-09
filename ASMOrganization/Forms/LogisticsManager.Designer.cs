@@ -33,8 +33,10 @@
             resultImportLabel = new Label();
             generateLogisticsButton = new Button();
             resultGenerateLogisticsLabel = new Label();
-            changeFilePathButton = new Button();
-            currentFilePathLabel = new Label();
+            changeImportFilePathButton = new Button();
+            currentExportFilePathLabel = new Label();
+            currentImportFilePathLabel = new Label();
+            changeExportFilePathButton = new Button();
             SuspendLayout();
             // 
             // importTransferBoardButton
@@ -91,32 +93,59 @@
             resultGenerateLogisticsLabel.Text = "Output...";
             resultGenerateLogisticsLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // changeFilePathButton
+            // changeImportFilePathButton
             // 
-            changeFilePathButton.Anchor = AnchorStyles.Top;
-            changeFilePathButton.AutoSize = true;
-            changeFilePathButton.BackColor = Color.SlateGray;
-            changeFilePathButton.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            changeFilePathButton.ForeColor = SystemColors.Control;
-            changeFilePathButton.Location = new Point(3, 220);
-            changeFilePathButton.Margin = new Padding(0);
-            changeFilePathButton.Name = "changeFilePathButton";
-            changeFilePathButton.Size = new Size(782, 50);
-            changeFilePathButton.TabIndex = 8;
-            changeFilePathButton.Text = "Change File Path";
-            changeFilePathButton.UseVisualStyleBackColor = false;
-            changeFilePathButton.Click += ChangeFilePath;
+            changeImportFilePathButton.Anchor = AnchorStyles.Top;
+            changeImportFilePathButton.AutoSize = true;
+            changeImportFilePathButton.BackColor = Color.SlateGray;
+            changeImportFilePathButton.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            changeImportFilePathButton.ForeColor = SystemColors.Control;
+            changeImportFilePathButton.Location = new Point(3, 220);
+            changeImportFilePathButton.Margin = new Padding(0);
+            changeImportFilePathButton.Name = "changeImportFilePathButton";
+            changeImportFilePathButton.Size = new Size(386, 50);
+            changeImportFilePathButton.TabIndex = 8;
+            changeImportFilePathButton.Text = "Change Import File Path";
+            changeImportFilePathButton.UseVisualStyleBackColor = false;
+            changeImportFilePathButton.Click += ImportButtonClick;
             // 
-            // currentFilePathLabel
+            // currentExportFilePathLabel
             // 
-            currentFilePathLabel.Anchor = AnchorStyles.Top;
-            currentFilePathLabel.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            currentFilePathLabel.Location = new Point(3, 270);
-            currentFilePathLabel.Name = "currentFilePathLabel";
-            currentFilePathLabel.Size = new Size(776, 74);
-            currentFilePathLabel.TabIndex = 9;
-            currentFilePathLabel.Text = "Current File Path: none";
-            currentFilePathLabel.TextAlign = ContentAlignment.MiddleCenter;
+            currentExportFilePathLabel.Anchor = AnchorStyles.Top;
+            currentExportFilePathLabel.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            currentExportFilePathLabel.Location = new Point(3, 320);
+            currentExportFilePathLabel.Name = "currentExportFilePathLabel";
+            currentExportFilePathLabel.Size = new Size(776, 50);
+            currentExportFilePathLabel.TabIndex = 9;
+            currentExportFilePathLabel.Text = "Current Export File Path: none";
+            currentExportFilePathLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // currentImportFilePathLabel
+            // 
+            currentImportFilePathLabel.Anchor = AnchorStyles.Top;
+            currentImportFilePathLabel.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            currentImportFilePathLabel.Location = new Point(3, 270);
+            currentImportFilePathLabel.Name = "currentImportFilePathLabel";
+            currentImportFilePathLabel.Size = new Size(776, 50);
+            currentImportFilePathLabel.TabIndex = 10;
+            currentImportFilePathLabel.Text = "Current Import File Path: none";
+            currentImportFilePathLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // changeExportFilePathButton
+            // 
+            changeExportFilePathButton.Anchor = AnchorStyles.Top;
+            changeExportFilePathButton.AutoSize = true;
+            changeExportFilePathButton.BackColor = Color.SlateGray;
+            changeExportFilePathButton.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            changeExportFilePathButton.ForeColor = SystemColors.Control;
+            changeExportFilePathButton.Location = new Point(399, 220);
+            changeExportFilePathButton.Margin = new Padding(0);
+            changeExportFilePathButton.Name = "changeExportFilePathButton";
+            changeExportFilePathButton.Size = new Size(386, 50);
+            changeExportFilePathButton.TabIndex = 11;
+            changeExportFilePathButton.Text = "Change Export File Path";
+            changeExportFilePathButton.UseVisualStyleBackColor = false;
+            changeExportFilePathButton.Click += ExportButtonClick;
             // 
             // LogisticsManager
             // 
@@ -124,8 +153,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
             ClientSize = new Size(800, 459);
-            Controls.Add(currentFilePathLabel);
-            Controls.Add(changeFilePathButton);
+            Controls.Add(changeExportFilePathButton);
+            Controls.Add(currentImportFilePathLabel);
+            Controls.Add(currentExportFilePathLabel);
+            Controls.Add(changeImportFilePathButton);
             Controls.Add(resultGenerateLogisticsLabel);
             Controls.Add(generateLogisticsButton);
             Controls.Add(resultImportLabel);
@@ -144,7 +175,9 @@
         private Label resultImportLabel;
         private Button generateLogisticsButton;
         private Label resultGenerateLogisticsLabel;
-        private Button changeFilePathButton;
-        private Label currentFilePathLabel;
+        private Button changeImportFilePathButton;
+        private Label currentExportFilePathLabel;
+        private Label currentImportFilePathLabel;
+        private Button changeExportFilePathButton;
     }
 }
