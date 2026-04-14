@@ -1,0 +1,1916 @@
+[
+  {
+    "Name": "Carlingford / 1 Thallon Street",
+    "Id": 13230491,
+    "Address": "147/1 Thallon Street",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [],
+    "Zone": "Office Zone",
+    "TeachingAreas": [
+      "Church History"
+    ]
+  },
+  {
+    "Name": "Mittagong / Richard St",
+    "Id": 13230058,
+    "Address": "2/6 Richard Street",
+    "Coordinates": [
+      -34.45064,
+      150.42647
+    ],
+    "Missionaries": [
+      "Emma Milligan",
+      "Samantha Rae Rowe"
+    ],
+    "Zone": "Mosiah ",
+    "TeachingAreas": [
+      "Mittagong (Branch)"
+    ]
+  },
+  {
+    "Name": "Merrylands / Windsor Rd",
+    "Id": 13230154,
+    "Address": "4/39-41 Windsor Road",
+    "Coordinates": [
+      -33.83197,
+      150.98679
+    ],
+    "Missionaries": [
+      "Makarius Sameh Khalil",
+      "Salesio Ngatutuehau Moale Fifita Pahia",
+      "Keidis Troy Martel Galuega",
+      "Treyson Jay Kelsch"
+    ],
+    "Zone": "Ether ",
+    "TeachingAreas": [
+      "Villawood 1st B",
+      "Villawood 1st A"
+    ]
+  },
+  {
+    "Name": "Carlingford / 27 Bevan Plc",
+    "Id": 13230195,
+    "Address": "27 Bevan Place",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [],
+    "Zone": "",
+    "TeachingAreas": []
+  },
+  {
+    "Name": "Bankstown / Reynolds Ave",
+    "Id": 13230247,
+    "Address": "13/24 Reynolds Avenue",
+    "Coordinates": [
+      -33.86344,
+      151.17943
+    ],
+    "Missionaries": [
+      "Jacob Timothy Fisher",
+      "Talmage James Porter",
+      "Cael Alexander De Baun",
+      "Jane Colden Chan Kum-Tong"
+    ],
+    "Zone": "Abinadi ",
+    "TeachingAreas": [
+      "Bankstown 1st",
+      "Bankstown 2nd (SA)"
+    ]
+  },
+  {
+    "Name": "Bathurst / Railway Pde",
+    "Id": 13230255,
+    "Address": "66 Railway Parade",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [],
+    "Zone": "Abish ",
+    "TeachingAreas": [
+      "Bathurst (BR) Sr Angel"
+    ]
+  },
+  {
+    "Name": "Palmerston / Everard St",
+    "Id": 13230256,
+    "Address": "7/11 Everard Street",
+    "Coordinates": [
+      -35.19415,
+      149.12795
+    ],
+    "Missionaries": [
+      "Alexis Elise Hall",
+      "Eliza Josinette Gehring"
+    ],
+    "Zone": "Enos ",
+    "TeachingAreas": [
+      "Black Mountain B"
+    ]
+  },
+  {
+    "Name": "Leumeah / Pembroke Rd",
+    "Id": 13230262,
+    "Address": "32F/541 Pembroke Road",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Cinderella Leiataua Sione",
+      "Eternity Logotaeao Sovala"
+    ],
+    "Zone": "Lehi ",
+    "TeachingAreas": [
+      "Ingleburn (SA)"
+    ]
+  },
+  {
+    "Name": "North Wollongong / Hindmarsh ",
+    "Id": 13230263,
+    "Address": "14/14 Hindmarsh Avenue",
+    "Coordinates": [
+      -34.40994,
+      150.89013
+    ],
+    "Missionaries": [
+      "Grace Beverly Heiner",
+      "Mary Josephine Gygi - Designated Driver"
+    ],
+    "Zone": "Mosiah ",
+    "TeachingAreas": [
+      "Wollongong"
+    ]
+  },
+  {
+    "Name": "Hurstville / Forest Rd",
+    "Id": 13230276,
+    "Address": "47/107 Forest Road",
+    "Coordinates": [
+      -33.96755,
+      151.1084
+    ],
+    "Missionaries": [
+      "Aubrey Ann Rowe",
+      "Ava Chanel Allred"
+    ],
+    "Zone": "Abinadi ",
+    "TeachingAreas": [
+      "Summer Hill A"
+    ]
+  },
+  {
+    "Name": "Campbelltown / Warby St",
+    "Id": 13230278,
+    "Address": "33/17 Warby Street",
+    "Coordinates": [
+      -34.06258,
+      150.82038
+    ],
+    "Missionaries": [
+      "Cole Mark Purser",
+      "Stuart Ethan Sullivan",
+      "Garrett Evan Oakley",
+      "Jethro Thomas Grounsell"
+    ],
+    "Zone": "Mosiah ",
+    "TeachingAreas": [
+      "Camden A",
+      "Campbelltown 3rd (SA)"
+    ]
+  },
+  {
+    "Name": "Fairfield / Horsley",
+    "Id": 13230280,
+    "Address": "314/360-362 The Horsley Drive",
+    "Coordinates": [
+      -33.86857,
+      150.95839
+    ],
+    "Missionaries": [
+      "Patricia Elise Coakley",
+      "Tajah Julia Button",
+      "Liz Auvaa",
+      "Urima Tumema Apisai Tutagalevao",
+      "Marilyn Sharma Fa\u0027onevai"
+    ],
+    "Zone": "Ether ",
+    "TeachingAreas": [
+      "Fairfield 1st (TO)",
+      "Villawood 2nd (SA)",
+      "Fairfield 2nd (TO)"
+    ]
+  },
+  {
+    "Name": "Oak Flats / Fisher St",
+    "Id": 13230295,
+    "Address": "2/52 Fisher Street",
+    "Coordinates": [
+      -34.56374,
+      150.81792
+    ],
+    "Missionaries": [
+      "Doris Opuwe",
+      "Jacqueline Riki Latu"
+    ],
+    "Zone": "Mosiah ",
+    "TeachingAreas": [
+      "Dapto A"
+    ]
+  },
+  {
+    "Name": "Peakhurst / Neilson Ave",
+    "Id": 13230299,
+    "Address": "24A Neilson Avenue",
+    "Coordinates": [
+      -33.95909,
+      151.06625
+    ],
+    "Missionaries": [
+      "Dyson Creech Gunnell",
+      "Luke Joseph Parker",
+      "Kaito Yokosawa",
+      "Ryan Alvin Tolman"
+    ],
+    "Zone": "Abinadi ",
+    "TeachingAreas": [
+      "Mortdale A",
+      "Sutherland A"
+    ]
+  },
+  {
+    "Name": "North Parramatta/Buller St 22",
+    "Id": 13230301,
+    "Address": "22/51-57 Buller Street",
+    "Coordinates": [
+      -33.8036,
+      151.0129
+    ],
+    "Missionaries": [],
+    "Zone": "Ether ",
+    "TeachingAreas": [
+      "Prairiewood 2nd (Spanish)"
+    ]
+  },
+  {
+    "Name": "Carlingford / #54 Young Rd",
+    "Id": 13230307,
+    "Address": "54/15 Young Road",
+    "Coordinates": [
+      -33.77671,
+      151.05041
+    ],
+    "Missionaries": [],
+    "Zone": "Ether ",
+    "TeachingAreas": [
+      "Oatlands B"
+    ]
+  },
+  {
+    "Name": "Belconnen / Morell Cls",
+    "Id": 13230316,
+    "Address": "12/16 Morell Close",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Christine Lynne Durfey",
+      "David Taylor Durfey"
+    ],
+    "Zone": "Enos ",
+    "TeachingAreas": [
+      "Canberra Sr. Angel"
+    ]
+  },
+  {
+    "Name": "Phillip / Corinna St",
+    "Id": 13230325,
+    "Address": "45/98 Corinna Street,",
+    "Coordinates": [
+      -35.34782,
+      149.08857
+    ],
+    "Missionaries": [
+      "Gary Michael Rodney Moala",
+      "Masaki Yamaguchi"
+    ],
+    "Zone": "Enos ",
+    "TeachingAreas": [
+      "Stromlo B"
+    ]
+  },
+  {
+    "Name": "Marsfield / Busaco Rd",
+    "Id": 13230331,
+    "Address": "5/9 Busaco Road",
+    "Coordinates": [
+      -33.76384,
+      151.11331
+    ],
+    "Missionaries": [
+      "GUAN-PIN PAN",
+      "Yangui J Liu"
+    ],
+    "Zone": "Alma ",
+    "TeachingAreas": [
+      "Ryde (CH) B"
+    ]
+  },
+  {
+    "Name": "Oxley Park / Brisbane St",
+    "Id": 13230334,
+    "Address": "5/71 Brisbane Street",
+    "Coordinates": [
+      -33.7675,
+      150.79181
+    ],
+    "Missionaries": [
+      "Aaron Glen Waqavonovono Simpson",
+      "Kaleb Patete Metekingi",
+      "Leiolani Vunivalu Kuli Tameifuna",
+      "Spencer William Halcomb",
+      "Tyler Laimana Kintaro"
+    ],
+    "Zone": "Jacob ",
+    "TeachingAreas": [
+      "Claremont Meadows B",
+      "Minchinbury"
+    ]
+  },
+  {
+    "Name": "Coffs Harbour / Moore St",
+    "Id": 13230340,
+    "Address": "5/17 Moore Street",
+    "Coordinates": [
+      -30.30776,
+      153.13403
+    ],
+    "Missionaries": [
+      "Agalua Sophia Susan Falefata",
+      "Mary Resaly Ofa Ki Taiana Lavaka",
+      "Autumn Sharon Rose Smith",
+      "Mary-Elizabeth Robin Harden"
+    ],
+    "Zone": "Teancum ",
+    "TeachingAreas": [
+      "(BR) Coffs Harbour A",
+      "(BR) Coffs Harbour B"
+    ]
+  },
+  {
+    "Name": "Kingsford / Forsyth St",
+    "Id": 13230341,
+    "Address": "5/65-67 Forsyth Street",
+    "Coordinates": [
+      -33.92392,
+      151.2299
+    ],
+    "Missionaries": [
+      "Saiyan Samuel Shumkuenip",
+      "Tavo Toutai",
+      "Teavanui Kahavai Mao",
+      "Daniel David Zou",
+      "Michael James Nielson",
+      "Ryan William Bell"
+    ],
+    "Zone": "Abinadi ",
+    "TeachingAreas": [
+      "East Lakes (TO)",
+      "South Harbour A"
+    ]
+  },
+  {
+    "Name": "Gosford / Gertrude St",
+    "Id": 13230347,
+    "Address": "21/212-220 Gertrude Street",
+    "Coordinates": [
+      -33.41623,
+      151.34612
+    ],
+    "Missionaries": [
+      "Chase Richard Leifson",
+      "Henry David Utrilla Salazar",
+      "Tevita Halasili Vaitaiki"
+    ],
+    "Zone": "Alma ",
+    "TeachingAreas": [
+      "Wyoming B"
+    ]
+  },
+  {
+    "Name": "Budgewoi / Diamond Head Dr",
+    "Id": 13230349,
+    "Address": "3 Diamond Head Drive",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "John Carlo Dela Cruz Palma",
+      "Paul Joseph James"
+    ],
+    "Zone": "Nephi",
+    "TeachingAreas": [
+      "Tuggerah Lakes"
+    ]
+  },
+  {
+    "Name": "Seven Hills / Oldfield Rd",
+    "Id": 13230350,
+    "Address": "16A Oldfield Road ",
+    "Coordinates": [
+      -33.77801,
+      150.92745
+    ],
+    "Missionaries": [
+      "Carter Brent Cook",
+      "Tuli John-Byron Fungavaka",
+      "Aden Derrick Hacking",
+      "Melbourne Fotuaiomanu Aumua"
+    ],
+    "Zone": "Moroni ",
+    "TeachingAreas": [
+      "Lalor Park A",
+      "Quakers Hill A"
+    ]
+  },
+  {
+    "Name": "Charlestown / Charlestown Rd",
+    "Id": 13230351,
+    "Address": "606/316 Charlestown Road",
+    "Coordinates": [
+      -32.96104,
+      151.69443
+    ],
+    "Missionaries": [
+      "Paiton Abrie Kapp",
+      "Takoi Tamuera"
+    ],
+    "Zone": "Nephi",
+    "TeachingAreas": [
+      "Lake Macquarie A"
+    ]
+  },
+  {
+    "Name": "Ropes Crossing /1 Banks St",
+    "Id": 13230354,
+    "Address": "1 Banks Street",
+    "Coordinates": [
+      -33.73749,
+      150.78184
+    ],
+    "Missionaries": [
+      "Austin Patrick Hannan",
+      "Brock Michael Moyes",
+      "Haru Taira",
+      "Lance Von Niederhauser"
+    ],
+    "Zone": "Ammon ",
+    "TeachingAreas": [
+      "Popendetta",
+      "Mt. Druitt A"
+    ]
+  },
+  {
+    "Name": "Carlingford / 36A Bevan Plc",
+    "Id": 13230357,
+    "Address": "36A Bevan Place",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [],
+    "Zone": "",
+    "TeachingAreas": []
+  },
+  {
+    "Name": "Carlingford / #60 Young Rd",
+    "Id": 13230361,
+    "Address": "60/15 Young Road",
+    "Coordinates": [
+      -33.77671,
+      151.05041
+    ],
+    "Missionaries": [
+      "Chloe Addison Haynes",
+      "Tebito Kaotan Tebenea"
+    ],
+    "Zone": "Alma ",
+    "TeachingAreas": [
+      "Normanhurst"
+    ]
+  },
+  {
+    "Name": "Emu Plains / Jamieson St",
+    "Id": 13230362,
+    "Address": "1/50 Jamieson Street",
+    "Coordinates": [
+      -33.7515,
+      150.64762
+    ],
+    "Missionaries": [
+      "Danielle Ann Welker",
+      "Luna Xavier Pinheiro",
+      "Susan Patricia Peterson",
+      "Iaomea Bokai",
+      "Mylee Miner"
+    ],
+    "Zone": "Jacob ",
+    "TeachingAreas": [
+      "Emu Plains",
+      "Penrith"
+    ]
+  },
+  {
+    "Name": "Ourimbah / Coraki Plc",
+    "Id": 13230371,
+    "Address": "19A Coraki Place",
+    "Coordinates": [
+      -33.36727,
+      151.37858
+    ],
+    "Missionaries": [
+      "Ita Kurniawati",
+      "Piper Camille Moncrief"
+    ],
+    "Zone": "Alma ",
+    "TeachingAreas": [
+      "Wyoming A"
+    ]
+  },
+  {
+    "Name": "East Maitland /Molly Morgan Dr",
+    "Id": 13230380,
+    "Address": "\r\n40/20-22 Molly Morgan Drive",
+    "Coordinates": [
+      -32.76432,
+      151.59644
+    ],
+    "Missionaries": [
+      "Alsina Thomas",
+      "Lacey Ellen Hellyer",
+      "Eden Marie Anderson",
+      "McKenzie Kate Jepson - Designated Driver"
+    ],
+    "Zone": "Nephi",
+    "TeachingAreas": [
+      "Maitland A",
+      "Maitland B"
+    ]
+  },
+  {
+    "Name": "Summer Hill / Lindsay Ave",
+    "Id": 13230381,
+    "Address": "3/2 Lindsay Avenue",
+    "Coordinates": [
+      -33.8928,
+      151.13429
+    ],
+    "Missionaries": [
+      "Ella Hui Yi Page",
+      "Jasmin Hipolan Laresma",
+      "Myaan Coralie Eteru"
+    ],
+    "Zone": "Abinadi ",
+    "TeachingAreas": [
+      "Summer Hill B"
+    ]
+  },
+  {
+    "Name": "Carlingford / 25A Bevan Plc",
+    "Id": 13230384,
+    "Address": "25A Bevan Place",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Richard Mark Westover",
+      "Sandra Eugenia Westover"
+    ],
+    "Zone": "Office Zone",
+    "TeachingAreas": [
+      "Transportation"
+    ]
+  },
+  {
+    "Name": "Macquarie Park / Herring Rd",
+    "Id": 13230393,
+    "Address": "18/116 Herring Road",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [],
+    "Zone": "",
+    "TeachingAreas": []
+  },
+  {
+    "Name": "Carlingford / #17 Young Rd",
+    "Id": 13230394,
+    "Address": "17/15 Young Road",
+    "Coordinates": [
+      -33.77667,
+      151.05044
+    ],
+    "Missionaries": [
+      "Benson Richard Ordyna",
+      "Sione Monson Latu",
+      "Tumoanatea Adam Doom"
+    ],
+    "Zone": "Ether ",
+    "TeachingAreas": [
+      "Villawood 2nd (SA) B",
+      "Parramatta B"
+    ]
+  },
+  {
+    "Name": "Quakers Hill / Eastern Rd",
+    "Id": 13230395,
+    "Address": "38A Eastern Road",
+    "Coordinates": [
+      -33.7312,
+      150.88308
+    ],
+    "Missionaries": [
+      "Maria Lata-\u0027I-\u0027Okalani Tu\u0027itupou",
+      "Reina DeAnn Griffiths"
+    ],
+    "Zone": "Moroni ",
+    "TeachingAreas": [
+      "Lalor Park B"
+    ]
+  },
+  {
+    "Name": "Carlingford / #79 Young Rd",
+    "Id": 13230399,
+    "Address": "79/15 Young Road",
+    "Coordinates": [
+      -33.77671,
+      151.05041
+    ],
+    "Missionaries": [
+      "Matthew Robert Hector",
+      "Ryan Morrell McMillan"
+    ],
+    "Zone": "Moroni ",
+    "TeachingAreas": [
+      "Castle Hill B",
+      "Carlingford YSA (Assistants to the President)"
+    ]
+  },
+  {
+    "Name": "Granville / Byrnes St",
+    "Id": 13230401,
+    "Address": "26A Brynes Street",
+    "Coordinates": [
+      -33.85038,
+      151.01441
+    ],
+    "Missionaries": [
+      "Tu\u0027ineau Paeahelotu"
+    ],
+    "Zone": "Ether ",
+    "TeachingAreas": [
+      "Cumberland (TO)"
+    ]
+  },
+  {
+    "Name": "Cowra / Vaux St",
+    "Id": 13230403,
+    "Address": "36A Vaux Street",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Kevin Lynn Dalpias",
+      "Susan Dalpias"
+    ],
+    "Zone": "Abish ",
+    "TeachingAreas": [
+      "Cowra (BR) Sr Angel"
+    ]
+  },
+  {
+    "Name": "Carlingford / #46 Young Rd",
+    "Id": 13230405,
+    "Address": "46/15 Young Road",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [],
+    "Zone": "",
+    "TeachingAreas": []
+  },
+  {
+    "Name": "Carlingford / 36 Bevan Plc",
+    "Id": 13230408,
+    "Address": "36 Bevan Place",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Kathleen Angela Sumko",
+      "Michael Henry Sumko"
+    ],
+    "Zone": "Office Zone",
+    "TeachingAreas": [
+      "Finance \u0026 Medical"
+    ]
+  },
+  {
+    "Name": "Sydney / #36 Wentworth Ave",
+    "Id": 13230409,
+    "Address": "36/17-25 Wentworth Avenue",
+    "Coordinates": [
+      -33.87777,
+      151.21126
+    ],
+    "Missionaries": [
+      "Kael Anthony McLaren",
+      "Kaulave Taputafoki Zedric Latu",
+      "Zvikomborero Macdonaid Daure"
+    ],
+    "Zone": "Abinadi ",
+    "TeachingAreas": [
+      "HyP-Summer Hill Group A - PT"
+    ]
+  },
+  {
+    "Name": "Mudgee / Spring",
+    "Id": 13230410,
+    "Address": "1/36 Spring Road",
+    "Coordinates": [
+      -33.61407,
+      149.58506
+    ],
+    "Missionaries": [
+      "Hyrum Oliver Riku Manuel",
+      "Lincoln David Mann"
+    ],
+    "Zone": "Abish ",
+    "TeachingAreas": [
+      "Mudgee (GP) A"
+    ]
+  },
+  {
+    "Name": "Fairfield West / Tasman Pde",
+    "Id": 13230413,
+    "Address": "20/84 Tasman Parade",
+    "Coordinates": [
+      -33.86788,
+      150.9226
+    ],
+    "Missionaries": [
+      "Aaron James Schokker",
+      "Lamata John Felila",
+      "Pompallier John Chrysostem Puru-Pomare"
+    ],
+    "Zone": "Helaman ",
+    "TeachingAreas": [
+      "Badgerys Creek YSA"
+    ]
+  },
+  {
+    "Name": "Liverpool / Norfolk St",
+    "Id": 13230414,
+    "Address": "604/10 Norfolk Street",
+    "Coordinates": [
+      -33.92605,
+      150.92015
+    ],
+    "Missionaries": [
+      "Aniston Jenice Keyes",
+      "Haven Reina Larkin",
+      "Alyssa Kathleen Hansen",
+      "Kate Melissa Smith"
+    ],
+    "Zone": "Lehi ",
+    "TeachingAreas": [
+      "Wattle Grove A",
+      "Wattle Grove B"
+    ]
+  },
+  {
+    "Name": "Kings Langley / Ellis Pl",
+    "Id": 13230416,
+    "Address": "6 Ellis Place",
+    "Coordinates": [
+      -33.74977,
+      150.94437
+    ],
+    "Missionaries": [
+      "Mafi Kakau Pulu",
+      "Tracy Meleane Tupou Tungua Teumohenga"
+    ],
+    "Zone": "Moroni ",
+    "TeachingAreas": [
+      "Winston Hills"
+    ]
+  },
+  {
+    "Name": "St Clair / Erie Pl",
+    "Id": 13230419,
+    "Address": "5a Erie Place",
+    "Coordinates": [
+      -33.80344,
+      150.77494
+    ],
+    "Missionaries": [
+      "Ng\u1ECDc Ho\u00E0ng B\u1EA3o Ph\u1EA1m ",
+      "Ruffa Mae Gecosala Resuma"
+    ],
+    "Zone": "Jacob ",
+    "TeachingAreas": [
+      "Claremont Meadows A"
+    ]
+  },
+  {
+    "Name": "Oakhurst / Kester",
+    "Id": 13230420,
+    "Address": "41a Kester Crescent",
+    "Coordinates": [
+      -33.74048,
+      150.83628
+    ],
+    "Missionaries": [
+      "Matias Emanuel Barreiro",
+      "Reef William Smylie"
+    ],
+    "Zone": "Ammon ",
+    "TeachingAreas": [
+      "Oakhurst"
+    ]
+  },
+  {
+    "Name": "Armidale / Dangar St",
+    "Id": 13230421,
+    "Address": "3/68 Dangar Street",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [],
+    "Zone": "Teancum ",
+    "TeachingAreas": [
+      "(BR) Armidale-Sr Angel"
+    ]
+  },
+  {
+    "Name": "Blacktown / Cedar Place",
+    "Id": 13230422,
+    "Address": "2a Cedar Place",
+    "Coordinates": [
+      -33.78544,
+      150.89455
+    ],
+    "Missionaries": [
+      "Isaac Nunes Menezes",
+      "Samuel Harold King"
+    ],
+    "Zone": "Ammon ",
+    "TeachingAreas": [
+      "Blacktown A"
+    ]
+  },
+  {
+    "Name": "North Parramatta/Buller St 25",
+    "Id": 13230423,
+    "Address": "25/51-57 Buller Street",
+    "Coordinates": [
+      -33.8026,
+      151.0129
+    ],
+    "Missionaries": [
+      "Garin James Duersch",
+      "Sione Jr Mafi",
+      "Joseph Laurent Jaunay",
+      "Misieliatu Moenefu Tangilanu"
+    ],
+    "Zone": "Ether ",
+    "TeachingAreas": [
+      "Fairfield 4th (TO)",
+      "Merrylands (TO)",
+      "Parramata (TO)"
+    ]
+  },
+  {
+    "Name": "Hobartville / Luttrell St",
+    "Id": 13230424,
+    "Address": "32a Luttrell St",
+    "Coordinates": [
+      -33.60638,
+      150.74768
+    ],
+    "Missionaries": [
+      "Jos\u00E9 Luis Jos\u00E9",
+      "Teina Tu Ruki Curtis"
+    ],
+    "Zone": "Jacob ",
+    "TeachingAreas": [
+      "Richmond"
+    ]
+  },
+  {
+    "Name": "Dee Why / Kingsway",
+    "Id": 13230426,
+    "Address": "1/7 Kingsway",
+    "Coordinates": [
+      -33.75066,
+      151.2883
+    ],
+    "Missionaries": [
+      "\u0027Akanesi Fehoko Tuimoamanaki Lotoaatu",
+      "Janet Abigail Hyna Sandy Siale"
+    ],
+    "Zone": "Alma ",
+    "TeachingAreas": [
+      "Freshwater B"
+    ]
+  },
+  {
+    "Name": "Epping / Cambridge St",
+    "Id": 13230427,
+    "Address": "1311/22 Cambridge Street",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Kathleen Berrett Woolf",
+      "Robert Evan Woolf"
+    ],
+    "Zone": "Office Zone",
+    "TeachingAreas": [
+      "Education Specialists"
+    ]
+  },
+  {
+    "Name": "Ryde / Belmore St",
+    "Id": 13230429,
+    "Address": "3127/90 Belmore Street",
+    "Coordinates": [
+      -33.8206,
+      151.09594
+    ],
+    "Missionaries": [
+      "Jack Raymond Fenn",
+      "Yao Yu"
+    ],
+    "Zone": "Alma ",
+    "TeachingAreas": [
+      "Ryde (CH) A"
+    ]
+  },
+  {
+    "Name": "Chatswood / Sylvia St",
+    "Id": 13230431,
+    "Address": "11 Sylvia Street",
+    "Coordinates": [
+      -33.79786,
+      151.16941
+    ],
+    "Missionaries": [
+      "Aidan Keith Spendlove Murdock",
+      "Andrew Sean McHenry",
+      "Ayden Nathaniel Spelleri"
+    ],
+    "Zone": "Alma ",
+    "TeachingAreas": [
+      "Greenwich B"
+    ]
+  },
+  {
+    "Name": "Schofields / Grima St",
+    "Id": 13230432,
+    "Address": "502/91A Grima Street",
+    "Coordinates": [
+      -33.70488,
+      150.88284
+    ],
+    "Missionaries": [
+      "Kasanita Manuna Langi",
+      "Sara Ann Sykes"
+    ],
+    "Zone": "Moroni ",
+    "TeachingAreas": [
+      "Quakers Hill B"
+    ]
+  },
+  {
+    "Name": "Fairfield West/Baragoola",
+    "Id": 13230440,
+    "Address": "24 Baragoola St",
+    "Coordinates": [
+      -33.87468,
+      150.92666
+    ],
+    "Missionaries": [
+      "Minh Huy L\u00EA"
+    ],
+    "Zone": "Helaman ",
+    "TeachingAreas": [
+      "Cabramatta Vietnamese Group A"
+    ]
+  },
+  {
+    "Name": "Minto/Chaperone ",
+    "Id": 13230441,
+    "Address": "33 Chaperone Crescent",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Kalolo Simona Liuliu",
+      "Setema Mo\u0027unga Stone"
+    ],
+    "Zone": "Lehi ",
+    "TeachingAreas": [
+      "NO-Hoxton Park (SA)"
+    ]
+  },
+  {
+    "Name": "Taree/High Street",
+    "Id": 13230443,
+    "Address": "6/132 High Street",
+    "Coordinates": [
+      -31.91195,
+      152.4517
+    ],
+    "Missionaries": [
+      "Jolina Poeora Teihoarii",
+      "Ruby Alaisea Jones"
+    ],
+    "Zone": "Teancum ",
+    "TeachingAreas": [
+      "(BR) Taree"
+    ]
+  },
+  {
+    "Name": "Tamworth/Griffin Ave",
+    "Id": 13230445,
+    "Address": "1/62 Griffin Ave",
+    "Coordinates": [
+      -31.08579,
+      150.93041
+    ],
+    "Missionaries": [
+      "Deacon Brad Jury",
+      "Marino Ashmond Takairangi",
+      "Mason Robert Benedict"
+    ],
+    "Zone": "Teancum ",
+    "TeachingAreas": [
+      "(BR) Tamworth"
+    ]
+  },
+  {
+    "Name": "Grafton/Villiers St",
+    "Id": 13230446,
+    "Address": "1/64 Villiers Street",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [],
+    "Zone": "Teancum ",
+    "TeachingAreas": [
+      "(BR) Grafton-Sr Angel"
+    ]
+  },
+  {
+    "Name": "Ashcroft/Sutton St",
+    "Id": 13230447,
+    "Address": "88A  Sutton Street",
+    "Coordinates": [
+      -33.91534,
+      150.89594
+    ],
+    "Missionaries": [
+      "Mele Finau Fakaosita",
+      "Patricia Roland Kau",
+      "Kyra Mai James",
+      "Savali Isaako Toleafoa"
+    ],
+    "Zone": "Helaman ",
+    "TeachingAreas": [
+      "Prairiewood (TO)",
+      "St. Johns Park (SA) A"
+    ]
+  },
+  {
+    "Name": "Hazelbrook/Falcon",
+    "Id": 13230448,
+    "Address": "21 Falcon St",
+    "Coordinates": [
+      -33.72372,
+      150.45637
+    ],
+    "Missionaries": [
+      "Bennett Russell Harkness",
+      "Sawyer Brenton Scott"
+    ],
+    "Zone": "Jacob ",
+    "TeachingAreas": [
+      "Leura"
+    ]
+  },
+  {
+    "Name": "Revesby/Queen St",
+    "Id": 13230449,
+    "Address": "1/25 Queen Street",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Hutch \u0027Ungapapalangi Fale",
+      "Luke Bryce Starks"
+    ],
+    "Zone": "Abinadi ",
+    "TeachingAreas": [
+      "Bankstown (CA) 3A"
+    ]
+  },
+  {
+    "Name": "Crestwood/Frederick",
+    "Id": 13230450,
+    "Address": "2/5 Frederick Street",
+    "Coordinates": [
+      -35.34506,
+      149.21791
+    ],
+    "Missionaries": [
+      "Brielle Wray",
+      "Rachel Joneen Larsen",
+      "Kalesita Vaine Tuutafaiva",
+      "Telesia Finefeuiaki Takau"
+    ],
+    "Zone": "Enos ",
+    "TeachingAreas": [
+      "Red Hill A",
+      "Canberra TO A"
+    ]
+  },
+  {
+    "Name": "Page/Hannaford",
+    "Id": 13230451,
+    "Address": "54A Hannaford St",
+    "Coordinates": [
+      -35.23988,
+      149.04562
+    ],
+    "Missionaries": [
+      "Collin Scott Adams",
+      "Jace Ryan Hildebrand",
+      "Aaron Michael Betournay",
+      "Cheng-Yu Wang",
+      "Kangshuo Wang"
+    ],
+    "Zone": "Enos ",
+    "TeachingAreas": [
+      "Black Mountain A",
+      "Yerrabi A"
+    ]
+  },
+  {
+    "Name": "Toronto/Brighton Ave",
+    "Id": 13230452,
+    "Address": "1/104 Brighton Ave",
+    "Coordinates": [
+      -33.01529,
+      151.59762
+    ],
+    "Missionaries": [
+      "Edwin Harry",
+      "Joshua Measom Sivert"
+    ],
+    "Zone": "Nephi",
+    "TeachingAreas": [
+      "(TO) Newcastle Branch",
+      "Awaba A"
+    ]
+  },
+  {
+    "Name": "Liverpool/Hume Hwy",
+    "Id": 13230453,
+    "Address": "311 Hume Hwy",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Carol Sue Harrison",
+      "William L Harrison"
+    ],
+    "Zone": "Lehi ",
+    "TeachingAreas": [
+      "Denham Court-Sr Angel"
+    ]
+  },
+  {
+    "Name": "Armidale Barry",
+    "Id": 13230454,
+    "Address": "8 Barry Street",
+    "Coordinates": [
+      -30.51739,
+      151.64971
+    ],
+    "Missionaries": [
+      "Keith Patisela Junior McCarthy",
+      "Thompson Joseph Malulani Winiata",
+      "Alitha Khatshwa",
+      "Ryan Spencer Smith"
+    ],
+    "Zone": "Teancum ",
+    "TeachingAreas": [
+      "(BR) Armidale A",
+      "(BR) Armidale B"
+    ]
+  },
+  {
+    "Name": "Castlehill Drayton",
+    "Id": 13230458,
+    "Address": "35A Drayton Ave",
+    "Coordinates": [
+      -33.74599,
+      151.00084
+    ],
+    "Missionaries": [
+      "Daniel Keland Spencer",
+      "Mathias Lotomaualalo Tui",
+      "Remington Lynn Rhoten"
+    ],
+    "Zone": "Moroni ",
+    "TeachingAreas": [
+      "Castle Hill A"
+    ]
+  },
+  {
+    "Name": "Dubbo / Glenshee Close",
+    "Id": 13230459,
+    "Address": "17 Glenshee Close ",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "David Michael Kimberling",
+      "Rosalyn Linder Kimberling"
+    ],
+    "Zone": "Abish ",
+    "TeachingAreas": [
+      "Dubbo (BR) Sr Angel"
+    ]
+  },
+  {
+    "Name": "Bathurst Kefford",
+    "Id": 13230464,
+    "Address": "22A Kefford Street",
+    "Coordinates": [
+      -33.40725,
+      149.58136
+    ],
+    "Missionaries": [
+      "Cameron Call Findlay",
+      "Lucas Calvin Shepherd",
+      "Gabriel Wu Yong Creasman",
+      "Payton Allen Ridenour"
+    ],
+    "Zone": "Abish ",
+    "TeachingAreas": [
+      "Bathurst (BR) A",
+      "Bathurst (BR) B"
+    ]
+  },
+  {
+    "Name": "Orange Agland Crescent",
+    "Id": 13230465,
+    "Address": "2A Agland Crescent",
+    "Coordinates": [
+      -33.26047,
+      149.10356
+    ],
+    "Missionaries": [
+      "Kingston Harlem Moepogai Grant",
+      "Xander John Rode-Bramanis",
+      "Caleb Ezekiel Gareth Richards",
+      "Wyatt Knowlton Rash"
+    ],
+    "Zone": "Abish ",
+    "TeachingAreas": [
+      "Orange (BR) A",
+      "Orange (BR) B"
+    ]
+  },
+  {
+    "Name": "Tura Beach Pacific Way",
+    "Id": 13230466,
+    "Address": "2/114 Pacific Way ",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Brian Thomas Seager",
+      "Lor\u0027e Seager"
+    ],
+    "Zone": "Enos ",
+    "TeachingAreas": [
+      "(BR) Merimbula Branch-Sr Angel",
+      "Batemans Bay (Br) SR-Angel"
+    ]
+  },
+  {
+    "Name": "Austral Salvatore",
+    "Id": 13230467,
+    "Address": "16 Salvatore Street",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Caroline Michelle Chudleigh",
+      "Jonah Mae Llarenas Palaruan",
+      "Rossane Faith Lolo",
+      "Christian Lewis Merkley"
+    ],
+    "Zone": "Helaman ",
+    "TeachingAreas": [
+      "Badgerys Creek YSA B",
+      "Wetherill Park A",
+      "Cabramatta Vietnamese Group B"
+    ]
+  },
+  {
+    "Name": "Port Macquarie Toorak",
+    "Id": 13230468,
+    "Address": "20/16-18 Toorak Court",
+    "Coordinates": [
+      -31.45161,
+      152.88105
+    ],
+    "Missionaries": [
+      "Spencer Paul Marsh",
+      "Tiaon William"
+    ],
+    "Zone": "Teancum ",
+    "TeachingAreas": [
+      "(BR) Port Macquarie"
+    ]
+  },
+  {
+    "Name": "Hebersham/Drury Place",
+    "Id": 13230469,
+    "Address": "5A Drury Place",
+    "Coordinates": [
+      -33.73677,
+      150.82746
+    ],
+    "Missionaries": [
+      "Heihere Imelda Tapare",
+      "Laura Rachel Taiseni"
+    ],
+    "Zone": "Ammon ",
+    "TeachingAreas": [
+      "Colbee Ward A"
+    ]
+  },
+  {
+    "Name": "Sydney/#48 Wentworth Ave",
+    "Id": 13230471,
+    "Address": "48/17-25 Wentworth Avenue\n",
+    "Coordinates": [
+      -33.87777,
+      151.21126
+    ],
+    "Missionaries": [
+      "Sariah Eve Leslie"
+    ],
+    "Zone": "Abinadi ",
+    "TeachingAreas": [
+      "HyP-Summer Hill Group C - PT"
+    ]
+  },
+  {
+    "Name": "Worrigee/Blue Bell Way",
+    "Id": 13230472,
+    "Address": "5 Blue Bell Way",
+    "Coordinates": [
+      -34.89869,
+      150.62984
+    ],
+    "Missionaries": [
+      "Hyrum David Morris",
+      "Kaderick Michael Weller"
+    ],
+    "Zone": "Mosiah ",
+    "TeachingAreas": [
+      "Nowra A"
+    ]
+  },
+  {
+    "Name": "Edmondson Park/ Chiplin Rd",
+    "Id": 13230474,
+    "Address": "3A Chiplin Road",
+    "Coordinates": [
+      -33.96119,
+      150.84877
+    ],
+    "Missionaries": [
+      "Ienraoi Kauongo",
+      "Skylawn Viliata Feletoa Tua\u0027one"
+    ],
+    "Zone": "Lehi ",
+    "TeachingAreas": [
+      "Denham Court B"
+    ]
+  },
+  {
+    "Name": "Lethbridge Park, Palau Cres.",
+    "Id": 13230473,
+    "Address": "75a Palau Cres.",
+    "Coordinates": [
+      -33.73056,
+      150.80031
+    ],
+    "Missionaries": [
+      "Alyssa Riley Unck",
+      "Kaitlyn Ruth Rinehart"
+    ],
+    "Zone": "Ammon ",
+    "TeachingAreas": [
+      "Ropes Crossing B"
+    ]
+  },
+  {
+    "Name": "Minto/Fenton Cres",
+    "Id": 13230476,
+    "Address": "55 Fenton Cres.",
+    "Coordinates": [
+      -34.02862,
+      150.85859
+    ],
+    "Missionaries": [
+      "Harrison James McClintock",
+      "Tebuangui Ueri",
+      "Carter Tay Behunin",
+      "Lincoln Jeffery Allen"
+    ],
+    "Zone": "Lehi ",
+    "TeachingAreas": [
+      "Ingleburn 1st B",
+      "Ingleburn 1st A",
+      "(TO)Liverpool B"
+    ]
+  },
+  {
+    "Name": "Carlingford/Donald St",
+    "Id": 13230475,
+    "Address": "110/30 Donald St. ",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [],
+    "Zone": "",
+    "TeachingAreas": []
+  },
+  {
+    "Name": "Carlingford Keeler",
+    "Id": 13230477,
+    "Address": "14/40-42 Keeler Street",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Cindy Jean Taylor",
+      "Craig Gerald Taylor"
+    ],
+    "Zone": "Office Zone",
+    "TeachingAreas": [
+      "Legal"
+    ]
+  },
+  {
+    "Name": "Port Macquarie/Admirals Court",
+    "Id": 13230478,
+    "Address": "2/1 Admirals Court",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Neil Stanley Harding",
+      "Peggy Harding"
+    ],
+    "Zone": "Teancum ",
+    "TeachingAreas": [
+      "(BR) Port Macquarie-Sr Angel"
+    ]
+  },
+  {
+    "Name": "Goulburn/Madeleine",
+    "Id": 13230479,
+    "Address": "14 Madeleine Drive",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Antoinette Young Simonsen",
+      "Mark Steven Simonsen"
+    ],
+    "Zone": "Enos ",
+    "TeachingAreas": [
+      "(Grp) Goulburn Group-Sr Angel"
+    ]
+  },
+  {
+    "Name": "Carlingford/Thallon St.",
+    "Id": 13230480,
+    "Address": "404/16 Thallon Street",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Fran Putnam",
+      "Joel Harris Putnam"
+    ],
+    "Zone": "Office Zone",
+    "TeachingAreas": [
+      "Housing"
+    ]
+  },
+  {
+    "Name": "Carlingford/James",
+    "Id": 13230481,
+    "Address": "37/2-8 James St.",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Richard Lee Barnett",
+      "Susan Kay Barnett"
+    ],
+    "Zone": "Ether ",
+    "TeachingAreas": [
+      "Family History",
+      "Villawood 2nd SrA (SA)"
+    ]
+  },
+  {
+    "Name": "Blacktown/ Balmoral",
+    "Id": 13230482,
+    "Address": "202/7-9 Balmoral Street\n",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [],
+    "Zone": "Office Zone",
+    "TeachingAreas": [
+      "Self-Reliance Missionary"
+    ]
+  },
+  {
+    "Name": "Orange/Edye Circuit",
+    "Id": 13230483,
+    "Address": "18 Edye Circuit",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Dianne Marie Lathen",
+      "Neil Frank Lathen"
+    ],
+    "Zone": "Abish ",
+    "TeachingAreas": [
+      "Orange (BR) Sr Angel"
+    ]
+  },
+  {
+    "Name": "Coffs Harboour/ 1/3 Anna Krist",
+    "Id": 13230485,
+    "Address": "1/3 Anna Kristina Circuit",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "William L Ah Sue",
+      "Yvonne N Ah Sue"
+    ],
+    "Zone": "Teancum ",
+    "TeachingAreas": [
+      "(BR) Coffs Harbour-Sr Angel"
+    ]
+  },
+  {
+    "Name": "Goulburn/ 14A Brooklands Circu",
+    "Id": 13230486,
+    "Address": "14A Brooklands Circuit",
+    "Coordinates": [
+      -34.72385,
+      149.71383
+    ],
+    "Missionaries": [
+      "Bodhi Chivers",
+      "Brooks Scott Johnson"
+    ],
+    "Zone": "Enos ",
+    "TeachingAreas": [
+      "Goulburn Group-A"
+    ]
+  },
+  {
+    "Name": "Inverell/ Evans St",
+    "Id": 13230487,
+    "Address": "107/30 Evans St",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Kelly Kapi Paewai",
+      "Lakoneus Matapakia Kiriwhata Matthews"
+    ],
+    "Zone": "Teancum ",
+    "TeachingAreas": [
+      "(GP) Inverell"
+    ]
+  },
+  {
+    "Name": "Carlingford/ 39 Post office St",
+    "Id": 13230488,
+    "Address": "105/39 Post Office St",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [],
+    "Zone": "Office Zone",
+    "TeachingAreas": [
+      "Administrative Assistants"
+    ]
+  },
+  {
+    "Name": "Lochinvar/Gregory Road",
+    "Id": 13230489,
+    "Address": "20A Gregory Road",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Gabriel Chase Frye",
+      "John Ionatana Junior Tafilipepe"
+    ],
+    "Zone": "Nephi",
+    "TeachingAreas": [
+      "Cessnock"
+    ]
+  },
+  {
+    "Name": "Grafton/Iron Bark Terrace",
+    "Id": 13230490,
+    "Address": "21A Iron Bark Terrace",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Funaki Halatokoua",
+      "Nathan Joel Williams",
+      "Ari James Wilson",
+      "Clayton Torry Taylor"
+    ],
+    "Zone": "Teancum ",
+    "TeachingAreas": [
+      "(BR) Grafton A",
+      "(BR) Grafton B"
+    ]
+  },
+  {
+    "Name": "Kellyville/Farnsworth Road",
+    "Id": 13230492,
+    "Address": "22A Farnsworth Road",
+    "Coordinates": [
+      -33.69896,
+      150.95441
+    ],
+    "Missionaries": [
+      "Ava Maureen Henderson"
+    ],
+    "Zone": "Moroni ",
+    "TeachingAreas": [
+      "Kellyville"
+    ]
+  },
+  {
+    "Name": "Dubbo/Roycox Crescent",
+    "Id": 13230493,
+    "Address": "16 Roycox Crescent",
+    "Coordinates": [
+      -32.2648,
+      148.62046
+    ],
+    "Missionaries": [
+      "Cole Bruce Crapo",
+      "Mason Jeffrey Wardle"
+    ],
+    "Zone": "Abish ",
+    "TeachingAreas": [
+      "Dubbo (BR) A"
+    ]
+  },
+  {
+    "Name": "Airds/Deans Road",
+    "Id": 13230495,
+    "Address": "17 Deans Road",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Hinckley Mahonri Vaisigano",
+      "Sonnychaeltara Kitara",
+      "Levi Luke McLaws",
+      "Max Blake Bloomfield",
+      "Sterling Mitchell Edward Isherwood"
+    ],
+    "Zone": "Mosiah ",
+    "TeachingAreas": [
+      "St. Helens (SA)",
+      "Campbelltown 1st B"
+    ]
+  },
+  {
+    "Name": "Tamworth/Idyllic Street",
+    "Id": 13230497,
+    "Address": "1/40 Idyllic Street",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [],
+    "Zone": "Teancum ",
+    "TeachingAreas": [
+      "(BR) Tamworth-Sr Angel"
+    ]
+  },
+  {
+    "Name": "Baulkham Hills/Old Northern Rd",
+    "Id": 13230498,
+    "Address": "5/78-82 Old Northern Road",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [],
+    "Zone": "",
+    "TeachingAreas": []
+  },
+  {
+    "Name": "Cowra/Redfern",
+    "Id": 13230500,
+    "Address": "1/13 Redfern Street",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Chenxi Lin",
+      "Kaden Shane Taufer",
+      "Max Porter Allen"
+    ],
+    "Zone": "Abish ",
+    "TeachingAreas": [
+      "Cowra (BR) A"
+    ]
+  },
+  {
+    "Name": "Westmead/Good",
+    "Id": 13230499,
+    "Address": "7/27 Good Street",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Nephi Potter Sorenson",
+      "Nolan Bryant Pack",
+      "Paul Teibi"
+    ],
+    "Zone": "Ether ",
+    "TeachingAreas": [
+      "Parramatta A"
+    ]
+  },
+  {
+    "Name": "Sydney/Castlereagh",
+    "Id": 13230501,
+    "Address": "188/303-307 Castlereagh Street",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Eric Scott Helland",
+      "Jill Marie Helland"
+    ],
+    "Zone": "Abinadi ",
+    "TeachingAreas": [
+      "HyP-Summer Hill Group SrA - Car"
+    ]
+  },
+  {
+    "Name": "Parramatta/Sorrell",
+    "Id": 13230502,
+    "Address": "22/1 Sorrell Street",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Bryce Whiting Fuhriman",
+      "Dallin Todd Schmidt",
+      "Yicheng Ying"
+    ],
+    "Zone": "Ether ",
+    "TeachingAreas": [
+      "Oatlands A"
+    ]
+  },
+  {
+    "Name": "Bradbury/Briar",
+    "Id": 13230503,
+    "Address": "23 Briar Road",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Abigail Marianne Beus",
+      "Stephanie Kalisi Mahina",
+      "Korbyn Melanie Crane",
+      "Lavania Rona Tarina Joanne Taleni"
+    ],
+    "Zone": "Mosiah ",
+    "TeachingAreas": [
+      "Campbelltown 2nd (TO)",
+      "Camden B"
+    ]
+  },
+  {
+    "Name": "Canley Vale/Beckenham",
+    "Id": 13230505,
+    "Address": "8/22 Beckenham Street",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Ashley Joyce-Constance Silaga",
+      "Moukthitavue Youaxa"
+    ],
+    "Zone": "Helaman ",
+    "TeachingAreas": [
+      "Wetherill Park B"
+    ]
+  },
+  {
+    "Name": "Green Valley/Green Valley",
+    "Id": 13230504,
+    "Address": "1/120 Green Valley Road",
+    "Coordinates": [
+      0,
+      0
+    ],
+    "Missionaries": [
+      "Paora Ihutoto Watene",
+      "Simeon Mayson",
+      "Daniel Galumalemana",
+      "Easton Brett Olsen"
+    ],
+    "Zone": "Helaman ",
+    "TeachingAreas": [
+      "Green Valley A",
+      "Mt. Pritchard (SA)"
+    ]
+  }
+]
