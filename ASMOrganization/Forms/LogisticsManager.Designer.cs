@@ -37,6 +37,8 @@
             currentExportFilePathLabel = new Label();
             currentImportFilePathLabel = new Label();
             changeExportFilePathButton = new Button();
+            generateHousingDataInformationButton = new Button();
+            housingDataInformationOutputLabel = new Label();
             SuspendLayout();
             // 
             // importTransferBoardButton
@@ -59,9 +61,9 @@
             // 
             resultImportLabel.Anchor = AnchorStyles.Top;
             resultImportLabel.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            resultImportLabel.Location = new Point(9, 59);
+            resultImportLabel.Location = new Point(3, 59);
             resultImportLabel.Name = "resultImportLabel";
-            resultImportLabel.Size = new Size(776, 37);
+            resultImportLabel.Size = new Size(782, 37);
             resultImportLabel.TabIndex = 3;
             resultImportLabel.Text = "Output...";
             resultImportLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -86,9 +88,9 @@
             // 
             resultGenerateLogisticsLabel.Anchor = AnchorStyles.Top;
             resultGenerateLogisticsLabel.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            resultGenerateLogisticsLabel.Location = new Point(9, 146);
+            resultGenerateLogisticsLabel.Location = new Point(3, 146);
             resultGenerateLogisticsLabel.Name = "resultGenerateLogisticsLabel";
-            resultGenerateLogisticsLabel.Size = new Size(776, 74);
+            resultGenerateLogisticsLabel.Size = new Size(782, 74);
             resultGenerateLogisticsLabel.TabIndex = 7;
             resultGenerateLogisticsLabel.Text = "Output...";
             resultGenerateLogisticsLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -115,7 +117,7 @@
             currentExportFilePathLabel.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
             currentExportFilePathLabel.Location = new Point(3, 320);
             currentExportFilePathLabel.Name = "currentExportFilePathLabel";
-            currentExportFilePathLabel.Size = new Size(776, 50);
+            currentExportFilePathLabel.Size = new Size(782, 50);
             currentExportFilePathLabel.TabIndex = 9;
             currentExportFilePathLabel.Text = "Current Export File Path: none";
             currentExportFilePathLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -126,7 +128,7 @@
             currentImportFilePathLabel.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
             currentImportFilePathLabel.Location = new Point(3, 270);
             currentImportFilePathLabel.Name = "currentImportFilePathLabel";
-            currentImportFilePathLabel.Size = new Size(776, 50);
+            currentImportFilePathLabel.Size = new Size(782, 50);
             currentImportFilePathLabel.TabIndex = 10;
             currentImportFilePathLabel.Text = "Current Import File Path: none";
             currentImportFilePathLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -147,12 +149,41 @@
             changeExportFilePathButton.UseVisualStyleBackColor = false;
             changeExportFilePathButton.Click += ExportButtonClick;
             // 
+            // generateHousingDataInformationButton
+            // 
+            generateHousingDataInformationButton.Anchor = AnchorStyles.Top;
+            generateHousingDataInformationButton.AutoSize = true;
+            generateHousingDataInformationButton.BackColor = Color.SlateGray;
+            generateHousingDataInformationButton.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            generateHousingDataInformationButton.ForeColor = SystemColors.Control;
+            generateHousingDataInformationButton.Location = new Point(3, 370);
+            generateHousingDataInformationButton.Margin = new Padding(0);
+            generateHousingDataInformationButton.Name = "generateHousingDataInformationButton";
+            generateHousingDataInformationButton.Size = new Size(782, 50);
+            generateHousingDataInformationButton.TabIndex = 12;
+            generateHousingDataInformationButton.Text = "Generate Housing Data Information";
+            generateHousingDataInformationButton.UseVisualStyleBackColor = false;
+            generateHousingDataInformationButton.Click += GenerateHousingDataFile;
+            // 
+            // housingDataInformationOutputLabel
+            // 
+            housingDataInformationOutputLabel.Anchor = AnchorStyles.Top;
+            housingDataInformationOutputLabel.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            housingDataInformationOutputLabel.Location = new Point(3, 420);
+            housingDataInformationOutputLabel.Name = "housingDataInformationOutputLabel";
+            housingDataInformationOutputLabel.Size = new Size(782, 37);
+            housingDataInformationOutputLabel.TabIndex = 13;
+            housingDataInformationOutputLabel.Text = "Output...";
+            housingDataInformationOutputLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // LogisticsManager
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
             ClientSize = new Size(800, 459);
+            Controls.Add(housingDataInformationOutputLabel);
+            Controls.Add(generateHousingDataInformationButton);
             Controls.Add(changeExportFilePathButton);
             Controls.Add(currentImportFilePathLabel);
             Controls.Add(currentExportFilePathLabel);
@@ -179,5 +210,7 @@
         private Label currentExportFilePathLabel;
         private Label currentImportFilePathLabel;
         private Button changeExportFilePathButton;
+        private Button generateHousingDataInformationButton;
+        private Label housingDataInformationOutputLabel;
     }
 }

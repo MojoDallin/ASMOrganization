@@ -1,5 +1,6 @@
 ﻿using ClosedXML.Excel; // reading an excel file
-using ASMOrganization.Properties; // saving data
+using ASMOrganization.Properties;
+using ASMOrganization.NonForms.Algorithms; // saving data
 
 namespace ASMOrganization.Forms
 {
@@ -82,7 +83,7 @@ namespace ASMOrganization.Forms
             {
                 try
                 {
-                    resultGenerateLogisticsLabel.Text = NonForms.Algorithms.FigureOutLogistics(ReadTransferData(transferFile), exportFilePath);
+                    resultGenerateLogisticsLabel.Text = Algorithms.FigureOutLogistics(ReadTransferData(transferFile), exportFilePath);
                 }
                 catch (Exception ex)
                 {
@@ -91,7 +92,7 @@ namespace ASMOrganization.Forms
             }
         }
 
-        private void ChangeFilePath(ref Label label, ref string path, string setting) // same function for two buttons. optimization!
+        private static void ChangeFilePath(ref Label label, ref string path, string setting) // same function for two buttons. optimization!
         {
             using FolderBrowserDialog fbd = new();
             if (path == "none")
@@ -113,5 +114,22 @@ namespace ASMOrganization.Forms
         private void ImportButtonClick(object sender, EventArgs e) => ChangeFilePath(ref currentImportFilePathLabel, ref importFilePath, "I");
 
         private void ExportButtonClick(object sender, EventArgs e) => ChangeFilePath(ref currentExportFilePathLabel, ref exportFilePath, "E");
+
+        private void GenerateHousingDataFile(object sender, EventArgs e)
+        {
+            if (transferFile == "")
+                housingDataInformationOutputLabel.Text = "Import a transfer board first!";
+            else
+            {
+                try
+                {
+                    housingDataInformationOutputLabel.Text = NonForms.Algorithms.GenerateHousingDataFile.GenerateHousingData(transferFile); // do it this way because the file and function name are the same (woopsies)
+                }
+                catch (Exception ex)
+                {
+                    housingDataInformationOutputLabel.Text = $"An error occurred while generating the file!\nFull Error: {ex.Message}";
+                }
+            }
+        }
     }
 }

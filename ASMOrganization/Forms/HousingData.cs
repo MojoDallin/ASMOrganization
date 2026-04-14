@@ -23,7 +23,7 @@ namespace ASMOrganization.Forms
                 BackColor = addHouseButton.BackColor,
                 Dock = DockStyle.Fill,
                 Size = addHouseButton.Size,
-                Text = $"{houseData.Name} House"
+                Text = $"House At: {houseData.Address}"
             };
             button.Click += (s, e) =>
             {
@@ -127,8 +127,7 @@ namespace ASMOrganization.Forms
                 foreach (Button button in holder.Controls)
                 {
                     House house = houses.ElementAt(holder.Controls.IndexOf(button));
-                    if (house.Name.Contains(text, compare) ||
-                     house.Id.ToString().Contains(text, compare) ||
+                    if (house.Address.Contains(text, compare) ||
                      house.Missionaries.Any(miss => miss.Contains(text, compare)) ||
                      house.TeachingAreas.Any(area => area.Contains(text, compare)) ||
                      house.Zone.Contains(text, compare))

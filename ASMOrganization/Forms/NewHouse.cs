@@ -18,11 +18,11 @@ namespace ASMOrganization.Forms
         {
             TextBox newMissionary = new()
             {
-                Size = houseNameBox.Size,
-                Font = houseNameBox.Font,
+                Size = houseAddressBox.Size,
+                Font = houseAddressBox.Font,
                 PlaceholderText = "Enter Missionary...",
                 TextAlign = HorizontalAlignment.Center,
-                Anchor = houseNameBox.Anchor,
+                Anchor = houseAddressBox.Anchor,
             };
             missionaryHolder.Controls.Add(newMissionary);
         }
@@ -46,11 +46,7 @@ namespace ASMOrganization.Forms
 
         private void CreateHouse(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(houseNameBox.Text))
-                resultCreateHouseLabel.Text = "No name has been entered!";
-            else if (string.IsNullOrEmpty(houseIDBox.Text))
-                resultCreateHouseLabel.Text = "No ID has been entered!";
-            else if (string.IsNullOrEmpty(houseAddressBox.Text))
+            if (string.IsNullOrEmpty(houseAddressBox.Text)) // possibly convert to switch case
                 resultCreateHouseLabel.Text = "No address has been entered!";
             else if (string.IsNullOrEmpty(houseXCoordinateBox.Text))
                 resultCreateHouseLabel.Text = "No X coordinate has been entered!";
@@ -66,8 +62,6 @@ namespace ASMOrganization.Forms
                 {
                     House house = new()
                     {
-                        Name = houseNameBox.Text,
-                        Id = ParseID(houseIDBox.Text),
                         Address = houseAddressBox.Text,
                         Coordinates = [Double.Parse(houseXCoordinateBox.Text), Double.Parse(houseYCoordinateBox.Text)],
                         Zone = houseZoneBox.Text,

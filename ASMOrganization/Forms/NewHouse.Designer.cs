@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewHouse));
-            houseNameBox = new TextBox();
-            houseIDBox = new TextBox();
             houseXCoordinateBox = new TextBox();
             houseYCoordinateBox = new TextBox();
             missionaryHolder = new TableLayoutPanel();
@@ -42,39 +40,13 @@
             houseAddressBox = new TextBox();
             SuspendLayout();
             // 
-            // houseNameBox
-            // 
-            houseNameBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            houseNameBox.BackColor = SystemColors.Control;
-            houseNameBox.Font = new Font("Sitka Banner", 9.749999F);
-            houseNameBox.ForeColor = SystemColors.ControlText;
-            houseNameBox.Location = new Point(12, 12);
-            houseNameBox.Name = "houseNameBox";
-            houseNameBox.PlaceholderText = "Enter Housing Name...";
-            houseNameBox.Size = new Size(234, 24);
-            houseNameBox.TabIndex = 0;
-            houseNameBox.TextAlign = HorizontalAlignment.Center;
-            // 
-            // houseIDBox
-            // 
-            houseIDBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            houseIDBox.BackColor = SystemColors.Control;
-            houseIDBox.Font = new Font("Sitka Banner", 9.749999F);
-            houseIDBox.ForeColor = SystemColors.ControlText;
-            houseIDBox.Location = new Point(12, 41);
-            houseIDBox.Name = "houseIDBox";
-            houseIDBox.PlaceholderText = "Enter Housing ID...";
-            houseIDBox.Size = new Size(234, 24);
-            houseIDBox.TabIndex = 1;
-            houseIDBox.TextAlign = HorizontalAlignment.Center;
-            // 
             // houseXCoordinateBox
             // 
             houseXCoordinateBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             houseXCoordinateBox.BackColor = SystemColors.Control;
             houseXCoordinateBox.Font = new Font("Sitka Banner", 9.749999F);
             houseXCoordinateBox.ForeColor = SystemColors.ControlText;
-            houseXCoordinateBox.Location = new Point(12, 101);
+            houseXCoordinateBox.Location = new Point(12, 42);
             houseXCoordinateBox.Name = "houseXCoordinateBox";
             houseXCoordinateBox.PlaceholderText = "Enter House Latitude...";
             houseXCoordinateBox.Size = new Size(234, 24);
@@ -87,7 +59,7 @@
             houseYCoordinateBox.BackColor = SystemColors.Control;
             houseYCoordinateBox.Font = new Font("Sitka Banner", 9.749999F);
             houseYCoordinateBox.ForeColor = SystemColors.ControlText;
-            houseYCoordinateBox.Location = new Point(12, 130);
+            houseYCoordinateBox.Location = new Point(12, 72);
             houseYCoordinateBox.Name = "houseYCoordinateBox";
             houseYCoordinateBox.PlaceholderText = "Enter House Longitude...";
             houseYCoordinateBox.Size = new Size(234, 24);
@@ -101,13 +73,13 @@
             missionaryHolder.ColumnCount = 1;
             missionaryHolder.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50.854702F));
             missionaryHolder.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 49.145298F));
-            missionaryHolder.Location = new Point(12, 220);
+            missionaryHolder.Location = new Point(12, 162);
             missionaryHolder.Name = "missionaryHolder";
             missionaryHolder.RowCount = 3;
             missionaryHolder.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             missionaryHolder.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             missionaryHolder.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            missionaryHolder.Size = new Size(234, 92);
+            missionaryHolder.Size = new Size(234, 115);
             missionaryHolder.TabIndex = 4;
             // 
             // createHouseButton
@@ -116,7 +88,7 @@
             createHouseButton.BackColor = Color.SlateGray;
             createHouseButton.Font = new Font("Sitka Small", 15.7499981F, FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point, 0);
             createHouseButton.ForeColor = SystemColors.Control;
-            createHouseButton.Location = new Point(12, 365);
+            createHouseButton.Location = new Point(12, 330);
             createHouseButton.Name = "createHouseButton";
             createHouseButton.Size = new Size(234, 41);
             createHouseButton.TabIndex = 6;
@@ -130,7 +102,7 @@
             addMissionaryButton.BackColor = Color.SlateGray;
             addMissionaryButton.Font = new Font("Sitka Small", 15.7499981F, FontStyle.Italic, GraphicsUnit.Point, 0);
             addMissionaryButton.ForeColor = SystemColors.Control;
-            addMissionaryButton.Location = new Point(12, 318);
+            addMissionaryButton.Location = new Point(12, 283);
             addMissionaryButton.Name = "addMissionaryButton";
             addMissionaryButton.Size = new Size(234, 41);
             addMissionaryButton.TabIndex = 5;
@@ -142,7 +114,7 @@
             // 
             resultCreateHouseLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             resultCreateHouseLabel.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            resultCreateHouseLabel.Location = new Point(12, 409);
+            resultCreateHouseLabel.Location = new Point(12, 374);
             resultCreateHouseLabel.Name = "resultCreateHouseLabel";
             resultCreateHouseLabel.Size = new Size(234, 41);
             resultCreateHouseLabel.TabIndex = 8;
@@ -155,7 +127,7 @@
             houseTeachingAreaBox.BackColor = SystemColors.Control;
             houseTeachingAreaBox.Font = new Font("Sitka Banner", 9.749999F);
             houseTeachingAreaBox.ForeColor = SystemColors.ControlText;
-            houseTeachingAreaBox.Location = new Point(12, 190);
+            houseTeachingAreaBox.Location = new Point(12, 132);
             houseTeachingAreaBox.Name = "houseTeachingAreaBox";
             houseTeachingAreaBox.PlaceholderText = "Enter House Teaching Area...";
             houseTeachingAreaBox.Size = new Size(234, 24);
@@ -168,7 +140,7 @@
             houseZoneBox.BackColor = SystemColors.Control;
             houseZoneBox.Font = new Font("Sitka Banner", 9.749999F);
             houseZoneBox.ForeColor = SystemColors.ControlText;
-            houseZoneBox.Location = new Point(12, 160);
+            houseZoneBox.Location = new Point(12, 102);
             houseZoneBox.Name = "houseZoneBox";
             houseZoneBox.PlaceholderText = "Enter House Zone...";
             houseZoneBox.Size = new Size(234, 24);
@@ -181,7 +153,7 @@
             houseAddressBox.BackColor = SystemColors.Control;
             houseAddressBox.Font = new Font("Sitka Banner", 9.749999F);
             houseAddressBox.ForeColor = SystemColors.ControlText;
-            houseAddressBox.Location = new Point(12, 71);
+            houseAddressBox.Location = new Point(12, 12);
             houseAddressBox.Name = "houseAddressBox";
             houseAddressBox.PlaceholderText = "Enter House Address...";
             houseAddressBox.Size = new Size(234, 24);
@@ -193,7 +165,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
-            ClientSize = new Size(258, 459);
+            ClientSize = new Size(258, 424);
             Controls.Add(houseAddressBox);
             Controls.Add(houseZoneBox);
             Controls.Add(houseTeachingAreaBox);
@@ -203,8 +175,6 @@
             Controls.Add(missionaryHolder);
             Controls.Add(houseYCoordinateBox);
             Controls.Add(houseXCoordinateBox);
-            Controls.Add(houseIDBox);
-            Controls.Add(houseNameBox);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "NewHouse";
             Text = "Add Housing";
@@ -213,9 +183,6 @@
         }
 
         #endregion
-
-        private TextBox houseNameBox;
-        private TextBox houseIDBox;
         private TextBox houseXCoordinateBox;
         private TextBox houseYCoordinateBox;
         private TableLayoutPanel missionaryHolder;

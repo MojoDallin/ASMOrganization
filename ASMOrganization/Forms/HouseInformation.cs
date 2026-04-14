@@ -34,10 +34,10 @@ namespace ASMOrganization.Forms
         {
             Button button = new()
             {
-                Font = houseNameLabel.Font,
+                Font = houseAddressLabel.Font,
                 Text = missionary,
-                Anchor = houseNameLabel.Anchor,
-                Height = (int)(houseNameLabel.Height * 1.5) // good height so text doesnt get cut off
+                Anchor = houseAddressLabel.Anchor,
+                Height = (int)(houseAddressLabel.Height * 1.5) // good height so text doesnt get cut off
             };
             button.Click += (s, e) =>
             {
@@ -48,8 +48,6 @@ namespace ASMOrganization.Forms
         }
         private void LoadData()
         {
-            houseNameLabel.Text = house.Name;
-            houseIdLabel.Text = "ID: " + house.Id.ToString();
             houseAddressLabel.Text = "Address: " + house.Address;
             houseXLabel.Text = "Latitude: " + house.Coordinates[0].ToString();
             houseYLabel.Text = "Longitude: " + house.Coordinates[1].ToString();

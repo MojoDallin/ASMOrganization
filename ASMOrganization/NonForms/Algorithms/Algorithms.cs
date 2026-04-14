@@ -2,7 +2,7 @@
 using System.Text.Json; // save/load housing data
 using ClosedXML.Excel; // write to excel
 
-namespace ASMOrganization.NonForms
+namespace ASMOrganization.NonForms.Algorithms
 {
     public static class Algorithms
     {
@@ -25,7 +25,7 @@ namespace ASMOrganization.NonForms
             House? missionaryHouse = null;
             House? endHouse = null;
             House office = null!;
-            missionary = $"{missionary[(missionary.IndexOf(',') + 2) ..]} {missionary[0 .. missionary.IndexOf(',')]}"; // format missionary so they can be found
+            missionary = $"{missionary[(missionary.IndexOf(',') + 2)..]} {missionary[0..missionary.IndexOf(',')]}"; // format missionary so they can be found
             missionary = missionary.Replace("  ", " "); // some have double spaces, so fix
             StringComparison compare = StringComparison.CurrentCultureIgnoreCase; // non case sensitive
             foreach (House house in housingData)
@@ -34,8 +34,8 @@ namespace ASMOrganization.NonForms
                     missionaryHouse = house;
                 if (house.TeachingAreas.Any(area => area.Contains(endArea[2], compare))) // find new home
                     endHouse = house;
-                else if ((house.Id == 0 && TransportNumbers.GoToOffice()) || (house.Id == 1 && !TransportNumbers.GoToOffice())) // never null
-                    office = house;
+                /*else if (house.Id == 0 && TransportNumbers.GoToOffice() || house.Id == 1 && !TransportNumbers.GoToOffice()) // never null
+                    office = house;*/
                 if (missionaryHouse is not null && endHouse is not null && office is not null) // end early once all are found
                     break;
             }
@@ -49,7 +49,7 @@ namespace ASMOrganization.NonForms
             double directDistance = CalcHaversineDistance(missionaryHouse.Coordinates, endHouse.Coordinates);
             double distanceWithOffice = CalcHaversineDistance(missionaryHouse.Coordinates, office.Coordinates) + CalcHaversineDistance(office.Coordinates, endHouse.Coordinates);
             string[] carZones = TransportNumbers.GetOverriddenZones().Split(',');
-            for(int i = 0; i < carZones.Length; i++)
+            for (int i = 0; i < carZones.Length; i++)
                 carZones[i] = carZones[i].Replace(" ", ""); // remove spaces
 
             if (carZones.Contains(missionaryHouse.Zone) || carZones.Contains(endHouse.Zone))
@@ -65,6 +65,7 @@ namespace ASMOrganization.NonForms
 
             return transportData;
         }
+        /// THIS CODE IS STILL IN USE I THINK, DO NOT DELETE UNTIL REUSEN OR REWRITTEN
         //private static void WriteToFile(string header, List<string> data, List<bool> arrIsGolden, List<List<string>>? optionalData = null)
         //{
         //    List<House>? housingData = null;
@@ -108,19 +109,18 @@ namespace ASMOrganization.NonForms
         //}
         public static string FigureOutLogistics(List<List<string>> transferData, string filePath)
         {
-            //first, we calculate flat whitewashes
-            Dictionary<string, List<string>> newFlatAndMissionaryData = new();
-            for(int index = 0; index < transferData[4].Count; index++)
+            // hoo boy, here we go! the 'meat and potatoes' of this program, if you will :p
+            // very first of all, we get the *NEW* flat/missionary information and store it
+            Dictionary<string, List<string>> newFlatAndMissionaryData = []; // dictionary where ADDRESS ARE KEYS, VALUES ARE MISSIONARY NAMES
+            for (int index = 0; index < transferData[4].Count; index++)
             {
-
                 // parse address
                 string address = transferData[4][index];
-                if (address.Length > 3) // if the field is blank then skip
+                if (address.Length >= 1) // if the field is blank then skip because that means the data isnt necessary
                 {
                     int startIndex = Math.Max(address.IndexOf("NSW"), address.IndexOf("ACT")) - 1;
-                    address = address[..startIndex];    
-
-                    //parse missionary so its correct format
+                    address = address[..startIndex];
+                    // parse missionary so its correct format
                     string name = transferData[5][index];
                     string[] split = name.Split(",");
                     name = split[1][1..] + " " + split[0];
@@ -130,42 +130,43 @@ namespace ASMOrganization.NonForms
                         value.Add(name); // otherwise, add to the entry itself
                 }
             }
-            //now that we have all the *new* flat data
+            // now that we have all the *new* flat data, we calculate FLAT (NOT area) whitewashes; we do this to get a "starting point" for each different "transfer path"
+            // (whitewash missionaries' old comps find their new comps, and said new comps' old comps find their new comps, etc etc until everyone in that set has comps; then we move on and repeat this process)
             bool[] flatWhitewashes = new bool[newFlatAndMissionaryData.Count]; // keeps in order, and all values default to False
             int wwIndex = 0;
-            foreach(House house in housingData) // house is old
+            foreach (House house in housingData) // House house is old (prev/current transfer) house
             {
-                List<string> missionaries = house.Missionaries; 
-                List<string> newFlatMissionaries = newFlatAndMissionaryData.FirstOrDefault(pair => pair.Key.Contains(house.Address)).Value;
-                if (newFlatMissionaries is not null && newFlatMissionaries.Count > 0) // if it is null, then the flat has no teaching areas (for whatever reason); also only check for flats that WILL have missionaries
+                List<string> missionaries = house.Missionaries;  // old missionaries
+                List<string> newFlatMissionaries = newFlatAndMissionaryData.FirstOrDefault(pair => pair.Key.Contains(house.Address)).Value; // grabs the missionaries for the house it's currently checking
+                if (newFlatMissionaries is not null && newFlatMissionaries.Count > 0) // if it is null, then the flat has no teaching areas (for whatever reason (is that even correct that makes no sense)); also only check for flats that WILL have missionaries
                 {
-                    int stayingMissionaryCount = missionaries.Intersect(newFlatMissionaries).Count();
-                    if (stayingMissionaryCount == 0)
-                        flatWhitewashes[wwIndex] = true;
+                    int stayingMissionaryCount = missionaries.Intersect(newFlatMissionaries).Count(); // check how many missionaries are staying in the flat
+                    if (stayingMissionaryCount == 0 || missionaries.Count == 0) // if none are staying OR an empty flat is getting new missionaries (maybe unneeded? check when i actually can)...
+                        flatWhitewashes[wwIndex] = true; // ...then its a FLAT whitewash, but DOES NOT MEAN ITS AN AREA WHITEWASH
                     wwIndex++;
                 }
             }
             bool logisticsSorted = false;
             int start = 0;
             int priority = 0;
-            while(!logisticsSorted)
+            while (!logisticsSorted)
             {
-                while (!flatWhitewashes[start]) // find "first" whitewash
+                while (!flatWhitewashes[start]) // find next-in-queue (pun intended) whitewash
                     start++; // increment until first whitewash is located
                 KeyValuePair<string, List<string>> pair = newFlatAndMissionaryData.ElementAt(start);
-                pQueue.Enqueue(pair.Value, priority); // set the whitewash to the highest priority at the moment 
-                foreach(string missionary in pair.Value)
+                pQueue.Enqueue(pair.Value, priority); // set the whitewash to the highest priority at the moment to kick it off
+                foreach (string missionary in pair.Value)
                 {
                     bool hasGolden = true;
-                    foreach(House house in housingData)
-                        if(house.Missionaries.Contains(missionary))
+                    foreach (House house in housingData)
+                        if (house.Missionaries.Contains(missionary))
                         {
                             hasGolden = false;
                             pQueue.Enqueue(house.Missionaries, priority); // TODO: change this so only comps arrive, not entire flat (use transferData[7] and parse it or something? and then get their comp and etc etc)
                             priority++;
                             break;
                         }
-                    if(hasGolden) // prob change this
+                    if (hasGolden) // prob change this
                     {
                         pQueue.Enqueue(pair.Value, priority);
                         priority++;
@@ -173,6 +174,7 @@ namespace ASMOrganization.NonForms
                 }
                 logisticsSorted = true;
             }
+            /// OLD CODE BELOW THATS OUTDATED AND DOESNT DO WHAT IT NEEDS TO. ONLY USE AS REFERENCE DO NOT ACTUALLY USE LOL
             //if (filePath == "none")
             //    return "No file path has currently been set!";
             //DateTime now = DateTime.Now;
@@ -229,20 +231,20 @@ namespace ASMOrganization.NonForms
             return $"Successfully generated logistics at: {path}";
         }
         static double DegreeToRadians(double deg) => deg * Math.PI / 180.0;
-        private static double CalcHaversineDistance(double[] curCoords, double[] newCoords)
+        private static double CalcHaversineDistance(double[] curCoords, double[] newCoords) // calculates the distance between flats on a globe (because we live on a globe and not a flat earth. nerds)
         {
             // i did NOT sign up for this crazy ahh formula
             // thanks chatgpt
-            double la1 = DegreeToRadians(curCoords[0]); // first, we convert degrees to radians
+            double la1 = DegreeToRadians(curCoords[0]); // first, we convert degrees to radians for scientific standard
             double la2 = DegreeToRadians(newCoords[0]);
             double lo1 = DegreeToRadians(curCoords[1]);
             double lo2 = DegreeToRadians(newCoords[1]);
-            const int radius = 6_371_000; // meters for science standard
+            const int radius = 6_371_000; // meters for scientific standard
             double latDiff = la2 - la1; // second, difference of each point
             double lonDiff = lo2 - lo1;
-            double sin1 = Math.Pow(Math.Sin(latDiff/2), 2); // then this
+            double sin1 = Math.Pow(Math.Sin(latDiff / 2), 2); // then this
             double sin2 = Math.Cos(la1) * Math.Cos(la2); // and this
-            sin2 *= Math.Pow(Math.Sin(lonDiff/2), 2); // plus this
+            sin2 *= Math.Pow(Math.Sin(lonDiff / 2), 2); // plus this
             return 2 * radius * Math.Asin(Math.Sqrt(sin1 + sin2)); // finally
         }
     }
