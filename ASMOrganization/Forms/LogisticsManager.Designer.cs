@@ -61,9 +61,9 @@
             // 
             resultImportLabel.Anchor = AnchorStyles.Top;
             resultImportLabel.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            resultImportLabel.Location = new Point(3, 59);
+            resultImportLabel.Location = new Point(6, 59);
             resultImportLabel.Name = "resultImportLabel";
-            resultImportLabel.Size = new Size(782, 37);
+            resultImportLabel.Size = new Size(779, 37);
             resultImportLabel.TabIndex = 3;
             resultImportLabel.Text = "Output...";
             resultImportLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -88,9 +88,9 @@
             // 
             resultGenerateLogisticsLabel.Anchor = AnchorStyles.Top;
             resultGenerateLogisticsLabel.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            resultGenerateLogisticsLabel.Location = new Point(3, 146);
+            resultGenerateLogisticsLabel.Location = new Point(6, 146);
             resultGenerateLogisticsLabel.Name = "resultGenerateLogisticsLabel";
-            resultGenerateLogisticsLabel.Size = new Size(782, 74);
+            resultGenerateLogisticsLabel.Size = new Size(779, 74);
             resultGenerateLogisticsLabel.TabIndex = 7;
             resultGenerateLogisticsLabel.Text = "Output...";
             resultGenerateLogisticsLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -115,9 +115,9 @@
             // 
             currentExportFilePathLabel.Anchor = AnchorStyles.Top;
             currentExportFilePathLabel.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            currentExportFilePathLabel.Location = new Point(3, 320);
+            currentExportFilePathLabel.Location = new Point(6, 320);
             currentExportFilePathLabel.Name = "currentExportFilePathLabel";
-            currentExportFilePathLabel.Size = new Size(782, 50);
+            currentExportFilePathLabel.Size = new Size(779, 50);
             currentExportFilePathLabel.TabIndex = 9;
             currentExportFilePathLabel.Text = "Current Export File Path: none";
             currentExportFilePathLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -126,9 +126,9 @@
             // 
             currentImportFilePathLabel.Anchor = AnchorStyles.Top;
             currentImportFilePathLabel.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            currentImportFilePathLabel.Location = new Point(3, 270);
+            currentImportFilePathLabel.Location = new Point(6, 270);
             currentImportFilePathLabel.Name = "currentImportFilePathLabel";
-            currentImportFilePathLabel.Size = new Size(782, 50);
+            currentImportFilePathLabel.Size = new Size(779, 50);
             currentImportFilePathLabel.TabIndex = 10;
             currentImportFilePathLabel.Text = "Current Import File Path: none";
             currentImportFilePathLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -168,10 +168,13 @@
             // housingDataInformationOutputLabel
             // 
             housingDataInformationOutputLabel.Anchor = AnchorStyles.Top;
+            housingDataInformationOutputLabel.AutoSize = true;
             housingDataInformationOutputLabel.Font = new Font("Sitka Banner", 14.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            housingDataInformationOutputLabel.Location = new Point(3, 420);
+            housingDataInformationOutputLabel.Location = new Point(6, 420);
+            housingDataInformationOutputLabel.MaximumSize = new Size(779, 999);
+            housingDataInformationOutputLabel.MinimumSize = new Size(779, 71);
             housingDataInformationOutputLabel.Name = "housingDataInformationOutputLabel";
-            housingDataInformationOutputLabel.Size = new Size(782, 37);
+            housingDataInformationOutputLabel.Size = new Size(779, 71);
             housingDataInformationOutputLabel.TabIndex = 13;
             housingDataInformationOutputLabel.Text = "Output...";
             housingDataInformationOutputLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -181,7 +184,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
-            ClientSize = new Size(800, 459);
+            ClientSize = new Size(800, 500);
             Controls.Add(housingDataInformationOutputLabel);
             Controls.Add(generateHousingDataInformationButton);
             Controls.Add(changeExportFilePathButton);

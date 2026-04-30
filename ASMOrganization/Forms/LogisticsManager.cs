@@ -117,17 +117,24 @@ namespace ASMOrganization.Forms
 
         private void GenerateHousingDataFile(object sender, EventArgs e)
         {
-            if (transferFile == "")
-                housingDataInformationOutputLabel.Text = "Import a transfer board first!";
-            else
+            DialogResult result = MessageBox.Show("This will overwrite ALL of the current housing data. Are you absolutely sure you want to generate new housing data?",
+                "Update?",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
             {
-                try
+                if (transferFile == "")
+                    housingDataInformationOutputLabel.Text = "Import a transfer board first!";
+                else
                 {
-                    housingDataInformationOutputLabel.Text = NonForms.Algorithms.GenerateHousingDataFile.GenerateHousingData(transferFile); // do it this way because the file and function name are the same (woopsies)
-                }
-                catch (Exception ex)
-                {
-                    housingDataInformationOutputLabel.Text = $"An error occurred while generating the file!\nFull Error: {ex.Message}";
+                    try
+                    {
+                        housingDataInformationOutputLabel.Text = NonForms.Algorithms.GenerateHousingDataFile.GenerateHousingData(transferFile); // do it this way because the file and function name are the same (woopsies)
+                    }
+                    catch (Exception ex)
+                    {
+                        housingDataInformationOutputLabel.Text = $"An error occurred while generating the file!\nFull Error: {ex.Message}";
+                    }
                 }
             }
         }

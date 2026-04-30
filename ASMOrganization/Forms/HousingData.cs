@@ -23,7 +23,7 @@ namespace ASMOrganization.Forms
                 BackColor = addHouseButton.BackColor,
                 Dock = DockStyle.Fill,
                 Size = addHouseButton.Size,
-                Text = $"House At: {houseData.Address}"
+                Text = $"{houseData.Address} House"
             };
             button.Click += (s, e) =>
             {
